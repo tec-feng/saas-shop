@@ -31,6 +31,9 @@
         <swagger2.version>2.7.0</swagger2.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <saas.shop.version>1.0-SNAPSHOT</saas.shop.version>
+        <mybatis.spring>2.0.3</mybatis.spring>
+        <druid.version>1.1.10</druid.version>
+        <mybatis.spring.boot.starter>2.1.1</mybatis.spring.boot.starter>
     </properties>
 
     <dependencyManagement>
@@ -41,6 +44,17 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring}</version>
+            </dependency>
+            <!--集成druid连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
             </dependency>
             <!-- MyBatis-->
             <dependency>
@@ -76,6 +90,11 @@
                 <groupId>com.sunny</groupId>
                 <artifactId>shop-service-user-api</artifactId>
                 <version>${saas.shop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.starter}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

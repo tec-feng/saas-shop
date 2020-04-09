@@ -17,5 +17,8 @@
         <module>shop-service-user</module>
     </modules>
 
+    <dependencies>
+
+    </dependencies>
 
 </project>
