@@ -27,13 +27,6 @@ public interface IService<T,TExample> {
 	List<T> selectAll(TExample example);
 
 	/**
-	 * 根据实体属性查询一条数据
-	 * @param example 实体
-	 * @return
-	 */
-	T selectOne(TExample example);
-
-	/**
 	 * 根据实体属性查询数据
 	 * @param example 实体
 	 * @return
@@ -90,5 +83,12 @@ public interface IService<T,TExample> {
 	 * @return
 	 */
 	int deleteByExample(TExample example);
+
+	/**
+	 * 根据id删除数据
+	 * @param id
+	 * @return
+	 */
+	int deleteByKey(Integer id);
 
 }

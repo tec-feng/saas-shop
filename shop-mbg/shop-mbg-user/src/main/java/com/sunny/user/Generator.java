@@ -33,5 +33,8 @@ public class Generator {
         for (String warning : warnings) {
             System.out.println(warning);
         }
+        //todo  新增自动生成Mapper和Service
+        //todo mbg自动生成的代码不满足业务要求，新增一个扩展Mapper即可
+
     }
 }

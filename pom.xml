@@ -32,8 +32,10 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <saas.shop.version>1.0-SNAPSHOT</saas.shop.version>
         <mybatis.spring>2.0.3</mybatis.spring>
+        <mybatis.page.helper>5.1.10</mybatis.page.helper>
         <druid.version>1.1.10</druid.version>
         <mybatis.spring.boot.starter>2.1.1</mybatis.spring.boot.starter>
+
     </properties>
 
     <dependencyManagement>
@@ -67,6 +69,12 @@
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-core</artifactId>
                 <version>${mybatis-generator.version}</version>
+            </dependency>
+            <!-- MyBatis 分页 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${mybatis.page.helper}</version>
             </dependency>
             <!--Mysql数据库驱动-->
             <dependency>
