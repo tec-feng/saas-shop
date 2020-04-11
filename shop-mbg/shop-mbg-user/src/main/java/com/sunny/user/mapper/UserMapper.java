@@ -8,4 +8,5 @@ import com.sunny.user.model.UserExample;
  */
 public interface UserMapper extends BaseMapper<User,UserExample> {
 
+    User getOtherMethod();
 }
