@@ -15,6 +15,7 @@
 
     <modules>
         <module>shop-service-user</module>
+        <module>shop-service-product</module>
     </modules>
 
     <dependencies>

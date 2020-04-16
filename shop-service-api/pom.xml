@@ -13,6 +13,7 @@
     <artifactId>shop-service-api</artifactId>
     <modules>
         <module>shop-service-user-api</module>
+        <module>shop-service-product-api</module>
     </modules>
 
     <dependencies>
