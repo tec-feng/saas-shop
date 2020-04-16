@@ -24,4 +24,8 @@ public class UserService extends BaseService<User,UserExample>{
     protected BaseMapper<User, UserExample> getMapper() {
         return userMapper;
     }
+
+    public User getOtherMethod(){
+        return userMapper.getOtherMethod();
+    }
 }

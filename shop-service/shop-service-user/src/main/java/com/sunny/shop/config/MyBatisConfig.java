@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Configuration;
  * mybatis 扫描配置文件
  */
 @Configuration
-@MapperScan("com.sunny.user.mapper")
+@MapperScan(basePackages = {"com.sunny.user.mapper","com.sunny.user.mapper.extend"})
 public class MyBatisConfig {
 }

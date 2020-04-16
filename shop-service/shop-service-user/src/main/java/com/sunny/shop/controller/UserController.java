@@ -3,8 +3,8 @@ package com.sunny.shop.controller;/**
  * Email: tec_feng@hotmail.com
  */
 
-import com.sunny.user.mapper.UserMapper;
 import com.sunny.user.model.UserExample;
+import com.sunny.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.sunny.user.model.User;
@@ -18,34 +18,39 @@ import com.sunny.user.model.User;
 @RequestMapping(value = "user")
 public class UserController {
     @Autowired
-    UserMapper userMapper;
+    UserService userService;
 
     @PostMapping("/create")
     public Object create(User user){
-        int insert = userMapper.insert(user);
+        int insert = userService.save(user);
         return user;
     }
     @DeleteMapping("/delete/{id}")
     public Object delete(@PathVariable("id")Integer id){
-        int i = userMapper.deleteByPrimaryKey(id);
+        int i = userService.deleteByKey(id);
         return i;
     }
 
     @PostMapping("/update/{id}")
     public Object update(@PathVariable("id")Integer id,@RequestBody User user){
-        userMapper.updateByPrimaryKey(user);
+        userService.updateByKey(user);
         return user;
     }
 
     @GetMapping("/{id}")
     public Object get(@PathVariable("id")Integer id){
-        User user = userMapper.selectByPrimaryKey(id);
+        User user = userService.selectByKey(id);
         return user;
     }
 
     @GetMapping("/list")
     public Object list(){
-        return userMapper.selectByExample(new UserExample());
+        return userService.selectByExample(new UserExample(),0,100);
     }
 
+
+    @GetMapping("/list1")
+    public Object list1(){
+        return userService.getOtherMethod();
+    }
 }

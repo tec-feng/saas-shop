@@ -20,6 +20,9 @@ spring:
 mybatis:
   mapper-locations:
     - classpath*:com/**/mapper/*.xml
+    - classpath*:com/**/mapper/extend/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 eureka:
   instance:
     hostname: localhost

@@ -1,7 +1,12 @@
 package com.sunny.shop.service.user.api;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(value = "paascloud-provider-mdc",fallback = UserFeignFallBack.class)
+@FeignClient(value = "shop-service-user",fallback = UserFeignFallBack.class)
 public interface UserFeignApi {
+
+    @GetMapping(value = "/user/list")
+    Object list();
+
 }

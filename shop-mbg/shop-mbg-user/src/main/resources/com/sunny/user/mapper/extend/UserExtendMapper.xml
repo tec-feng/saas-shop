@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.user.mapper.UserMapper">
 
-    <select id="getOtherMethod">
-        //todo
+    <select id="getOtherMethod" resultType="com.sunny.user.model.User">
+        SELECT  * from user
     </select>
 
 </mapper>
