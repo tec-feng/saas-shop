@@ -15,7 +15,7 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
         <!--生成mapper.xml时覆盖原文件-->
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
-        <commentGenerator type="com.sunny.user.CommentGenerator">
+        <commentGenerator type="com.sunny.product.CommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
             <property name="suppressDate" value="true"/>
@@ -30,14 +30,14 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.sunny.user.model" targetProject="shop-mbg\shop-mbg-user\src\main\java"/>
+        <javaModelGenerator targetPackage="com.sunny.product.model" targetProject="shop-mbg\shop-mbg-product\src\main\java"/>
 
-        <sqlMapGenerator targetPackage="com.sunny.user.mapper" targetProject="shop-mbg\shop-mbg-user\src\main\resources"/>
+        <sqlMapGenerator targetPackage="com.sunny.product.mapper" targetProject="shop-mbg\shop-mbg-product\src\main\resources"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.user.mapper"
-                             targetProject="shop-mbg\shop-mbg-user\src\main\java"/>
-        <table tableName="user" domainObjectName="user">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.product.mapper"
+                             targetProject="shop-mbg\shop-mbg-product\src\main\java"/>
+        <table tableName="product">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

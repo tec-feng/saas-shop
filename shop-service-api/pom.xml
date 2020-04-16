@@ -14,6 +14,9 @@
     <modules>
         <module>shop-service-user-api</module>
         <module>shop-service-product-api</module>
+        <module>shop-service-application-api</module>
+        <module>shop-service-order-api</module>
+        <module>shop-service-base-api</module>
     </modules>
 
     <dependencies>

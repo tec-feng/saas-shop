@@ -43,11 +43,6 @@
         </dependency>
 
         <dependency>
-            <artifactId>shop-mbg-user</artifactId>
-            <groupId>com.sunny</groupId>
-            <version>${saas.shop.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
         </dependency>
@@ -59,6 +54,15 @@
             <groupId>com.sunny</groupId>
             <artifactId>shop-service-product-api</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sunny</groupId>
+            <artifactId>shop-mbg-product</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sunny</groupId>
+            <artifactId>shop-service-user-api</artifactId>
         </dependency>
     </dependencies>
 

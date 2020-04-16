@@ -4,6 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<modules>
 		<module>shop-mbg-user</module>
+		<module>shop-mbg-product</module>
+		<module>shop-mbg-order</module>
+		<module>shop-mbg-application</module>
+		<module>shop-mbg-helper</module>
+		<module>shop-mbg-base</module>
 	</modules>
 	<parent>
 		<groupId>com.sunny</groupId>

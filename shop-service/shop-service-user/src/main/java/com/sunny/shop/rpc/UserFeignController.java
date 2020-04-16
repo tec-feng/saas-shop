@@ -1,6 +1,6 @@
 package com.sunny.shop.rpc;
 
-import com.sunny.shop.service.user.api.UserFeignApi;
+import com.sunny.shop.service.product.api.UserFeignApi;
 import com.sunny.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;

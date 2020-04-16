@@ -1,8 +1,8 @@
 server:
-  port: 7101
+  port: 7102
 spring:
   application:
-    name: shop-service-user
+    name: shop-service-product
 
   datasource:
     url: jdbc:mysql://localhost:3306/saas-shop?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai

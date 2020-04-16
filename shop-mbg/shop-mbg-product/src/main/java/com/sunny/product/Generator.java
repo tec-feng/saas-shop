@@ -1,4 +1,4 @@
-package com.sunny.user;
+package com.sunny.product;
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;

@@ -16,6 +16,11 @@
     <modules>
         <module>shop-service-user</module>
         <module>shop-service-product</module>
+        <module>shop-service-base</module>
+        <module>shop-service-application</module>
+        <module>shop-service-order</module>
+        <module>shop-service-search</module>
+        <module>shop-service-helper</module>
     </modules>
 
     <dependencies>
