@@ -1,4 +1,4 @@
-package com.sunny.shop.service.product.api;
+package com.sunny.shop.service.user.api;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "shop-service-user",fallback = UserFeignFallBack.class)
 public interface UserFeignApi {
 
-    @GetMapping(value = "/user/list")
+    @GetMapping(value = "/api/user/list")
     Object list();
 
 }

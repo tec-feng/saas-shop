@@ -2,7 +2,7 @@ package com.sunny.shop.controller;
 import com.sunny.product.model.Product;
 import com.sunny.product.model.ProductExample;
 import com.sunny.product.service.ProductService;
-import com.sunny.shop.service.product.api.UserFeignApi;
+import com.sunny.shop.service.user.api.UserFeignApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

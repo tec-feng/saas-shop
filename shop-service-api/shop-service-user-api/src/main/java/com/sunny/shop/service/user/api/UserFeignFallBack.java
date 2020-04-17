@@ -1,4 +1,4 @@
-package com.sunny.shop.service.product.api;
+package com.sunny.shop.service.user.api;
 
 public class UserFeignFallBack implements UserFeignApi{
     @Override

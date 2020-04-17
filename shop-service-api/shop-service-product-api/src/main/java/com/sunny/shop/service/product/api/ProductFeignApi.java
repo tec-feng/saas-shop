@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(value = "shop-service-product",fallback = ProductFeignFallBack.class)
 public interface ProductFeignApi {
 
-    @GetMapping(value = "/product/list")
+    @GetMapping(value = "/api/product/list")
     Object list();
 
 }
