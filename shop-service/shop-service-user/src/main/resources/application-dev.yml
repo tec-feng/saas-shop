@@ -23,6 +23,9 @@ mybatis:
     - classpath*:com/**/mapper/extend/*.xml
   configuration:
     map-underscore-to-camel-case: true
+feign:
+  hystrix:
+    enabled: true
 eureka:
   client:
     service-url:
