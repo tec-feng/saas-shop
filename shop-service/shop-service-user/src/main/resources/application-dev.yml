@@ -30,3 +30,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/
+#admin client的配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+logging:
+  file:
+    path: admin-client.log #添加开启admin的日志监控
+

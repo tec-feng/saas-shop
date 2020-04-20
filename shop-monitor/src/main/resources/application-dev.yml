@@ -1,0 +1,9 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: shop-monitor
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
