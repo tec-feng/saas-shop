@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: shop-monitor
+  security:
+      user:
+        name: admin
+        password: admin
 eureka:
   client:
     service-url:

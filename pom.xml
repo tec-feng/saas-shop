@@ -36,7 +36,7 @@
         <mybatis.page.helper>5.1.10</mybatis.page.helper>
         <druid.version>1.1.10</druid.version>
         <mybatis.spring.boot.starter>2.1.1</mybatis.spring.boot.starter>
-        <spring.boot.admin.version>2.1.6</spring.boot.admin.version>
+        <spring.boot.admin.version>2.2.2</spring.boot.admin.version>
     </properties>
 
     <dependencyManagement>
@@ -104,11 +104,17 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.starter}</version>
-            </dependency><dependency>
+            </dependency>
+            <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
             <version>${spring.boot.admin.version}</version>
-        </dependency>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

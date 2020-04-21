@@ -41,5 +41,5 @@ management:
       show-details: always
 logging:
   file:
-    path: admin-client.log #添加开启admin的日志监控
+    path: shop-server-user.log #添加开启admin的日志监控
 
