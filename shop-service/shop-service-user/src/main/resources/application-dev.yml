@@ -42,4 +42,8 @@ management:
 logging:
   file:
     path: shop-server-user.log #添加开启admin的日志监控
-
+jwt:
+  tokenHeader:  Authorization
+  tokenHead:  Bearer
+  secret: tec_feng
+  expiration: 604800

@@ -53,6 +53,11 @@
 			<artifactId>shop-service-user-api</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.sunny</groupId>
+			<artifactId>shop-security</artifactId>
+			<version>${saas.shop.version}</version>
+		</dependency>
+		<dependency>
 			<artifactId>shop-mbg-user</artifactId>
 			<groupId>com.sunny</groupId>
 			<version>${saas.shop.version}</version>
