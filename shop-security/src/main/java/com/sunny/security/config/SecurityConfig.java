@@ -15,6 +15,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -31,6 +32,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
     @Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    @Autowired
+    SecurityUserDetailService securityUserDetailService;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -51,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs/**"
                 )
                 .permitAll()
-                .antMatchers("/admin/login", "/admin/register")// 对登录注册要允许匿名访问
+                .antMatchers("/user/login", "/admin/register")// 对登录注册要允许匿名访问
                 .permitAll()
                 .antMatchers(HttpMethod.OPTIONS)//跨域请求会先进行一次options请求
                 .permitAll()
@@ -71,27 +74,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService())
-                .passwordEncoder(passwordEncoder());
+        auth.userDetailsService(securityUserDetailService).passwordEncoder(passwordEncoder());
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        //获取登录用户信息
-        return username -> {
-//            UmsAdmin admin = adminService.getAdminByUsername(username);
-//            if (admin != null) {
-//                List<UmsPermission> permissionList = adminService.getPermissionList(admin.getId());
-//                return new AdminUserDetails(admin,permissionList);
-//            }
-            throw new UsernameNotFoundException("用户名或密码错误");
-        };
+        return NoOpPasswordEncoder.getInstance();
     }
 
     @Bean

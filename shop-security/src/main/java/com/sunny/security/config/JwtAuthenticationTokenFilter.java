@@ -23,7 +23,6 @@ import java.io.IOException;
  * @author tec_feng
  * @create 2020-04-22 13:14
  */
-@Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationTokenFilter.class);
     @Autowired
