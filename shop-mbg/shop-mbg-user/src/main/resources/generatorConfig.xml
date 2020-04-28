@@ -34,10 +34,10 @@
 
         <sqlMapGenerator targetPackage="com.sunny.user.mapper" targetProject="shop-mbg\shop-mbg-user\src\main\resources"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.user.mapper"
-                             targetProject="shop-mbg\shop-mbg-user\src\main\java"/>
-        <table tableName="user" domainObjectName="user">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.user.mapper"-->
+                             <!--targetProject="shop-mbg\shop-mbg-user\src\main\java"/>-->
+        <table tableName="user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="select replace(uuid(),'-','') from dual" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

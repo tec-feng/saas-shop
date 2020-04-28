@@ -27,6 +27,13 @@ public interface IService<T,TExample> {
 	List<T> selectAll(TExample example);
 
 	/**
+	 * 根据实体属性查询单个数据
+	 * @param example 实体
+	 * @return
+	 */
+	T selectOne(TExample example);
+
+	/**
 	 * 根据实体属性查询数据
 	 * @param example 实体
 	 * @return

@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * @author tec_feng
- * @create 2020-04-27 12:45
- */
+* @author tec_feng
+* @create 2020-04-27 12:45
+*/
 @Component
 public class UserAction extends BaseAction<User,UserExample>{
     @Autowired
@@ -19,5 +19,11 @@ public class UserAction extends BaseAction<User,UserExample>{
     @Override
     protected BaseService<User, UserExample> getService() {
         return userService;
+    }
+
+    public User getByUserName(String userName){
+        UserExample example = new UserExample();
+        example.createCriteria().andUserNameEqualTo(userName);
+        return getService().selectOne(example);
     }
 }

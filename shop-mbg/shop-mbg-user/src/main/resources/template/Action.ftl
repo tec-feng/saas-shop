@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 */
 @Component
 public class ${UpperClassName}Action extends BaseAction<${UpperClassName},${UpperClassName}Example>{
-@Autowired
-UserService ${lowerClassName}Service;
-@Override
-protected BaseService<${UpperClassName}, ${UpperClassName}Example> getService() {
-return ${lowerClassName}Service;
-}
+    @Autowired
+    UserService ${lowerClassName}Service;
+    @Override
+    protected BaseService<${UpperClassName}, ${UpperClassName}Example> getService() {
+        return ${lowerClassName}Service;
+    }
 }

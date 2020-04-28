@@ -2,9 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.user.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.sunny.user.model.User">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="has_forbidden" jdbcType="TINYINT" property="hasForbidden" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="bound_email" jdbcType="TINYINT" property="boundEmail" />
+    <result column="bound_phone" jdbcType="TINYINT" property="boundPhone" />
+    <result column="bound_wechat" jdbcType="TINYINT" property="boundWechat" />
+    <result column="brief" jdbcType="VARCHAR" property="brief" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +83,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_name, password
+    id, user_name, password, email, nickname, phone, has_forbidden, user_type, icon, 
+    bound_email, bound_phone, bound_wechat, brief, real_name, union_id, open_id, status, 
+    create_time, update_time, gender, city
   </sql>
   <select id="selectByExample" parameterType="com.sunny.user.model.UserExample" resultMap="BaseResultMap">
     select
@@ -81,15 +101,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sunny.user.model.UserExample">
     delete from user
@@ -98,15 +118,27 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.user.model.User">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      select replace(uuid(),'-','') from dual
     </selectKey>
-    insert into user (user_name, password)
-    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    insert into user (user_name, password, email, 
+      nickname, phone, has_forbidden, 
+      user_type, icon, bound_email, 
+      bound_phone, bound_wechat, brief, 
+      real_name, union_id, open_id, 
+      status, create_time, update_time, 
+      gender, city)
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{hasForbidden,jdbcType=TINYINT}, 
+      #{userType,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{boundEmail,jdbcType=TINYINT}, 
+      #{boundPhone,jdbcType=TINYINT}, #{boundWechat,jdbcType=TINYINT}, #{brief,jdbcType=VARCHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.user.model.User">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      select replace(uuid(),'-','') from dual
     </selectKey>
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -116,6 +148,60 @@
       <if test="password != null">
         password,
       </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="hasForbidden != null">
+        has_forbidden,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="boundEmail != null">
+        bound_email,
+      </if>
+      <if test="boundPhone != null">
+        bound_phone,
+      </if>
+      <if test="boundWechat != null">
+        bound_wechat,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="unionId != null">
+        union_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userName != null">
@@ -123,6 +209,60 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="hasForbidden != null">
+        #{hasForbidden,jdbcType=TINYINT},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="boundEmail != null">
+        #{boundEmail,jdbcType=TINYINT},
+      </if>
+      <if test="boundPhone != null">
+        #{boundPhone,jdbcType=TINYINT},
+      </if>
+      <if test="boundWechat != null">
+        #{boundWechat,jdbcType=TINYINT},
+      </if>
+      <if test="brief != null">
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null">
+        #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -136,13 +276,67 @@
     update user
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null">
         password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickname != null">
+        nickname = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasForbidden != null">
+        has_forbidden = #{record.hasForbidden,jdbcType=TINYINT},
+      </if>
+      <if test="record.userType != null">
+        user_type = #{record.userType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.icon != null">
+        icon = #{record.icon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.boundEmail != null">
+        bound_email = #{record.boundEmail,jdbcType=TINYINT},
+      </if>
+      <if test="record.boundPhone != null">
+        bound_phone = #{record.boundPhone,jdbcType=TINYINT},
+      </if>
+      <if test="record.boundWechat != null">
+        bound_wechat = #{record.boundWechat,jdbcType=TINYINT},
+      </if>
+      <if test="record.brief != null">
+        brief = #{record.brief,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realName != null">
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unionId != null">
+        union_id = #{record.unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openId != null">
+        open_id = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=INTEGER},
+      </if>
+      <if test="record.city != null">
+        city = #{record.city,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -151,9 +345,27 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update user
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR}
+      password = #{record.password,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      nickname = #{record.nickname,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      has_forbidden = #{record.hasForbidden,jdbcType=TINYINT},
+      user_type = #{record.userType,jdbcType=VARCHAR},
+      icon = #{record.icon,jdbcType=VARCHAR},
+      bound_email = #{record.boundEmail,jdbcType=TINYINT},
+      bound_phone = #{record.boundPhone,jdbcType=TINYINT},
+      bound_wechat = #{record.boundWechat,jdbcType=TINYINT},
+      brief = #{record.brief,jdbcType=VARCHAR},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      union_id = #{record.unionId,jdbcType=VARCHAR},
+      open_id = #{record.openId,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      gender = #{record.gender,jdbcType=INTEGER},
+      city = #{record.city,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -167,13 +379,85 @@
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="hasForbidden != null">
+        has_forbidden = #{hasForbidden,jdbcType=TINYINT},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="boundEmail != null">
+        bound_email = #{boundEmail,jdbcType=TINYINT},
+      </if>
+      <if test="boundPhone != null">
+        bound_phone = #{boundPhone,jdbcType=TINYINT},
+      </if>
+      <if test="boundWechat != null">
+        bound_wechat = #{boundWechat,jdbcType=TINYINT},
+      </if>
+      <if test="brief != null">
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="unionId != null">
+        union_id = #{unionId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.user.model.User">
     update user
     set user_name = #{userName,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+      password = #{password,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      has_forbidden = #{hasForbidden,jdbcType=TINYINT},
+      user_type = #{userType,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      bound_email = #{boundEmail,jdbcType=TINYINT},
+      bound_phone = #{boundPhone,jdbcType=TINYINT},
+      bound_wechat = #{boundWechat,jdbcType=TINYINT},
+      brief = #{brief,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      union_id = #{unionId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      gender = #{gender,jdbcType=INTEGER},
+      city = #{city,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

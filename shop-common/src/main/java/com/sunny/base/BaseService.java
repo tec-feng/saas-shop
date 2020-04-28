@@ -25,6 +25,15 @@ public abstract class BaseService<T,TExample> implements IService<T,TExample> {
 	}
 
 	@Override
+	public T selectOne(TExample tExample) {
+		List<T> ts = selectAll(tExample);
+		if(ts!=null  && ts.size()>0){
+			return ts.get(0);
+		}
+		return null;
+	}
+
+	@Override
 	public long countByExample(TExample tExample) {
 		return getMapper().countByExample(tExample);
 	}

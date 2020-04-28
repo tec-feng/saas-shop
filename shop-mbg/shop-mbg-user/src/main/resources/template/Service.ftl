@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
 public class ${UpperClassName}Service extends BaseService<${UpperClassName},${UpperClassName}Example>{
     @Autowired
     ${UpperClassName}Mapper ${lowerClassName}Mapper;
-@Override
+    @Override
     protected BaseMapper<${UpperClassName}, ${UpperClassName}Example> getMapper() {
-    return userMapper;
+        return userMapper;
     }
 }

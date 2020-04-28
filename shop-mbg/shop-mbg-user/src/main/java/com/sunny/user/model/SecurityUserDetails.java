@@ -1,4 +1,4 @@
-package com.sunny.security.config;
+package com.sunny.user.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +10,13 @@ import java.util.Collection;
  * @create 2020-04-22 18:53
  */
 public class SecurityUserDetails implements UserDetails {
+    private User user;
+
+    public SecurityUserDetails(User user) {
+        this.user = user;
+    }
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -17,31 +24,31 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return user.getUserName();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return user.getHasForbidden();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return user.getHasForbidden();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return user.getHasForbidden();
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return user.getHasForbidden();
     }
 }
