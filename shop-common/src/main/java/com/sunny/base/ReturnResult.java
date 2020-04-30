@@ -29,16 +29,23 @@ public class ReturnResult<T> {
         return new ReturnResult<>(code);
     }
 
-    public ReturnResult(ApiCode code){
+    protected ReturnResult(ApiCode code){
         this.code = code;
         this.message = code.getMessage();
     }
 
-    public ReturnResult(ApiCode code, String message, T data) {
+    protected ReturnResult(ApiCode code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
+
+    protected ReturnResult(ApiCode code, T data) {
+        this.code = code;
+        this.message = code.getMessage();
+        this.data = data;
+    }
+
 
     public ApiCode getCode() {
         return code;

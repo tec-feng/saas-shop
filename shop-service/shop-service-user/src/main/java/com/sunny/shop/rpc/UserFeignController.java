@@ -1,6 +1,10 @@
 package com.sunny.shop.rpc;
 
+import com.sunny.base.ApiCode;
+import com.sunny.base.ReturnResult;
 import com.sunny.shop.service.user.api.UserFeignApi;
+import com.sunny.user.action.UserAction;
+import com.sunny.user.model.User;
 import com.sunny.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserFeignController implements UserFeignApi{
     @Autowired
-    UserService userService;
+    UserAction userAction;
+
+
     @Override
-    public Object list() {
-        return userService.getOtherMethod();
+    public ReturnResult getByUserName(String userName) {
+        User user = userAction.getByUserName(userName);
+        return ReturnResult.success(ApiCode.OK,user);
     }
 }

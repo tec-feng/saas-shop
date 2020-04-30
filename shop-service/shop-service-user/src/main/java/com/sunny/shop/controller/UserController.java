@@ -1,5 +1,8 @@
 package com.sunny.shop.controller;
 
+import com.sunny.base.ApiCode;
+import com.sunny.base.ReturnResult;
+import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.SecurityUserDetails;
 import com.sunny.security.util.JwtTokenUtil;
 import com.sunny.user.action.UserAction;
@@ -32,24 +35,24 @@ public class UserController {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    @PostMapping("/create")
-    public Object create(User user){
-        int insert = userAction.save(user);
-        return user;
+    @PostMapping("/register")
+    public ReturnResult register(RegisterDto user){
+        ReturnResult result = userAction.register(user);
+        return result;
     }
 
     @PostMapping("/login")
-    public Object login(String userName,String password){
+    public ReturnResult login(String userName,String password){
         User user = userAction.getByUserName(userName);
         if(!passwordEncoder.matches(password,user.getPassword())){
-            return "密码错误";
+            return ReturnResult.fail(ApiCode.PASSWORD_ERROR);
         }
         SecurityUserDetails userDetails = new SecurityUserDetails(user);
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails
         ,null,userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtTokenUtil.generateToken(userDetails);
-        return token;
+        return ReturnResult.success(token);
     }
 
     @DeleteMapping("/delete/{id}")
