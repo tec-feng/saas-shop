@@ -71,6 +71,11 @@
 			<version>${saas.shop.version}</version>
 		</dependency>
 		<dependency>
+			<artifactId>shop-common</artifactId>
+			<groupId>com.sunny</groupId>
+			<version>${saas.shop.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 		</dependency>

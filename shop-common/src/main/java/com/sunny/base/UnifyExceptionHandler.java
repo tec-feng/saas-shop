@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.List;
+
 
 /**
  * @author tec_feng
@@ -35,7 +37,14 @@ public class UnifyExceptionHandler extends ResponseEntityExceptionHandler {
 
         BindingResult result = ex.getBindingResult();
         if (result.hasErrors()) {
-            return ResponseEntity.status(HttpStatus.OK).body(ApiCode.PASSWORD_ERROR.getMessage());
+            List<ObjectError> errors = result.getAllErrors();
+            if(errors!=null && errors.size()>0){
+                FieldError fieldError = (FieldError) errors.get(0);
+                ReturnResult<Object> fail = new ReturnResult(ApiCode.PARAM_VERIFY_ERROR,fieldError.getDefaultMessage(),null);
+                return ResponseEntity.status(HttpStatus.OK).body(fail);
+            }else{
+                return ResponseEntity.status(HttpStatus.OK).body(ReturnResult.fail(ApiCode.PARAM_VERIFY_ERROR));
+            }
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("bad request");
     }

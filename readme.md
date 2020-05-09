@@ -11,3 +11,5 @@ shop-service-api    抽象服务feign公共包
     shop-service-user-api   用户feign公共包
     shop-service-product 商品feign公共包
     
+    
+店铺

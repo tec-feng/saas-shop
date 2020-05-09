@@ -1,5 +1,6 @@
 package com.sunny.user.dto;
 
+import com.sunny.base.ValidatorTips;
 import lombok.Data;
 import javax.validation.constraints.NotBlank;
 
@@ -9,11 +10,11 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 public class RegisterDto {
-    @NotBlank
+    @NotBlank(message= ValidatorTips.USER_NOT_EMPTY)
     private String userName;
-    @NotBlank
+    @NotBlank(message=ValidatorTips.PASSWORD_NOT_EMPTY)
     private String password;
-    @NotBlank
+    @NotBlank(message=ValidatorTips.CONFIRM_PASSWORD_NOT_EMPTY)
     private String confirmPassword;
     private String phone;
 }

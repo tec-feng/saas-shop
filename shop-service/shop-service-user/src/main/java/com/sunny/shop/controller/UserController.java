@@ -1,6 +1,7 @@
 package com.sunny.shop.controller;
 
 import com.sunny.base.ApiCode;
+import com.sunny.base.ApiException;
 import com.sunny.base.ReturnResult;
 import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.SecurityUserDetails;
@@ -8,6 +9,7 @@ import com.sunny.security.util.JwtTokenUtil;
 import com.sunny.user.action.UserAction;
 import com.sunny.user.model.UserExample;
 import com.sunny.user.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +19,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import com.sunny.user.model.User;
+
+import javax.validation.Valid;
 
 /**
  *
@@ -36,7 +40,7 @@ public class UserController {
     private JwtTokenUtil jwtTokenUtil;
 
     @PostMapping("/register")
-    public ReturnResult register(RegisterDto user){
+    public ReturnResult register(@Valid RegisterDto user){
         ReturnResult result = userAction.register(user);
         return result;
     }

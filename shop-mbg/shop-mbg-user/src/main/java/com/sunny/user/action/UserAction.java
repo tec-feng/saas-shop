@@ -1,6 +1,7 @@
 package com.sunny.user.action;
 
 import com.sunny.base.*;
+import com.sunny.tools.UUIDUtils;
 import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.User;
 import com.sunny.user.model.UserExample;
@@ -10,6 +11,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
 * @author tec_feng
@@ -33,18 +36,23 @@ public class UserAction extends BaseAction<User,UserExample>{
     }
 
     public ReturnResult register(RegisterDto user){
+        if(!user.getPassword().equals(user.getConfirmPassword())){
+            throw new ApiException(ApiCode.CONFIRM_PASSWORD_NOT_SAME);
+        }
         User dbUser = getByUserName(user.getUserName());
         if(dbUser!=null){
             throw new ApiException(ApiCode.USER_EXIST);
         }
-        if(!user.getPassword().equals(user.getConfirmPassword())){
-            throw new ApiException(ApiCode.CONFIRM_PASSWORD_NOT_SAME);
-        }
         User newUser = new User();
         BeanUtils.copyProperties(user,newUser);
+        newUser.setId(UUIDUtils.uuid());
         newUser.setUserType(UserType.base.name());
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         newUser.setIcon(GlobalConstant.SYSTEM_LOGO);
+        newUser.setHasForbidden(false);
+        newUser.setStatus(false);
+        newUser.setCreateTime(new Date());
+        newUser.setUpdateTime(new Date());
         userService.save(newUser);
         return ReturnResult.success();
     }
