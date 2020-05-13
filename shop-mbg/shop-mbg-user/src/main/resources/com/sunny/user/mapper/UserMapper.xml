@@ -23,6 +23,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area_user_id" jdbcType="INTEGER" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -85,7 +86,7 @@
   <sql id="Base_Column_List">
     id, user_name, password, email, nickname, phone, has_forbidden, user_type, icon, 
     bound_email, bound_phone, bound_wechat, brief, real_name, union_id, open_id, status, 
-    create_time, update_time, gender, city
+    create_time, update_time, gender, city, area_user_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.user.model.UserExample" resultMap="BaseResultMap">
     select
@@ -93,7 +94,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user
+    from u_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -104,43 +105,45 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user
+    from u_user
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from user
+    delete from u_user
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sunny.user.model.UserExample">
-    delete from user
+    delete from u_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.user.model.User">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
-      select replace(uuid(),'-','') from dual
+      SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (user_name, password, email, 
+    insert into u_user (user_name, password, email, 
       nickname, phone, has_forbidden, 
       user_type, icon, bound_email, 
       bound_phone, bound_wechat, brief, 
       real_name, union_id, open_id, 
       status, create_time, update_time, 
-      gender, city)
+      gender, city, area_user_id
+      )
     values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{hasForbidden,jdbcType=TINYINT}, 
       #{userType,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{boundEmail,jdbcType=TINYINT}, 
       #{boundPhone,jdbcType=TINYINT}, #{boundWechat,jdbcType=TINYINT}, #{brief,jdbcType=VARCHAR}, 
       #{realName,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR})
+      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{areaUserId,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.user.model.User">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
-      select replace(uuid(),'-','') from dual
+      SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user
+    insert into u_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userName != null">
         user_name,
@@ -201,6 +204,9 @@
       </if>
       <if test="city != null">
         city,
+      </if>
+      <if test="areaUserId != null">
+        area_user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -264,16 +270,19 @@
       <if test="city != null">
         #{city,jdbcType=VARCHAR},
       </if>
+      <if test="areaUserId != null">
+        #{areaUserId,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sunny.user.model.UserExample" resultType="java.lang.Long">
-    select count(*) from user
+    select count(*) from u_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user
+    update u_user
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
@@ -338,13 +347,16 @@
       <if test="record.city != null">
         city = #{record.city,jdbcType=VARCHAR},
       </if>
+      <if test="record.areaUserId != null">
+        area_user_id = #{record.areaUserId,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user
+    update u_user
     set id = #{record.id,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
@@ -365,13 +377,14 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       gender = #{record.gender,jdbcType=INTEGER},
-      city = #{record.city,jdbcType=VARCHAR}
+      city = #{record.city,jdbcType=VARCHAR},
+      area_user_id = #{record.areaUserId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sunny.user.model.User">
-    update user
+    update u_user
     <set>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
@@ -433,11 +446,14 @@
       <if test="city != null">
         city = #{city,jdbcType=VARCHAR},
       </if>
+      <if test="areaUserId != null">
+        area_user_id = #{areaUserId,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.user.model.User">
-    update user
+    update u_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
@@ -457,7 +473,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       gender = #{gender,jdbcType=INTEGER},
-      city = #{city,jdbcType=VARCHAR}
+      city = #{city,jdbcType=VARCHAR},
+      area_user_id = #{areaUserId,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

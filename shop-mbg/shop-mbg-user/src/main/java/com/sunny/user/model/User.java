@@ -53,7 +53,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否被禁用：0正常 1被禁用")
-    private Boolean hasForbidden;
+    private Byte hasForbidden;
 
     /**
      * 用户类型
@@ -77,7 +77,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否验证邮箱0未验证1已验证")
-    private Boolean boundEmail;
+    private Byte boundEmail;
 
     /**
      * 是否绑定手机0未绑定1已绑定
@@ -85,7 +85,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否绑定手机0未绑定1已绑定")
-    private Boolean boundPhone;
+    private Byte boundPhone;
 
     /**
      * 是否绑定微信
@@ -93,7 +93,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否绑定微信")
-    private Boolean boundWechat;
+    private Byte boundWechat;
 
     /**
      * 简介
@@ -133,7 +133,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "用户状态：0正常1删除")
-    private Boolean status;
+    private Byte status;
 
     private Date createTime;
 
@@ -154,6 +154,14 @@ public class User implements Serializable {
      */
     @ApiModelProperty(value = "所做城市")
     private String city;
+
+    /**
+     * 区域id
+     *
+     * @mbg.generated
+     */
+    @ApiModelProperty(value = "区域id")
+    private Integer areaUserId;
 
     private static final long serialVersionUID = 1L;
 
@@ -205,11 +213,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public Boolean getHasForbidden() {
+    public Byte getHasForbidden() {
         return hasForbidden;
     }
 
-    public void setHasForbidden(Boolean hasForbidden) {
+    public void setHasForbidden(Byte hasForbidden) {
         this.hasForbidden = hasForbidden;
     }
 
@@ -229,27 +237,27 @@ public class User implements Serializable {
         this.icon = icon;
     }
 
-    public Boolean getBoundEmail() {
+    public Byte getBoundEmail() {
         return boundEmail;
     }
 
-    public void setBoundEmail(Boolean boundEmail) {
+    public void setBoundEmail(Byte boundEmail) {
         this.boundEmail = boundEmail;
     }
 
-    public Boolean getBoundPhone() {
+    public Byte getBoundPhone() {
         return boundPhone;
     }
 
-    public void setBoundPhone(Boolean boundPhone) {
+    public void setBoundPhone(Byte boundPhone) {
         this.boundPhone = boundPhone;
     }
 
-    public Boolean getBoundWechat() {
+    public Byte getBoundWechat() {
         return boundWechat;
     }
 
-    public void setBoundWechat(Boolean boundWechat) {
+    public void setBoundWechat(Byte boundWechat) {
         this.boundWechat = boundWechat;
     }
 
@@ -285,11 +293,11 @@ public class User implements Serializable {
         this.openId = openId;
     }
 
-    public Boolean getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 
@@ -325,6 +333,14 @@ public class User implements Serializable {
         this.city = city;
     }
 
+    public Integer getAreaUserId() {
+        return areaUserId;
+    }
+
+    public void setAreaUserId(Integer areaUserId) {
+        this.areaUserId = areaUserId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -352,6 +368,7 @@ public class User implements Serializable {
         sb.append(", updateTime=").append(updateTime);
         sb.append(", gender=").append(gender);
         sb.append(", city=").append(city);
+        sb.append(", areaUserId=").append(areaUserId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

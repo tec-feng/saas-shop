@@ -47,13 +47,7 @@ public class ProductController {
     @GetMapping("/list")
     public Object list(){
         List<Product> products = productService.selectByExample(new ProductExample(), 0, 100);
-        Object list = userFeignApi.list();
-        return list;
+        return products;
     }
 
-
-    @GetMapping("/list1")
-    public Object list1(){
-        return productService.getOtherMethod();
-    }
 }

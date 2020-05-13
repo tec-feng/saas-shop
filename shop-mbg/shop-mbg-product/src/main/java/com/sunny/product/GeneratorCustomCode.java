@@ -1,4 +1,4 @@
-package com.sunny.user;
+package com.sunny.product;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -17,11 +17,11 @@ public class GeneratorCustomCode {
     private static String separator = System.getProperty("file.separator");
     public static void main(String[] args) {
         //类名称
-        String userName = "User";
+        String userName = "Sku";
         autoGeneratorCode(userName);
     }
     private static void autoGeneratorCode(String className){
-        String model = "user";
+        String model = "product";
         System.out.println("自动创建开始...");
         autoGeneratorCode(model,className,"mapper","Mapper");
         System.out.println("创建Mapper成功...");
@@ -41,7 +41,7 @@ public class GeneratorCustomCode {
         Configuration configuration = new Configuration();
         Writer out = null;
         String templatePath = prePath.toString() +"src/main/resources/template";
-        String classPath = prePath.toString() +"src/main/java/com/sunny/user/"+packageName;
+        String classPath = prePath.toString() +"src/main/java/com/sunny/product/"+packageName;
         try {
             // step2 获取模版路径
             configuration.setDirectoryForTemplateLoading(new File(templatePath));

@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunny.product.mapper.SkuMapper">
+  <resultMap id="BaseResultMap" type="com.sunny.product.model.Sku">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="trade_max_nums" jdbcType="INTEGER" property="tradeMaxNums" />
+    <result column="market_price" jdbcType="BIGINT" property="marketPrice" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="low_stock" jdbcType="INTEGER" property="lowStock" />
+    <result column="bar_code" jdbcType="VARCHAR" property="barCode" />
+    <result column="standby_bar_code" jdbcType="VARCHAR" property="standbyBarCode" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="default_sku" jdbcType="TINYINT" property="defaultSku" />
+    <result column="sale" jdbcType="INTEGER" property="sale" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="sku_data" jdbcType="VARCHAR" property="skuData" />
+    <result column="sku_data_id" jdbcType="VARCHAR" property="skuDataId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, product_id, trade_max_nums, market_price, price, stock, low_stock, bar_code, 
+    standby_bar_code, pic, default_sku, sale, status, create_time, update_time, sku_data, 
+    sku_data_id
+  </sql>
+  <select id="selectByExample" parameterType="com.sunny.product.model.SkuExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from p_sku
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from p_sku
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from p_sku
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sunny.product.model.SkuExample">
+    delete from p_sku
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sunny.product.model.Sku">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into p_sku (product_id, trade_max_nums, market_price, 
+      price, stock, low_stock, 
+      bar_code, standby_bar_code, pic, 
+      default_sku, sale, status, 
+      create_time, update_time, sku_data, 
+      sku_data_id)
+    values (#{productId,jdbcType=INTEGER}, #{tradeMaxNums,jdbcType=INTEGER}, #{marketPrice,jdbcType=BIGINT}, 
+      #{price,jdbcType=BIGINT}, #{stock,jdbcType=INTEGER}, #{lowStock,jdbcType=INTEGER}, 
+      #{barCode,jdbcType=VARCHAR}, #{standbyBarCode,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+      #{defaultSku,jdbcType=TINYINT}, #{sale,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{skuData,jdbcType=VARCHAR}, 
+      #{skuDataId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sunny.product.model.Sku">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into p_sku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="tradeMaxNums != null">
+        trade_max_nums,
+      </if>
+      <if test="marketPrice != null">
+        market_price,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="lowStock != null">
+        low_stock,
+      </if>
+      <if test="barCode != null">
+        bar_code,
+      </if>
+      <if test="standbyBarCode != null">
+        standby_bar_code,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="defaultSku != null">
+        default_sku,
+      </if>
+      <if test="sale != null">
+        sale,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="skuData != null">
+        sku_data,
+      </if>
+      <if test="skuDataId != null">
+        sku_data_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="tradeMaxNums != null">
+        #{tradeMaxNums,jdbcType=INTEGER},
+      </if>
+      <if test="marketPrice != null">
+        #{marketPrice,jdbcType=BIGINT},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=BIGINT},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="lowStock != null">
+        #{lowStock,jdbcType=INTEGER},
+      </if>
+      <if test="barCode != null">
+        #{barCode,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyBarCode != null">
+        #{standbyBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultSku != null">
+        #{defaultSku,jdbcType=TINYINT},
+      </if>
+      <if test="sale != null">
+        #{sale,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skuData != null">
+        #{skuData,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDataId != null">
+        #{skuDataId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sunny.product.model.SkuExample" resultType="java.lang.Long">
+    select count(*) from p_sku
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update p_sku
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productId != null">
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tradeMaxNums != null">
+        trade_max_nums = #{record.tradeMaxNums,jdbcType=INTEGER},
+      </if>
+      <if test="record.marketPrice != null">
+        market_price = #{record.marketPrice,jdbcType=BIGINT},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=BIGINT},
+      </if>
+      <if test="record.stock != null">
+        stock = #{record.stock,jdbcType=INTEGER},
+      </if>
+      <if test="record.lowStock != null">
+        low_stock = #{record.lowStock,jdbcType=INTEGER},
+      </if>
+      <if test="record.barCode != null">
+        bar_code = #{record.barCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.standbyBarCode != null">
+        standby_bar_code = #{record.standbyBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic != null">
+        pic = #{record.pic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultSku != null">
+        default_sku = #{record.defaultSku,jdbcType=TINYINT},
+      </if>
+      <if test="record.sale != null">
+        sale = #{record.sale,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.skuData != null">
+        sku_data = #{record.skuData,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skuDataId != null">
+        sku_data_id = #{record.skuDataId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update p_sku
+    set id = #{record.id,jdbcType=VARCHAR},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      trade_max_nums = #{record.tradeMaxNums,jdbcType=INTEGER},
+      market_price = #{record.marketPrice,jdbcType=BIGINT},
+      price = #{record.price,jdbcType=BIGINT},
+      stock = #{record.stock,jdbcType=INTEGER},
+      low_stock = #{record.lowStock,jdbcType=INTEGER},
+      bar_code = #{record.barCode,jdbcType=VARCHAR},
+      standby_bar_code = #{record.standbyBarCode,jdbcType=VARCHAR},
+      pic = #{record.pic,jdbcType=VARCHAR},
+      default_sku = #{record.defaultSku,jdbcType=TINYINT},
+      sale = #{record.sale,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=TINYINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      sku_data = #{record.skuData,jdbcType=VARCHAR},
+      sku_data_id = #{record.skuDataId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunny.product.model.Sku">
+    update p_sku
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="tradeMaxNums != null">
+        trade_max_nums = #{tradeMaxNums,jdbcType=INTEGER},
+      </if>
+      <if test="marketPrice != null">
+        market_price = #{marketPrice,jdbcType=BIGINT},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=BIGINT},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="lowStock != null">
+        low_stock = #{lowStock,jdbcType=INTEGER},
+      </if>
+      <if test="barCode != null">
+        bar_code = #{barCode,jdbcType=VARCHAR},
+      </if>
+      <if test="standbyBarCode != null">
+        standby_bar_code = #{standbyBarCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultSku != null">
+        default_sku = #{defaultSku,jdbcType=TINYINT},
+      </if>
+      <if test="sale != null">
+        sale = #{sale,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="skuData != null">
+        sku_data = #{skuData,jdbcType=VARCHAR},
+      </if>
+      <if test="skuDataId != null">
+        sku_data_id = #{skuDataId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.Sku">
+    update p_sku
+    set product_id = #{productId,jdbcType=INTEGER},
+      trade_max_nums = #{tradeMaxNums,jdbcType=INTEGER},
+      market_price = #{marketPrice,jdbcType=BIGINT},
+      price = #{price,jdbcType=BIGINT},
+      stock = #{stock,jdbcType=INTEGER},
+      low_stock = #{lowStock,jdbcType=INTEGER},
+      bar_code = #{barCode,jdbcType=VARCHAR},
+      standby_bar_code = #{standbyBarCode,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      default_sku = #{defaultSku,jdbcType=TINYINT},
+      sale = #{sale,jdbcType=INTEGER},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      sku_data = #{skuData,jdbcType=VARCHAR},
+      sku_data_id = #{skuDataId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

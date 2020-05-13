@@ -1494,6 +1494,66 @@ public class UserExample {
             addCriterion("city not between", value1, value2, "city");
             return (Criteria) this;
         }
+
+        public Criteria andAreaUserIdIsNull() {
+            addCriterion("area_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIsNotNull() {
+            addCriterion("area_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdEqualTo(Integer value) {
+            addCriterion("area_user_id =", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotEqualTo(Integer value) {
+            addCriterion("area_user_id <>", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdGreaterThan(Integer value) {
+            addCriterion("area_user_id >", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("area_user_id >=", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdLessThan(Integer value) {
+            addCriterion("area_user_id <", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("area_user_id <=", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIn(List<Integer> values) {
+            addCriterion("area_user_id in", values, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotIn(List<Integer> values) {
+            addCriterion("area_user_id not in", values, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("area_user_id between", value1, value2, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("area_user_id not between", value1, value2, "areaUserId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

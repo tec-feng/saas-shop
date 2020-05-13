@@ -34,9 +34,27 @@
 
         <sqlMapGenerator targetPackage="com.sunny.product.mapper" targetProject="shop-mbg\shop-mbg-product\src\main\resources"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.product.mapper"
-                             targetProject="shop-mbg\shop-mbg-product\src\main\java"/>
-        <table tableName="product">
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.product.mapper"-->
+                             <!--targetProject="shop-mbg\shop-mbg-product\src\main\java"/>-->
+        <table tableName="p_product" domainObjectName="Product">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="p_product_category" domainObjectName="ProductCategory">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="p_product_comment" domainObjectName="ProductComment">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="p_product_comment_reply" domainObjectName="ProductCommentReply">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="p_product_property" domainObjectName="ProductProperty">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="p_product_property_value" domainObjectName="ProductPropertyValue">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="p_sku" domainObjectName="Sku">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
     </context>
