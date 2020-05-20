@@ -1,4 +1,4 @@
-package com.sunny.user.service;
+package com.sunny.shop.service;
 
 import com.sunny.base.BaseMapper;
 import com.sunny.base.BaseService;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
 *
 * @author tec_feng
-* @create 2020-04-11 13:28
+* @create 2020-05-20 01:43:58
 */
 @Service
 public class UserService extends BaseService<User,UserExample>{
@@ -20,9 +20,5 @@ public class UserService extends BaseService<User,UserExample>{
     @Override
     protected BaseMapper<User, UserExample> getMapper() {
         return userMapper;
-    }
-
-    public User getOtherMethod(){
-        return userMapper.getOtherMethod();
     }
 }

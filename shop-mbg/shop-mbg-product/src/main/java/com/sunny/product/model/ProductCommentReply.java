@@ -1,6 +1,5 @@
 package com.sunny.product.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "被回复的product_comment的id")
     private Integer commentId;
 
     /**
@@ -20,7 +18,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "回复ID，默认为0")
     private Integer replyId;
 
     /**
@@ -28,7 +25,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "主回复ID")
     private Integer replyRootId;
 
     /**
@@ -36,7 +32,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "被回复人头像")
     private String replyHead;
 
     /**
@@ -44,7 +39,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "被回复人的昵称")
     private String replyNick;
 
     /**
@@ -52,7 +46,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户id")
     private Integer userId;
 
     /**
@@ -60,7 +53,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户昵称")
     private String userNick;
 
     /**
@@ -68,7 +60,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户头像")
     private String userHead;
 
     /**
@@ -76,7 +67,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "评论内容")
     private String content;
 
     /**
@@ -84,7 +74,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否官方回复,0否(非官方回复),1是(官方回复)")
     private Byte official;
 
     /**
@@ -92,7 +81,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否匿名,0否(不匿名),1是(匿名)")
     private Byte anonymous;
 
     /**
@@ -100,7 +88,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否隐藏，0不隐藏，1隐藏")
     private Byte hide;
 
     /**
@@ -108,7 +95,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "点赞数量")
     private Integer agreeNumber;
 
     /**
@@ -116,7 +102,6 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "0正常，1删除")
     private Byte status;
 
     private Date createTime;

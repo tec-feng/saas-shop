@@ -1,4 +1,4 @@
-package com.sunny.product.service;
+package com.sunny.shop.service;
 
 import com.sunny.base.BaseMapper;
 import com.sunny.base.BaseService;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
 *
 * @author tec_feng
-* @create 2020-04-11 13:28
+* @create 2020-05-20 12:19:26
 */
 @Service
 public class ProductCategoryService extends BaseService<ProductCategory,ProductCategoryExample>{

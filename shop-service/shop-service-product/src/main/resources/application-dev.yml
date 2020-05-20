@@ -19,8 +19,8 @@ spring:
         login-password: druid
 mybatis:
   mapper-locations:
-    - classpath*:com/**/mapper/*.xml
-    - classpath*:com/**/mapper/extend/*.xml
+    - classpath*:com/sunny/product/mapper/*.xml
+    - classpath*:com/sunny/product/mapper/extend/*.xml
   configuration:
     map-underscore-to-camel-case: true
 eureka:
@@ -41,4 +41,4 @@ management:
       show-details: always
 logging:
   file:
-    path: shop-server-user.log #添加开启admin的日志监控
+    path: shop-server-product.log #添加开启admin的日志监控

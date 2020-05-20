@@ -1,6 +1,5 @@
 package com.sunny.product.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "对应的商品id")
     private Integer productId;
 
     /**
@@ -20,7 +18,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "限购,0为不限制")
     private Integer tradeMaxNums;
 
     /**
@@ -28,7 +25,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "划线价")
     private Long marketPrice;
 
     /**
@@ -36,7 +32,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "价格")
     private Long price;
 
     /**
@@ -44,7 +39,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "库存")
     private Integer stock;
 
     /**
@@ -52,7 +46,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "预警库存")
     private Integer lowStock;
 
     /**
@@ -60,7 +53,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "条形码")
     private String barCode;
 
     /**
@@ -68,7 +60,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "备用条码，用作一物多码使用")
     private String standbyBarCode;
 
     /**
@@ -76,7 +67,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "展示图片")
     private String pic;
 
     /**
@@ -84,7 +74,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "为1时作为默认sku")
     private Byte defaultSku;
 
     /**
@@ -92,7 +81,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "销量")
     private Integer sale;
 
     /**
@@ -100,7 +88,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "0:正常上架,1:删除 ,2:失效")
     private Byte status;
 
     /**
@@ -108,7 +95,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "记录新增的时间")
     private Date createTime;
 
     /**
@@ -116,7 +102,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "记录最近修改的时间，如果为新增后未改动则保持与createTime一致")
     private Date updateTime;
 
     /**
@@ -124,7 +109,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "销售属性")
     private String skuData;
 
     /**
@@ -132,7 +116,6 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "销售属性,p-v")
     private String skuDataId;
 
     private static final long serialVersionUID = 1L;

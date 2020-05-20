@@ -995,63 +995,63 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdIsNull() {
-            addCriterion("feight_template_id is null");
+        public Criteria andFreightTemplateIdIsNull() {
+            addCriterion("freight_template_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdIsNotNull() {
-            addCriterion("feight_template_id is not null");
+        public Criteria andFreightTemplateIdIsNotNull() {
+            addCriterion("freight_template_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdEqualTo(Long value) {
-            addCriterion("feight_template_id =", value, "feightTemplateId");
+        public Criteria andFreightTemplateIdEqualTo(Long value) {
+            addCriterion("freight_template_id =", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdNotEqualTo(Long value) {
-            addCriterion("feight_template_id <>", value, "feightTemplateId");
+        public Criteria andFreightTemplateIdNotEqualTo(Long value) {
+            addCriterion("freight_template_id <>", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdGreaterThan(Long value) {
-            addCriterion("feight_template_id >", value, "feightTemplateId");
+        public Criteria andFreightTemplateIdGreaterThan(Long value) {
+            addCriterion("freight_template_id >", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("feight_template_id >=", value, "feightTemplateId");
+        public Criteria andFreightTemplateIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("freight_template_id >=", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdLessThan(Long value) {
-            addCriterion("feight_template_id <", value, "feightTemplateId");
+        public Criteria andFreightTemplateIdLessThan(Long value) {
+            addCriterion("freight_template_id <", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdLessThanOrEqualTo(Long value) {
-            addCriterion("feight_template_id <=", value, "feightTemplateId");
+        public Criteria andFreightTemplateIdLessThanOrEqualTo(Long value) {
+            addCriterion("freight_template_id <=", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdIn(List<Long> values) {
-            addCriterion("feight_template_id in", values, "feightTemplateId");
+        public Criteria andFreightTemplateIdIn(List<Long> values) {
+            addCriterion("freight_template_id in", values, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdNotIn(List<Long> values) {
-            addCriterion("feight_template_id not in", values, "feightTemplateId");
+        public Criteria andFreightTemplateIdNotIn(List<Long> values) {
+            addCriterion("freight_template_id not in", values, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdBetween(Long value1, Long value2) {
-            addCriterion("feight_template_id between", value1, value2, "feightTemplateId");
+        public Criteria andFreightTemplateIdBetween(Long value1, Long value2) {
+            addCriterion("freight_template_id between", value1, value2, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFeightTemplateIdNotBetween(Long value1, Long value2) {
-            addCriterion("feight_template_id not between", value1, value2, "feightTemplateId");
+        public Criteria andFreightTemplateIdNotBetween(Long value1, Long value2) {
+            addCriterion("freight_template_id not between", value1, value2, "freightTemplateId");
             return (Criteria) this;
         }
 

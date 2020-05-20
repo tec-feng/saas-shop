@@ -53,7 +53,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否被禁用：0正常 1被禁用")
-    private Byte hasForbidden;
+    private Boolean hasForbidden;
 
     /**
      * 用户类型
@@ -77,7 +77,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否验证邮箱0未验证1已验证")
-    private Byte boundEmail;
+    private Boolean boundEmail;
 
     /**
      * 是否绑定手机0未绑定1已绑定
@@ -85,7 +85,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否绑定手机0未绑定1已绑定")
-    private Byte boundPhone;
+    private Boolean boundPhone;
 
     /**
      * 是否绑定微信
@@ -93,7 +93,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "是否绑定微信")
-    private Byte boundWechat;
+    private Boolean boundWechat;
 
     /**
      * 简介
@@ -133,7 +133,7 @@ public class User implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "用户状态：0正常1删除")
-    private Byte status;
+    private Boolean status;
 
     private Date createTime;
 
@@ -213,11 +213,11 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    public Byte getHasForbidden() {
+    public Boolean getHasForbidden() {
         return hasForbidden;
     }
 
-    public void setHasForbidden(Byte hasForbidden) {
+    public void setHasForbidden(Boolean hasForbidden) {
         this.hasForbidden = hasForbidden;
     }
 
@@ -237,27 +237,27 @@ public class User implements Serializable {
         this.icon = icon;
     }
 
-    public Byte getBoundEmail() {
+    public Boolean getBoundEmail() {
         return boundEmail;
     }
 
-    public void setBoundEmail(Byte boundEmail) {
+    public void setBoundEmail(Boolean boundEmail) {
         this.boundEmail = boundEmail;
     }
 
-    public Byte getBoundPhone() {
+    public Boolean getBoundPhone() {
         return boundPhone;
     }
 
-    public void setBoundPhone(Byte boundPhone) {
+    public void setBoundPhone(Boolean boundPhone) {
         this.boundPhone = boundPhone;
     }
 
-    public Byte getBoundWechat() {
+    public Boolean getBoundWechat() {
         return boundWechat;
     }
 
-    public void setBoundWechat(Byte boundWechat) {
+    public void setBoundWechat(Boolean boundWechat) {
         this.boundWechat = boundWechat;
     }
 
@@ -293,11 +293,11 @@ public class User implements Serializable {
         this.openId = openId;
     }
 
-    public Byte getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

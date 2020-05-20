@@ -19,8 +19,8 @@ spring:
         login-password: druid
 mybatis:
   mapper-locations:
-    - classpath*:com/**/mapper/*.xml
-    - classpath*:com/**/mapper/extend/*.xml
+    - classpath*:com/sunny/user/mapper/*.xml
+    - classpath*:com/sunny/user/mapper/extend/*.xml
   configuration:
     map-underscore-to-camel-case: true
 feign:

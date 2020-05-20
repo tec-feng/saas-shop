@@ -16,7 +16,7 @@
     <result column="shop_no" jdbcType="VARCHAR" property="shopNo" />
     <result column="area_user_id" jdbcType="INTEGER" property="areaUserId" />
     <result column="from_id" jdbcType="VARCHAR" property="fromId" />
-    <result column="feight_template_id" jdbcType="BIGINT" property="feightTemplateId" />
+    <result column="freight_template_id" jdbcType="BIGINT" property="freightTemplateId" />
     <result column="pic" jdbcType="VARCHAR" property="pic" />
     <result column="new_status" jdbcType="INTEGER" property="newStatus" />
     <result column="recommand_status" jdbcType="INTEGER" property="recommandStatus" />
@@ -87,7 +87,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, name, description, store_strategy, online_status, status, create_time, update_time, 
-    user_id, storage_id, in_pool, shop_no, area_user_id, from_id, feight_template_id, 
+    user_id, storage_id, in_pool, shop_no, area_user_id, from_id, freight_template_id, 
     pic, new_status, recommand_status, verify_status, keywords, shipping_fee
   </sql>
   <sql id="Blob_Column_List">
@@ -137,7 +137,7 @@
       online_status, status, create_time, 
       update_time, user_id, storage_id, 
       in_pool, shop_no, area_user_id, 
-      from_id, feight_template_id, pic, 
+      from_id, freight_template_id, pic, 
       new_status, recommand_status, verify_status, 
       keywords, shipping_fee, detail
       )
@@ -145,7 +145,7 @@
       #{onlineStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, #{storageId,jdbcType=INTEGER}, 
       #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, #{areaUserId,jdbcType=INTEGER}, 
-      #{fromId,jdbcType=VARCHAR}, #{feightTemplateId,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR}, 
+      #{fromId,jdbcType=VARCHAR}, #{freightTemplateId,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR}, 
       #{newStatus,jdbcType=INTEGER}, #{recommandStatus,jdbcType=INTEGER}, #{verifyStatus,jdbcType=INTEGER}, 
       #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{detail,jdbcType=LONGVARCHAR}
       )
@@ -195,8 +195,8 @@
       <if test="fromId != null">
         from_id,
       </if>
-      <if test="feightTemplateId != null">
-        feight_template_id,
+      <if test="freightTemplateId != null">
+        freight_template_id,
       </if>
       <if test="pic != null">
         pic,
@@ -260,8 +260,8 @@
       <if test="fromId != null">
         #{fromId,jdbcType=VARCHAR},
       </if>
-      <if test="feightTemplateId != null">
-        #{feightTemplateId,jdbcType=BIGINT},
+      <if test="freightTemplateId != null">
+        #{freightTemplateId,jdbcType=BIGINT},
       </if>
       <if test="pic != null">
         #{pic,jdbcType=VARCHAR},
@@ -337,8 +337,8 @@
       <if test="record.fromId != null">
         from_id = #{record.fromId,jdbcType=VARCHAR},
       </if>
-      <if test="record.feightTemplateId != null">
-        feight_template_id = #{record.feightTemplateId,jdbcType=BIGINT},
+      <if test="record.freightTemplateId != null">
+        freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       </if>
       <if test="record.pic != null">
         pic = #{record.pic,jdbcType=VARCHAR},
@@ -382,7 +382,7 @@
       shop_no = #{record.shopNo,jdbcType=VARCHAR},
       area_user_id = #{record.areaUserId,jdbcType=INTEGER},
       from_id = #{record.fromId,jdbcType=VARCHAR},
-      feight_template_id = #{record.feightTemplateId,jdbcType=BIGINT},
+      freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       pic = #{record.pic,jdbcType=VARCHAR},
       new_status = #{record.newStatus,jdbcType=INTEGER},
       recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
@@ -410,7 +410,7 @@
       shop_no = #{record.shopNo,jdbcType=VARCHAR},
       area_user_id = #{record.areaUserId,jdbcType=INTEGER},
       from_id = #{record.fromId,jdbcType=VARCHAR},
-      feight_template_id = #{record.feightTemplateId,jdbcType=BIGINT},
+      freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       pic = #{record.pic,jdbcType=VARCHAR},
       new_status = #{record.newStatus,jdbcType=INTEGER},
       recommand_status = #{record.recommandStatus,jdbcType=INTEGER},

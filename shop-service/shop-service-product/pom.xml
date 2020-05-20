@@ -68,6 +68,14 @@
             <groupId>com.sunny</groupId>
             <artifactId>shop-service-user-api</artifactId>
         </dependency>
+        <dependency>
+            <artifactId>shop-mbg-user</artifactId>
+            <groupId>com.sunny</groupId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

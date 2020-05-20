@@ -1,6 +1,5 @@
 package com.sunny.product.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "商品名称")
     private String name;
 
     /**
@@ -20,7 +18,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "商品描述")
     private String description;
 
     /**
@@ -28,7 +25,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "0付款减库存，1拍下减库存")
     private Integer storeStrategy;
 
     /**
@@ -36,7 +32,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "0下架1上架")
     private Byte onlineStatus;
 
     /**
@@ -44,7 +39,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "0正常1删除")
     private Byte status;
 
     private Date createTime;
@@ -56,7 +50,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户ID")
     private Integer userId;
 
     /**
@@ -64,7 +57,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "仓库ID")
     private Integer storageId;
 
     /**
@@ -72,7 +64,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "分销池，0为正常商品，1为分销商品")
     private Byte inPool;
 
     /**
@@ -80,7 +71,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "店铺编号")
     private String shopNo;
 
     /**
@@ -88,7 +78,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "区域ID")
     private Integer areaUserId;
 
     /**
@@ -96,7 +85,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "来自于分销中心商品")
     private String fromId;
 
     /**
@@ -104,9 +92,13 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "运费模板ID")
-    private Long feightTemplateId;
+    private Long freightTemplateId;
 
+    /**
+     * 主图
+     *
+     * @mbg.generated
+     */
     private String pic;
 
     /**
@@ -114,7 +106,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "新品状态:0->不是新品；1->新品")
     private Integer newStatus;
 
     /**
@@ -122,7 +113,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "推荐状态；0->不推荐；1->推荐")
     private Integer recommandStatus;
 
     /**
@@ -130,7 +120,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "审核状态：0->未审核；1->审核通过")
     private Integer verifyStatus;
 
     /**
@@ -138,7 +127,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "搜索关键字")
     private String keywords;
 
     /**
@@ -146,7 +134,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "统一运费")
     private Long shippingFee;
 
     /**
@@ -154,7 +141,6 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "商品详情")
     private String detail;
 
     private static final long serialVersionUID = 1L;
@@ -271,12 +257,12 @@ public class Product implements Serializable {
         this.fromId = fromId;
     }
 
-    public Long getFeightTemplateId() {
-        return feightTemplateId;
+    public Long getFreightTemplateId() {
+        return freightTemplateId;
     }
 
-    public void setFeightTemplateId(Long feightTemplateId) {
-        this.feightTemplateId = feightTemplateId;
+    public void setFreightTemplateId(Long freightTemplateId) {
+        this.freightTemplateId = freightTemplateId;
     }
 
     public String getPic() {
@@ -355,7 +341,7 @@ public class Product implements Serializable {
         sb.append(", shopNo=").append(shopNo);
         sb.append(", areaUserId=").append(areaUserId);
         sb.append(", fromId=").append(fromId);
-        sb.append(", feightTemplateId=").append(feightTemplateId);
+        sb.append(", freightTemplateId=").append(freightTemplateId);
         sb.append(", pic=").append(pic);
         sb.append(", newStatus=").append(newStatus);
         sb.append(", recommandStatus=").append(recommandStatus);

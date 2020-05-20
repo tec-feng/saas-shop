@@ -1,15 +1,14 @@
 package com.sunny.shop.controller;
 
 import com.sunny.base.ApiCode;
-import com.sunny.base.ApiException;
 import com.sunny.base.ReturnResult;
+import com.sunny.base.ValidatorTips;
 import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.SecurityUserDetails;
 import com.sunny.security.util.JwtTokenUtil;
-import com.sunny.user.action.UserAction;
+import com.sunny.shop.action.UserAction;
 import com.sunny.user.model.UserExample;
-import com.sunny.user.service.UserService;
-import org.apache.commons.lang.StringUtils;
+import com.sunny.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,10 +16,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.sunny.user.model.User;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 /**
  *
@@ -46,7 +48,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ReturnResult login(String userName,String password){
+    public ReturnResult login( String userName, String password){
         User user = userAction.getByUserName(userName);
         if(!passwordEncoder.matches(password,user.getPassword())){
             return ReturnResult.fail(ApiCode.PASSWORD_ERROR);
@@ -101,10 +103,5 @@ public class UserController {
         }else{
             return details.toString();
         }
-    }
-
-    @GetMapping("/list1")
-    public Object list1(){
-        return userService.getOtherMethod();
     }
 }

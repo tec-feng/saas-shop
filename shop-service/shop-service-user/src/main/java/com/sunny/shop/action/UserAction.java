@@ -1,12 +1,12 @@
-package com.sunny.user.action;
+package com.sunny.shop.action;
 
 import com.sunny.base.*;
 import com.sunny.tools.UUIDUtils;
 import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.User;
 import com.sunny.user.model.UserExample;
+import com.sunny.shop.service.UserService;
 import com.sunny.user.model.UserType;
-import com.sunny.user.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,10 +14,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+
 /**
-* @author tec_feng
-* @create 2020-04-27 12:45
-*/
+ * @author tec_feng
+ * @create 2020-04-27 12:45
+ */
 @Component
 public class UserAction extends BaseAction<User,UserExample>{
     @Autowired
@@ -57,3 +58,4 @@ public class UserAction extends BaseAction<User,UserExample>{
         return ReturnResult.success();
     }
 }
+

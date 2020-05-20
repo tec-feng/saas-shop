@@ -3,9 +3,8 @@ package com.sunny.shop.rpc;
 import com.sunny.base.ApiCode;
 import com.sunny.base.ReturnResult;
 import com.sunny.shop.service.user.api.UserFeignApi;
-import com.sunny.user.action.UserAction;
+import com.sunny.shop.action.UserAction;
 import com.sunny.user.model.User;
-import com.sunny.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

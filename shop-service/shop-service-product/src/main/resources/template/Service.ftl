@@ -1,4 +1,4 @@
-package com.sunny.${model}.service;
+package com.sunny.shop.service;
 
 import com.sunny.base.BaseMapper;
 import com.sunny.base.BaseService;

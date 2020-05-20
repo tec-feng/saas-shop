@@ -1,6 +1,5 @@
 package com.sunny.product.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -14,7 +13,6 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "状态，0正常，1删除")
     private Byte status;
 
     /**
@@ -22,7 +20,6 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
     /**
@@ -30,7 +27,6 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 
     /**
@@ -38,7 +34,6 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "排序")
     private Integer sort;
 
     /**
@@ -46,7 +41,6 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "产品分类ID")
     private Integer propertyId;
 
     /**
@@ -54,7 +48,6 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "图片")
     private String icon;
 
     private static final long serialVersionUID = 1L;

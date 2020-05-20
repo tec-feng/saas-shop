@@ -25,10 +25,6 @@ public class GeneratorCustomCode {
         System.out.println("自动创建开始...");
         autoGeneratorCode(model,className,"mapper","Mapper");
         System.out.println("创建Mapper成功...");
-        autoGeneratorCode(model,className,"service","Service");
-        System.out.println("创建Service成功...");
-        autoGeneratorCode(model,className,"action","Action");
-        System.out.println("创建Action成功...");
         System.out.println("自动创建结束...");
     }
 
