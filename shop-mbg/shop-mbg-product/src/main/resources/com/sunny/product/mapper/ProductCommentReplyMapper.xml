@@ -3,12 +3,12 @@
 <mapper namespace="com.sunny.product.mapper.ProductCommentReplyMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.ProductCommentReply">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="comment_id" jdbcType="INTEGER" property="commentId" />
-    <result column="reply_id" jdbcType="INTEGER" property="replyId" />
-    <result column="reply_root_id" jdbcType="INTEGER" property="replyRootId" />
+    <result column="comment_id" jdbcType="VARCHAR" property="commentId" />
+    <result column="reply_id" jdbcType="VARCHAR" property="replyId" />
+    <result column="reply_root_id" jdbcType="VARCHAR" property="replyRootId" />
     <result column="reply_head" jdbcType="VARCHAR" property="replyHead" />
     <result column="reply_nick" jdbcType="VARCHAR" property="replyNick" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_nick" jdbcType="VARCHAR" property="userNick" />
     <result column="user_head" jdbcType="VARCHAR" property="userHead" />
     <result column="content" jdbcType="VARCHAR" property="content" />
@@ -123,8 +123,8 @@
       official, anonymous, hide, 
       agree_number, status, create_time, 
       update_time)
-    values (#{commentId,jdbcType=INTEGER}, #{replyId,jdbcType=INTEGER}, #{replyRootId,jdbcType=INTEGER}, 
-      #{replyHead,jdbcType=VARCHAR}, #{replyNick,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+    values (#{commentId,jdbcType=VARCHAR}, #{replyId,jdbcType=VARCHAR}, #{replyRootId,jdbcType=VARCHAR}, 
+      #{replyHead,jdbcType=VARCHAR}, #{replyNick,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
       #{userNick,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
       #{official,jdbcType=TINYINT}, #{anonymous,jdbcType=TINYINT}, #{hide,jdbcType=TINYINT}, 
       #{agreeNumber,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
@@ -187,13 +187,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="commentId != null">
-        #{commentId,jdbcType=INTEGER},
+        #{commentId,jdbcType=VARCHAR},
       </if>
       <if test="replyId != null">
-        #{replyId,jdbcType=INTEGER},
+        #{replyId,jdbcType=VARCHAR},
       </if>
       <if test="replyRootId != null">
-        #{replyRootId,jdbcType=INTEGER},
+        #{replyRootId,jdbcType=VARCHAR},
       </if>
       <if test="replyHead != null">
         #{replyHead,jdbcType=VARCHAR},
@@ -202,7 +202,7 @@
         #{replyNick,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="userNick != null">
         #{userNick,jdbcType=VARCHAR},
@@ -249,13 +249,13 @@
         id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.commentId != null">
-        comment_id = #{record.commentId,jdbcType=INTEGER},
+        comment_id = #{record.commentId,jdbcType=VARCHAR},
       </if>
       <if test="record.replyId != null">
-        reply_id = #{record.replyId,jdbcType=INTEGER},
+        reply_id = #{record.replyId,jdbcType=VARCHAR},
       </if>
       <if test="record.replyRootId != null">
-        reply_root_id = #{record.replyRootId,jdbcType=INTEGER},
+        reply_root_id = #{record.replyRootId,jdbcType=VARCHAR},
       </if>
       <if test="record.replyHead != null">
         reply_head = #{record.replyHead,jdbcType=VARCHAR},
@@ -264,7 +264,7 @@
         reply_nick = #{record.replyNick,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
       <if test="record.userNick != null">
         user_nick = #{record.userNick,jdbcType=VARCHAR},
@@ -304,12 +304,12 @@
   <update id="updateByExample" parameterType="map">
     update p_product_comment_reply
     set id = #{record.id,jdbcType=VARCHAR},
-      comment_id = #{record.commentId,jdbcType=INTEGER},
-      reply_id = #{record.replyId,jdbcType=INTEGER},
-      reply_root_id = #{record.replyRootId,jdbcType=INTEGER},
+      comment_id = #{record.commentId,jdbcType=VARCHAR},
+      reply_id = #{record.replyId,jdbcType=VARCHAR},
+      reply_root_id = #{record.replyRootId,jdbcType=VARCHAR},
       reply_head = #{record.replyHead,jdbcType=VARCHAR},
       reply_nick = #{record.replyNick,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
       user_nick = #{record.userNick,jdbcType=VARCHAR},
       user_head = #{record.userHead,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
@@ -328,13 +328,13 @@
     update p_product_comment_reply
     <set>
       <if test="commentId != null">
-        comment_id = #{commentId,jdbcType=INTEGER},
+        comment_id = #{commentId,jdbcType=VARCHAR},
       </if>
       <if test="replyId != null">
-        reply_id = #{replyId,jdbcType=INTEGER},
+        reply_id = #{replyId,jdbcType=VARCHAR},
       </if>
       <if test="replyRootId != null">
-        reply_root_id = #{replyRootId,jdbcType=INTEGER},
+        reply_root_id = #{replyRootId,jdbcType=VARCHAR},
       </if>
       <if test="replyHead != null">
         reply_head = #{replyHead,jdbcType=VARCHAR},
@@ -343,7 +343,7 @@
         reply_nick = #{replyNick,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="userNick != null">
         user_nick = #{userNick,jdbcType=VARCHAR},
@@ -380,12 +380,12 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.ProductCommentReply">
     update p_product_comment_reply
-    set comment_id = #{commentId,jdbcType=INTEGER},
-      reply_id = #{replyId,jdbcType=INTEGER},
-      reply_root_id = #{replyRootId,jdbcType=INTEGER},
+    set comment_id = #{commentId,jdbcType=VARCHAR},
+      reply_id = #{replyId,jdbcType=VARCHAR},
+      reply_root_id = #{replyRootId,jdbcType=VARCHAR},
       reply_head = #{replyHead,jdbcType=VARCHAR},
       reply_nick = #{replyNick,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
       user_nick = #{userNick,jdbcType=VARCHAR},
       user_head = #{userHead,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},

@@ -23,7 +23,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="area_user_id" jdbcType="INTEGER" property="areaUserId" />
+    <result column="area_user_id" jdbcType="VARCHAR" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -136,7 +136,7 @@
       #{boundPhone,jdbcType=TINYINT}, #{boundWechat,jdbcType=TINYINT}, #{brief,jdbcType=VARCHAR}, 
       #{realName,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{areaUserId,jdbcType=INTEGER}
+      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{areaUserId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.user.model.User">
@@ -271,7 +271,7 @@
         #{city,jdbcType=VARCHAR},
       </if>
       <if test="areaUserId != null">
-        #{areaUserId,jdbcType=INTEGER},
+        #{areaUserId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -348,7 +348,7 @@
         city = #{record.city,jdbcType=VARCHAR},
       </if>
       <if test="record.areaUserId != null">
-        area_user_id = #{record.areaUserId,jdbcType=INTEGER},
+        area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -378,7 +378,7 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       gender = #{record.gender,jdbcType=INTEGER},
       city = #{record.city,jdbcType=VARCHAR},
-      area_user_id = #{record.areaUserId,jdbcType=INTEGER}
+      area_user_id = #{record.areaUserId,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -447,7 +447,7 @@
         city = #{city,jdbcType=VARCHAR},
       </if>
       <if test="areaUserId != null">
-        area_user_id = #{areaUserId,jdbcType=INTEGER},
+        area_user_id = #{areaUserId,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -474,7 +474,7 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       gender = #{gender,jdbcType=INTEGER},
       city = #{city,jdbcType=VARCHAR},
-      area_user_id = #{areaUserId,jdbcType=INTEGER}
+      area_user_id = #{areaUserId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

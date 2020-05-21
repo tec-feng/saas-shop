@@ -3,7 +3,7 @@ package com.sunny.product.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ProductCategory implements Serializable {
+public class ProductNavCategory implements Serializable {
     private String id;
 
     /**

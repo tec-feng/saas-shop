@@ -11,21 +11,21 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer commentId;
+    private String commentId;
 
     /**
      * 回复ID，默认为0
      *
      * @mbg.generated
      */
-    private Integer replyId;
+    private String replyId;
 
     /**
      * 主回复ID
      *
      * @mbg.generated
      */
-    private Integer replyRootId;
+    private String replyRootId;
 
     /**
      * 被回复人头像
@@ -46,7 +46,7 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer userId;
+    private String userId;
 
     /**
      * 用户昵称
@@ -118,27 +118,27 @@ public class ProductCommentReply implements Serializable {
         this.id = id;
     }
 
-    public Integer getCommentId() {
+    public String getCommentId() {
         return commentId;
     }
 
-    public void setCommentId(Integer commentId) {
+    public void setCommentId(String commentId) {
         this.commentId = commentId;
     }
 
-    public Integer getReplyId() {
+    public String getReplyId() {
         return replyId;
     }
 
-    public void setReplyId(Integer replyId) {
+    public void setReplyId(String replyId) {
         this.replyId = replyId;
     }
 
-    public Integer getReplyRootId() {
+    public String getReplyRootId() {
         return replyRootId;
     }
 
-    public void setReplyRootId(Integer replyRootId) {
+    public void setReplyRootId(String replyRootId) {
         this.replyRootId = replyRootId;
     }
 
@@ -158,11 +158,11 @@ public class ProductCommentReply implements Serializable {
         this.replyNick = replyNick;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

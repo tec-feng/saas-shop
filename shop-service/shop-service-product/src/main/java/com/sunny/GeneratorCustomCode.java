@@ -17,7 +17,7 @@ public class GeneratorCustomCode {
     private static String separator = System.getProperty("file.separator");
     public static void main(String[] args) {
         //类名称
-        String userName = "Sku";
+        String userName = "ProductNavCategory";
         autoGeneratorCode(userName);
     }
     private static void autoGeneratorCode(String className){

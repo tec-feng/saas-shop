@@ -6,14 +6,14 @@ import java.util.Date;
 public class ProductComment implements Serializable {
     private String id;
 
-    private Integer productId;
+    private String productId;
 
     /**
      * 所购买的sku的id
      *
      * @mbg.generated
      */
-    private Integer skuId;
+    private String skuId;
 
     /**
      * SKU的property_value
@@ -27,7 +27,7 @@ public class ProductComment implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer userId;
+    private String userId;
 
     /**
      * 发表者昵称
@@ -126,19 +126,19 @@ public class ProductComment implements Serializable {
         this.id = id;
     }
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
-    public Integer getSkuId() {
+    public String getSkuId() {
         return skuId;
     }
 
-    public void setSkuId(Integer skuId) {
+    public void setSkuId(String skuId) {
         this.skuId = skuId;
     }
 
@@ -150,11 +150,11 @@ public class ProductComment implements Serializable {
         this.propertyValue = propertyValue;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

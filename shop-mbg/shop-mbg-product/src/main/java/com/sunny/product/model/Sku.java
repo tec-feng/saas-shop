@@ -11,7 +11,7 @@ public class Sku implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer productId;
+    private String productId;
 
     /**
      * 限购,0为不限制
@@ -128,11 +128,11 @@ public class Sku implements Serializable {
         this.id = id;
     }
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 

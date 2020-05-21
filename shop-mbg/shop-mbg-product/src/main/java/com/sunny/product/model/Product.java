@@ -50,14 +50,14 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer userId;
+    private String userId;
 
     /**
      * 仓库ID
      *
      * @mbg.generated
      */
-    private Integer storageId;
+    private String storageId;
 
     /**
      * 分销池，0为正常商品，1为分销商品
@@ -78,7 +78,7 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer areaUserId;
+    private String areaUserId;
 
     /**
      * 来自于分销中心商品
@@ -92,7 +92,7 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private Long freightTemplateId;
+    private String freightTemplateId;
 
     /**
      * 主图
@@ -135,6 +135,13 @@ public class Product implements Serializable {
      * @mbg.generated
      */
     private Long shippingFee;
+
+    /**
+     * 分类ID
+     *
+     * @mbg.generated
+     */
+    private String categoryId;
 
     /**
      * 商品详情
@@ -209,19 +216,19 @@ public class Product implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Integer getStorageId() {
+    public String getStorageId() {
         return storageId;
     }
 
-    public void setStorageId(Integer storageId) {
+    public void setStorageId(String storageId) {
         this.storageId = storageId;
     }
 
@@ -241,11 +248,11 @@ public class Product implements Serializable {
         this.shopNo = shopNo;
     }
 
-    public Integer getAreaUserId() {
+    public String getAreaUserId() {
         return areaUserId;
     }
 
-    public void setAreaUserId(Integer areaUserId) {
+    public void setAreaUserId(String areaUserId) {
         this.areaUserId = areaUserId;
     }
 
@@ -257,11 +264,11 @@ public class Product implements Serializable {
         this.fromId = fromId;
     }
 
-    public Long getFreightTemplateId() {
+    public String getFreightTemplateId() {
         return freightTemplateId;
     }
 
-    public void setFreightTemplateId(Long freightTemplateId) {
+    public void setFreightTemplateId(String freightTemplateId) {
         this.freightTemplateId = freightTemplateId;
     }
 
@@ -313,6 +320,14 @@ public class Product implements Serializable {
         this.shippingFee = shippingFee;
     }
 
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
     public String getDetail() {
         return detail;
     }
@@ -348,6 +363,7 @@ public class Product implements Serializable {
         sb.append(", verifyStatus=").append(verifyStatus);
         sb.append(", keywords=").append(keywords);
         sb.append(", shippingFee=").append(shippingFee);
+        sb.append(", categoryId=").append(categoryId);
         sb.append(", detail=").append(detail);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

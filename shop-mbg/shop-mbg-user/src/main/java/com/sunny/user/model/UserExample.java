@@ -535,52 +535,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenEqualTo(Byte value) {
+        public Criteria andHasForbiddenEqualTo(Boolean value) {
             addCriterion("has_forbidden =", value, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenNotEqualTo(Byte value) {
+        public Criteria andHasForbiddenNotEqualTo(Boolean value) {
             addCriterion("has_forbidden <>", value, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenGreaterThan(Byte value) {
+        public Criteria andHasForbiddenGreaterThan(Boolean value) {
             addCriterion("has_forbidden >", value, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenGreaterThanOrEqualTo(Byte value) {
+        public Criteria andHasForbiddenGreaterThanOrEqualTo(Boolean value) {
             addCriterion("has_forbidden >=", value, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenLessThan(Byte value) {
+        public Criteria andHasForbiddenLessThan(Boolean value) {
             addCriterion("has_forbidden <", value, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenLessThanOrEqualTo(Byte value) {
+        public Criteria andHasForbiddenLessThanOrEqualTo(Boolean value) {
             addCriterion("has_forbidden <=", value, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenIn(List<Byte> values) {
+        public Criteria andHasForbiddenIn(List<Boolean> values) {
             addCriterion("has_forbidden in", values, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenNotIn(List<Byte> values) {
+        public Criteria andHasForbiddenNotIn(List<Boolean> values) {
             addCriterion("has_forbidden not in", values, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenBetween(Byte value1, Byte value2) {
+        public Criteria andHasForbiddenBetween(Boolean value1, Boolean value2) {
             addCriterion("has_forbidden between", value1, value2, "hasForbidden");
             return (Criteria) this;
         }
 
-        public Criteria andHasForbiddenNotBetween(Byte value1, Byte value2) {
+        public Criteria andHasForbiddenNotBetween(Boolean value1, Boolean value2) {
             addCriterion("has_forbidden not between", value1, value2, "hasForbidden");
             return (Criteria) this;
         }
@@ -735,52 +735,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailEqualTo(Byte value) {
+        public Criteria andBoundEmailEqualTo(Boolean value) {
             addCriterion("bound_email =", value, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailNotEqualTo(Byte value) {
+        public Criteria andBoundEmailNotEqualTo(Boolean value) {
             addCriterion("bound_email <>", value, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailGreaterThan(Byte value) {
+        public Criteria andBoundEmailGreaterThan(Boolean value) {
             addCriterion("bound_email >", value, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailGreaterThanOrEqualTo(Byte value) {
+        public Criteria andBoundEmailGreaterThanOrEqualTo(Boolean value) {
             addCriterion("bound_email >=", value, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailLessThan(Byte value) {
+        public Criteria andBoundEmailLessThan(Boolean value) {
             addCriterion("bound_email <", value, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailLessThanOrEqualTo(Byte value) {
+        public Criteria andBoundEmailLessThanOrEqualTo(Boolean value) {
             addCriterion("bound_email <=", value, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailIn(List<Byte> values) {
+        public Criteria andBoundEmailIn(List<Boolean> values) {
             addCriterion("bound_email in", values, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailNotIn(List<Byte> values) {
+        public Criteria andBoundEmailNotIn(List<Boolean> values) {
             addCriterion("bound_email not in", values, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailBetween(Byte value1, Byte value2) {
+        public Criteria andBoundEmailBetween(Boolean value1, Boolean value2) {
             addCriterion("bound_email between", value1, value2, "boundEmail");
             return (Criteria) this;
         }
 
-        public Criteria andBoundEmailNotBetween(Byte value1, Byte value2) {
+        public Criteria andBoundEmailNotBetween(Boolean value1, Boolean value2) {
             addCriterion("bound_email not between", value1, value2, "boundEmail");
             return (Criteria) this;
         }
@@ -795,52 +795,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneEqualTo(Byte value) {
+        public Criteria andBoundPhoneEqualTo(Boolean value) {
             addCriterion("bound_phone =", value, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneNotEqualTo(Byte value) {
+        public Criteria andBoundPhoneNotEqualTo(Boolean value) {
             addCriterion("bound_phone <>", value, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneGreaterThan(Byte value) {
+        public Criteria andBoundPhoneGreaterThan(Boolean value) {
             addCriterion("bound_phone >", value, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneGreaterThanOrEqualTo(Byte value) {
+        public Criteria andBoundPhoneGreaterThanOrEqualTo(Boolean value) {
             addCriterion("bound_phone >=", value, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneLessThan(Byte value) {
+        public Criteria andBoundPhoneLessThan(Boolean value) {
             addCriterion("bound_phone <", value, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneLessThanOrEqualTo(Byte value) {
+        public Criteria andBoundPhoneLessThanOrEqualTo(Boolean value) {
             addCriterion("bound_phone <=", value, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneIn(List<Byte> values) {
+        public Criteria andBoundPhoneIn(List<Boolean> values) {
             addCriterion("bound_phone in", values, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneNotIn(List<Byte> values) {
+        public Criteria andBoundPhoneNotIn(List<Boolean> values) {
             addCriterion("bound_phone not in", values, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneBetween(Byte value1, Byte value2) {
+        public Criteria andBoundPhoneBetween(Boolean value1, Boolean value2) {
             addCriterion("bound_phone between", value1, value2, "boundPhone");
             return (Criteria) this;
         }
 
-        public Criteria andBoundPhoneNotBetween(Byte value1, Byte value2) {
+        public Criteria andBoundPhoneNotBetween(Boolean value1, Boolean value2) {
             addCriterion("bound_phone not between", value1, value2, "boundPhone");
             return (Criteria) this;
         }
@@ -855,52 +855,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatEqualTo(Byte value) {
+        public Criteria andBoundWechatEqualTo(Boolean value) {
             addCriterion("bound_wechat =", value, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatNotEqualTo(Byte value) {
+        public Criteria andBoundWechatNotEqualTo(Boolean value) {
             addCriterion("bound_wechat <>", value, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatGreaterThan(Byte value) {
+        public Criteria andBoundWechatGreaterThan(Boolean value) {
             addCriterion("bound_wechat >", value, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatGreaterThanOrEqualTo(Byte value) {
+        public Criteria andBoundWechatGreaterThanOrEqualTo(Boolean value) {
             addCriterion("bound_wechat >=", value, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatLessThan(Byte value) {
+        public Criteria andBoundWechatLessThan(Boolean value) {
             addCriterion("bound_wechat <", value, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatLessThanOrEqualTo(Byte value) {
+        public Criteria andBoundWechatLessThanOrEqualTo(Boolean value) {
             addCriterion("bound_wechat <=", value, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatIn(List<Byte> values) {
+        public Criteria andBoundWechatIn(List<Boolean> values) {
             addCriterion("bound_wechat in", values, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatNotIn(List<Byte> values) {
+        public Criteria andBoundWechatNotIn(List<Boolean> values) {
             addCriterion("bound_wechat not in", values, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatBetween(Byte value1, Byte value2) {
+        public Criteria andBoundWechatBetween(Boolean value1, Boolean value2) {
             addCriterion("bound_wechat between", value1, value2, "boundWechat");
             return (Criteria) this;
         }
 
-        public Criteria andBoundWechatNotBetween(Byte value1, Byte value2) {
+        public Criteria andBoundWechatNotBetween(Boolean value1, Boolean value2) {
             addCriterion("bound_wechat not between", value1, value2, "boundWechat");
             return (Criteria) this;
         }
@@ -1195,52 +1195,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Byte value) {
+        public Criteria andStatusEqualTo(Boolean value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Byte value) {
+        public Criteria andStatusNotEqualTo(Boolean value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Byte value) {
+        public Criteria andStatusGreaterThan(Boolean value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Boolean value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Byte value) {
+        public Criteria andStatusLessThan(Boolean value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Byte value) {
+        public Criteria andStatusLessThanOrEqualTo(Boolean value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Byte> values) {
+        public Criteria andStatusIn(List<Boolean> values) {
             addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Byte> values) {
+        public Criteria andStatusNotIn(List<Boolean> values) {
             addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Byte value1, Byte value2) {
+        public Criteria andStatusBetween(Boolean value1, Boolean value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
+        public Criteria andStatusNotBetween(Boolean value1, Boolean value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
@@ -1505,52 +1505,62 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdEqualTo(Integer value) {
+        public Criteria andAreaUserIdEqualTo(String value) {
             addCriterion("area_user_id =", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotEqualTo(Integer value) {
+        public Criteria andAreaUserIdNotEqualTo(String value) {
             addCriterion("area_user_id <>", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdGreaterThan(Integer value) {
+        public Criteria andAreaUserIdGreaterThan(String value) {
             addCriterion("area_user_id >", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAreaUserIdGreaterThanOrEqualTo(String value) {
             addCriterion("area_user_id >=", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLessThan(Integer value) {
+        public Criteria andAreaUserIdLessThan(String value) {
             addCriterion("area_user_id <", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andAreaUserIdLessThanOrEqualTo(String value) {
             addCriterion("area_user_id <=", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdIn(List<Integer> values) {
+        public Criteria andAreaUserIdLike(String value) {
+            addCriterion("area_user_id like", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotLike(String value) {
+            addCriterion("area_user_id not like", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIn(List<String> values) {
             addCriterion("area_user_id in", values, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotIn(List<Integer> values) {
+        public Criteria andAreaUserIdNotIn(List<String> values) {
             addCriterion("area_user_id not in", values, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andAreaUserIdBetween(String value1, String value2) {
             addCriterion("area_user_id between", value1, value2, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andAreaUserIdNotBetween(String value1, String value2) {
             addCriterion("area_user_id not between", value1, value2, "areaUserId");
             return (Criteria) this;
         }

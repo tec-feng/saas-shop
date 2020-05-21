@@ -10,19 +10,20 @@
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="storage_id" jdbcType="INTEGER" property="storageId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="storage_id" jdbcType="VARCHAR" property="storageId" />
     <result column="in_pool" jdbcType="TINYINT" property="inPool" />
     <result column="shop_no" jdbcType="VARCHAR" property="shopNo" />
-    <result column="area_user_id" jdbcType="INTEGER" property="areaUserId" />
+    <result column="area_user_id" jdbcType="VARCHAR" property="areaUserId" />
     <result column="from_id" jdbcType="VARCHAR" property="fromId" />
-    <result column="freight_template_id" jdbcType="BIGINT" property="freightTemplateId" />
+    <result column="freight_template_id" jdbcType="VARCHAR" property="freightTemplateId" />
     <result column="pic" jdbcType="VARCHAR" property="pic" />
     <result column="new_status" jdbcType="INTEGER" property="newStatus" />
     <result column="recommand_status" jdbcType="INTEGER" property="recommandStatus" />
     <result column="verify_status" jdbcType="INTEGER" property="verifyStatus" />
     <result column="keywords" jdbcType="VARCHAR" property="keywords" />
     <result column="shipping_fee" jdbcType="DECIMAL" property="shippingFee" />
+    <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sunny.product.model.Product">
     <result column="detail" jdbcType="LONGVARCHAR" property="detail" />
@@ -88,7 +89,7 @@
   <sql id="Base_Column_List">
     id, name, description, store_strategy, online_status, status, create_time, update_time, 
     user_id, storage_id, in_pool, shop_no, area_user_id, from_id, freight_template_id, 
-    pic, new_status, recommand_status, verify_status, keywords, shipping_fee
+    pic, new_status, recommand_status, verify_status, keywords, shipping_fee, category_id
   </sql>
   <sql id="Blob_Column_List">
     detail
@@ -139,16 +140,16 @@
       in_pool, shop_no, area_user_id, 
       from_id, freight_template_id, pic, 
       new_status, recommand_status, verify_status, 
-      keywords, shipping_fee, detail
-      )
+      keywords, shipping_fee, category_id, 
+      detail)
     values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{storeStrategy,jdbcType=INTEGER}, 
       #{onlineStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, #{storageId,jdbcType=INTEGER}, 
-      #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, #{areaUserId,jdbcType=INTEGER}, 
-      #{fromId,jdbcType=VARCHAR}, #{freightTemplateId,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=VARCHAR}, #{storageId,jdbcType=VARCHAR}, 
+      #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, #{areaUserId,jdbcType=VARCHAR}, 
+      #{fromId,jdbcType=VARCHAR}, #{freightTemplateId,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
       #{newStatus,jdbcType=INTEGER}, #{recommandStatus,jdbcType=INTEGER}, #{verifyStatus,jdbcType=INTEGER}, 
-      #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{detail,jdbcType=LONGVARCHAR}
-      )
+      #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{categoryId,jdbcType=VARCHAR}, 
+      #{detail,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.Product">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
@@ -216,6 +217,9 @@
       <if test="shippingFee != null">
         shipping_fee,
       </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
       <if test="detail != null">
         detail,
       </if>
@@ -243,10 +247,10 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="storageId != null">
-        #{storageId,jdbcType=INTEGER},
+        #{storageId,jdbcType=VARCHAR},
       </if>
       <if test="inPool != null">
         #{inPool,jdbcType=TINYINT},
@@ -255,13 +259,13 @@
         #{shopNo,jdbcType=VARCHAR},
       </if>
       <if test="areaUserId != null">
-        #{areaUserId,jdbcType=INTEGER},
+        #{areaUserId,jdbcType=VARCHAR},
       </if>
       <if test="fromId != null">
         #{fromId,jdbcType=VARCHAR},
       </if>
       <if test="freightTemplateId != null">
-        #{freightTemplateId,jdbcType=BIGINT},
+        #{freightTemplateId,jdbcType=VARCHAR},
       </if>
       <if test="pic != null">
         #{pic,jdbcType=VARCHAR},
@@ -280,6 +284,9 @@
       </if>
       <if test="shippingFee != null">
         #{shippingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=VARCHAR},
       </if>
       <if test="detail != null">
         #{detail,jdbcType=LONGVARCHAR},
@@ -320,10 +327,10 @@
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
       <if test="record.storageId != null">
-        storage_id = #{record.storageId,jdbcType=INTEGER},
+        storage_id = #{record.storageId,jdbcType=VARCHAR},
       </if>
       <if test="record.inPool != null">
         in_pool = #{record.inPool,jdbcType=TINYINT},
@@ -332,13 +339,13 @@
         shop_no = #{record.shopNo,jdbcType=VARCHAR},
       </if>
       <if test="record.areaUserId != null">
-        area_user_id = #{record.areaUserId,jdbcType=INTEGER},
+        area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
       </if>
       <if test="record.fromId != null">
         from_id = #{record.fromId,jdbcType=VARCHAR},
       </if>
       <if test="record.freightTemplateId != null">
-        freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
+        freight_template_id = #{record.freightTemplateId,jdbcType=VARCHAR},
       </if>
       <if test="record.pic != null">
         pic = #{record.pic,jdbcType=VARCHAR},
@@ -358,6 +365,9 @@
       <if test="record.shippingFee != null">
         shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
       </if>
+      <if test="record.categoryId != null">
+        category_id = #{record.categoryId,jdbcType=VARCHAR},
+      </if>
       <if test="record.detail != null">
         detail = #{record.detail,jdbcType=LONGVARCHAR},
       </if>
@@ -376,19 +386,20 @@
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      storage_id = #{record.storageId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      storage_id = #{record.storageId,jdbcType=VARCHAR},
       in_pool = #{record.inPool,jdbcType=TINYINT},
       shop_no = #{record.shopNo,jdbcType=VARCHAR},
-      area_user_id = #{record.areaUserId,jdbcType=INTEGER},
+      area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
       from_id = #{record.fromId,jdbcType=VARCHAR},
-      freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
+      freight_template_id = #{record.freightTemplateId,jdbcType=VARCHAR},
       pic = #{record.pic,jdbcType=VARCHAR},
       new_status = #{record.newStatus,jdbcType=INTEGER},
       recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
       verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       keywords = #{record.keywords,jdbcType=VARCHAR},
       shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
+      category_id = #{record.categoryId,jdbcType=VARCHAR},
       detail = #{record.detail,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -404,19 +415,20 @@
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      user_id = #{record.userId,jdbcType=INTEGER},
-      storage_id = #{record.storageId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      storage_id = #{record.storageId,jdbcType=VARCHAR},
       in_pool = #{record.inPool,jdbcType=TINYINT},
       shop_no = #{record.shopNo,jdbcType=VARCHAR},
-      area_user_id = #{record.areaUserId,jdbcType=INTEGER},
+      area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
       from_id = #{record.fromId,jdbcType=VARCHAR},
-      freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
+      freight_template_id = #{record.freightTemplateId,jdbcType=VARCHAR},
       pic = #{record.pic,jdbcType=VARCHAR},
       new_status = #{record.newStatus,jdbcType=INTEGER},
       recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
       verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       keywords = #{record.keywords,jdbcType=VARCHAR},
-      shipping_fee = #{record.shippingFee,jdbcType=DECIMAL}
+      shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
+      category_id = #{record.categoryId,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

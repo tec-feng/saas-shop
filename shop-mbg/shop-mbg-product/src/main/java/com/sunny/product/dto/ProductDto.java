@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 /**
@@ -39,4 +40,7 @@ public class ProductDto {
     @ApiModelProperty(value = "商品详情")
     @NotEmpty
     private String detail;
+    @ApiModelProperty(value = "主图列表")
+    private List<String> mainPic;
+
 }

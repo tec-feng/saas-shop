@@ -20,4 +20,6 @@ public class ProductAction extends BaseAction<Product,ProductExample>{
     protected BaseService<Product, ProductExample> getService() {
         return productService;
     }
+
+
 }

@@ -185,52 +185,62 @@ public class ProductCommentReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdEqualTo(Integer value) {
+        public Criteria andCommentIdEqualTo(String value) {
             addCriterion("comment_id =", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdNotEqualTo(Integer value) {
+        public Criteria andCommentIdNotEqualTo(String value) {
             addCriterion("comment_id <>", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdGreaterThan(Integer value) {
+        public Criteria andCommentIdGreaterThan(String value) {
             addCriterion("comment_id >", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCommentIdGreaterThanOrEqualTo(String value) {
             addCriterion("comment_id >=", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdLessThan(Integer value) {
+        public Criteria andCommentIdLessThan(String value) {
             addCriterion("comment_id <", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdLessThanOrEqualTo(Integer value) {
+        public Criteria andCommentIdLessThanOrEqualTo(String value) {
             addCriterion("comment_id <=", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdIn(List<Integer> values) {
+        public Criteria andCommentIdLike(String value) {
+            addCriterion("comment_id like", value, "commentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentIdNotLike(String value) {
+            addCriterion("comment_id not like", value, "commentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommentIdIn(List<String> values) {
             addCriterion("comment_id in", values, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdNotIn(List<Integer> values) {
+        public Criteria andCommentIdNotIn(List<String> values) {
             addCriterion("comment_id not in", values, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdBetween(Integer value1, Integer value2) {
+        public Criteria andCommentIdBetween(String value1, String value2) {
             addCriterion("comment_id between", value1, value2, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andCommentIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andCommentIdNotBetween(String value1, String value2) {
             addCriterion("comment_id not between", value1, value2, "commentId");
             return (Criteria) this;
         }
@@ -245,52 +255,62 @@ public class ProductCommentReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdEqualTo(Integer value) {
+        public Criteria andReplyIdEqualTo(String value) {
             addCriterion("reply_id =", value, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdNotEqualTo(Integer value) {
+        public Criteria andReplyIdNotEqualTo(String value) {
             addCriterion("reply_id <>", value, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdGreaterThan(Integer value) {
+        public Criteria andReplyIdGreaterThan(String value) {
             addCriterion("reply_id >", value, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andReplyIdGreaterThanOrEqualTo(String value) {
             addCriterion("reply_id >=", value, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdLessThan(Integer value) {
+        public Criteria andReplyIdLessThan(String value) {
             addCriterion("reply_id <", value, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdLessThanOrEqualTo(Integer value) {
+        public Criteria andReplyIdLessThanOrEqualTo(String value) {
             addCriterion("reply_id <=", value, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdIn(List<Integer> values) {
+        public Criteria andReplyIdLike(String value) {
+            addCriterion("reply_id like", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotLike(String value) {
+            addCriterion("reply_id not like", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdIn(List<String> values) {
             addCriterion("reply_id in", values, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdNotIn(List<Integer> values) {
+        public Criteria andReplyIdNotIn(List<String> values) {
             addCriterion("reply_id not in", values, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdBetween(Integer value1, Integer value2) {
+        public Criteria andReplyIdBetween(String value1, String value2) {
             addCriterion("reply_id between", value1, value2, "replyId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andReplyIdNotBetween(String value1, String value2) {
             addCriterion("reply_id not between", value1, value2, "replyId");
             return (Criteria) this;
         }
@@ -305,52 +325,62 @@ public class ProductCommentReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdEqualTo(Integer value) {
+        public Criteria andReplyRootIdEqualTo(String value) {
             addCriterion("reply_root_id =", value, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdNotEqualTo(Integer value) {
+        public Criteria andReplyRootIdNotEqualTo(String value) {
             addCriterion("reply_root_id <>", value, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdGreaterThan(Integer value) {
+        public Criteria andReplyRootIdGreaterThan(String value) {
             addCriterion("reply_root_id >", value, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andReplyRootIdGreaterThanOrEqualTo(String value) {
             addCriterion("reply_root_id >=", value, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdLessThan(Integer value) {
+        public Criteria andReplyRootIdLessThan(String value) {
             addCriterion("reply_root_id <", value, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdLessThanOrEqualTo(Integer value) {
+        public Criteria andReplyRootIdLessThanOrEqualTo(String value) {
             addCriterion("reply_root_id <=", value, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdIn(List<Integer> values) {
+        public Criteria andReplyRootIdLike(String value) {
+            addCriterion("reply_root_id like", value, "replyRootId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyRootIdNotLike(String value) {
+            addCriterion("reply_root_id not like", value, "replyRootId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyRootIdIn(List<String> values) {
             addCriterion("reply_root_id in", values, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdNotIn(List<Integer> values) {
+        public Criteria andReplyRootIdNotIn(List<String> values) {
             addCriterion("reply_root_id not in", values, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdBetween(Integer value1, Integer value2) {
+        public Criteria andReplyRootIdBetween(String value1, String value2) {
             addCriterion("reply_root_id between", value1, value2, "replyRootId");
             return (Criteria) this;
         }
 
-        public Criteria andReplyRootIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andReplyRootIdNotBetween(String value1, String value2) {
             addCriterion("reply_root_id not between", value1, value2, "replyRootId");
             return (Criteria) this;
         }
@@ -505,52 +535,62 @@ public class ProductCommentReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(Integer value) {
+        public Criteria andUserIdEqualTo(String value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(Integer value) {
+        public Criteria andUserIdNotEqualTo(String value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(Integer value) {
+        public Criteria andUserIdGreaterThan(String value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(String value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(Integer value) {
+        public Criteria andUserIdLessThan(String value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+        public Criteria andUserIdLessThanOrEqualTo(String value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdIn(List<Integer> values) {
+        public Criteria andUserIdLike(String value) {
+            addCriterion("user_id like", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdNotLike(String value) {
+            addCriterion("user_id not like", value, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserIdIn(List<String> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<Integer> values) {
+        public Criteria andUserIdNotIn(List<String> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdBetween(String value1, String value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andUserIdNotBetween(String value1, String value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }

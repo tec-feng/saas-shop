@@ -1,6 +1,5 @@
 package com.sunny.user.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户名")
     private String userName;
 
     /**
@@ -20,7 +18,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "密码")
     private String password;
 
     /**
@@ -28,7 +25,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "邮箱")
     private String email;
 
     /**
@@ -36,7 +32,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "昵称")
     private String nickname;
 
     /**
@@ -44,7 +39,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "手机号")
     private String phone;
 
     /**
@@ -52,7 +46,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否被禁用：0正常 1被禁用")
     private Boolean hasForbidden;
 
     /**
@@ -60,7 +53,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户类型")
     private String userType;
 
     /**
@@ -68,7 +60,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "头像")
     private String icon;
 
     /**
@@ -76,7 +67,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否验证邮箱0未验证1已验证")
     private Boolean boundEmail;
 
     /**
@@ -84,7 +74,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否绑定手机0未绑定1已绑定")
     private Boolean boundPhone;
 
     /**
@@ -92,7 +81,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "是否绑定微信")
     private Boolean boundWechat;
 
     /**
@@ -100,7 +88,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "简介")
     private String brief;
 
     /**
@@ -108,7 +95,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户真实姓名")
     private String realName;
 
     /**
@@ -116,7 +102,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "微信unionid")
     private String unionId;
 
     /**
@@ -124,7 +109,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "微信openid")
     private String openId;
 
     /**
@@ -132,7 +116,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "用户状态：0正常1删除")
     private Boolean status;
 
     private Date createTime;
@@ -144,7 +127,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "性别：0->未知；1->男；2->女")
     private Integer gender;
 
     /**
@@ -152,7 +134,6 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "所做城市")
     private String city;
 
     /**
@@ -160,8 +141,7 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "区域id")
-    private Integer areaUserId;
+    private String areaUserId;
 
     private static final long serialVersionUID = 1L;
 
@@ -333,11 +313,11 @@ public class User implements Serializable {
         this.city = city;
     }
 
-    public Integer getAreaUserId() {
+    public String getAreaUserId() {
         return areaUserId;
     }
 
-    public void setAreaUserId(Integer areaUserId) {
+    public void setAreaUserId(String areaUserId) {
         this.areaUserId = areaUserId;
     }
 

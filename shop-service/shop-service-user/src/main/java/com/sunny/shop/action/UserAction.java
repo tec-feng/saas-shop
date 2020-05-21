@@ -54,7 +54,7 @@ public class UserAction extends BaseAction<User,UserExample>{
         newUser.setStatus(false);
         newUser.setCreateTime(new Date());
         newUser.setUpdateTime(new Date());
-        userService.save(newUser);
+        save(newUser);
         return ReturnResult.success();
     }
 }

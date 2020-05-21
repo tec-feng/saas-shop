@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductPropertyValue implements Serializable {
-    private Integer id;
+    private String id;
 
     private String name;
 
@@ -41,7 +41,7 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    private Integer propertyId;
+    private String propertyId;
 
     /**
      * 图片
@@ -52,11 +52,11 @@ public class ProductPropertyValue implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -100,11 +100,11 @@ public class ProductPropertyValue implements Serializable {
         this.sort = sort;
     }
 
-    public Integer getPropertyId() {
+    public String getPropertyId() {
         return propertyId;
     }
 
-    public void setPropertyId(Integer propertyId) {
+    public void setPropertyId(String propertyId) {
         this.propertyId = propertyId;
     }
 

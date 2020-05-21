@@ -3,7 +3,7 @@
 <mapper namespace="com.sunny.product.mapper.SkuMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.Sku">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
     <result column="trade_max_nums" jdbcType="INTEGER" property="tradeMaxNums" />
     <result column="market_price" jdbcType="BIGINT" property="marketPrice" />
     <result column="price" jdbcType="BIGINT" property="price" />
@@ -123,7 +123,7 @@
       default_sku, sale, status, 
       create_time, update_time, sku_data, 
       sku_data_id)
-    values (#{productId,jdbcType=INTEGER}, #{tradeMaxNums,jdbcType=INTEGER}, #{marketPrice,jdbcType=BIGINT}, 
+    values (#{productId,jdbcType=VARCHAR}, #{tradeMaxNums,jdbcType=INTEGER}, #{marketPrice,jdbcType=BIGINT}, 
       #{price,jdbcType=BIGINT}, #{stock,jdbcType=INTEGER}, #{lowStock,jdbcType=INTEGER}, 
       #{barCode,jdbcType=VARCHAR}, #{standbyBarCode,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
       #{defaultSku,jdbcType=TINYINT}, #{sale,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
@@ -187,7 +187,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="productId != null">
-        #{productId,jdbcType=INTEGER},
+        #{productId,jdbcType=VARCHAR},
       </if>
       <if test="tradeMaxNums != null">
         #{tradeMaxNums,jdbcType=INTEGER},
@@ -249,7 +249,7 @@
         id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.productId != null">
-        product_id = #{record.productId,jdbcType=INTEGER},
+        product_id = #{record.productId,jdbcType=VARCHAR},
       </if>
       <if test="record.tradeMaxNums != null">
         trade_max_nums = #{record.tradeMaxNums,jdbcType=INTEGER},
@@ -304,7 +304,7 @@
   <update id="updateByExample" parameterType="map">
     update p_sku
     set id = #{record.id,jdbcType=VARCHAR},
-      product_id = #{record.productId,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=VARCHAR},
       trade_max_nums = #{record.tradeMaxNums,jdbcType=INTEGER},
       market_price = #{record.marketPrice,jdbcType=BIGINT},
       price = #{record.price,jdbcType=BIGINT},
@@ -328,7 +328,7 @@
     update p_sku
     <set>
       <if test="productId != null">
-        product_id = #{productId,jdbcType=INTEGER},
+        product_id = #{productId,jdbcType=VARCHAR},
       </if>
       <if test="tradeMaxNums != null">
         trade_max_nums = #{tradeMaxNums,jdbcType=INTEGER},
@@ -380,7 +380,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.Sku">
     update p_sku
-    set product_id = #{productId,jdbcType=INTEGER},
+    set product_id = #{productId,jdbcType=VARCHAR},
       trade_max_nums = #{tradeMaxNums,jdbcType=INTEGER},
       market_price = #{marketPrice,jdbcType=BIGINT},
       price = #{price,jdbcType=BIGINT},

@@ -3,10 +3,10 @@
 <mapper namespace="com.sunny.product.mapper.ProductCommentMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.ProductComment">
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="product_id" jdbcType="INTEGER" property="productId" />
-    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="sku_id" jdbcType="VARCHAR" property="skuId" />
     <result column="property_value" jdbcType="VARCHAR" property="propertyValue" />
-    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="user_nick" jdbcType="VARCHAR" property="userNick" />
     <result column="user_head" jdbcType="VARCHAR" property="userHead" />
     <result column="mark" jdbcType="VARCHAR" property="mark" />
@@ -151,8 +151,8 @@
       agree_number, buy_time, is_fake, 
       status, create_time, update_time, 
       content, blocks)
-    values (#{productId,jdbcType=INTEGER}, #{skuId,jdbcType=INTEGER}, #{propertyValue,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=INTEGER}, #{userNick,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, 
+    values (#{productId,jdbcType=VARCHAR}, #{skuId,jdbcType=VARCHAR}, #{propertyValue,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{userNick,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, 
       #{mark,jdbcType=VARCHAR}, #{point,jdbcType=TINYINT}, #{anonymous,jdbcType=TINYINT}, 
       #{hide,jdbcType=TINYINT}, #{images,jdbcType=VARCHAR}, #{replyNumber,jdbcType=INTEGER}, 
       #{agreeNumber,jdbcType=INTEGER}, #{buyTime,jdbcType=TIMESTAMP}, #{isFake,jdbcType=TINYINT}, 
@@ -228,16 +228,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="productId != null">
-        #{productId,jdbcType=INTEGER},
+        #{productId,jdbcType=VARCHAR},
       </if>
       <if test="skuId != null">
-        #{skuId,jdbcType=INTEGER},
+        #{skuId,jdbcType=VARCHAR},
       </if>
       <if test="propertyValue != null">
         #{propertyValue,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR},
       </if>
       <if test="userNick != null">
         #{userNick,jdbcType=VARCHAR},
@@ -302,16 +302,16 @@
         id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.productId != null">
-        product_id = #{record.productId,jdbcType=INTEGER},
+        product_id = #{record.productId,jdbcType=VARCHAR},
       </if>
       <if test="record.skuId != null">
-        sku_id = #{record.skuId,jdbcType=INTEGER},
+        sku_id = #{record.skuId,jdbcType=VARCHAR},
       </if>
       <if test="record.propertyValue != null">
         property_value = #{record.propertyValue,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=INTEGER},
+        user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
       <if test="record.userNick != null">
         user_nick = #{record.userNick,jdbcType=VARCHAR},
@@ -369,10 +369,10 @@
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update p_product_comment
     set id = #{record.id,jdbcType=VARCHAR},
-      product_id = #{record.productId,jdbcType=INTEGER},
-      sku_id = #{record.skuId,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      sku_id = #{record.skuId,jdbcType=VARCHAR},
       property_value = #{record.propertyValue,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
       user_nick = #{record.userNick,jdbcType=VARCHAR},
       user_head = #{record.userHead,jdbcType=VARCHAR},
       mark = #{record.mark,jdbcType=VARCHAR},
@@ -396,10 +396,10 @@
   <update id="updateByExample" parameterType="map">
     update p_product_comment
     set id = #{record.id,jdbcType=VARCHAR},
-      product_id = #{record.productId,jdbcType=INTEGER},
-      sku_id = #{record.skuId,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=VARCHAR},
+      sku_id = #{record.skuId,jdbcType=VARCHAR},
       property_value = #{record.propertyValue,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
       user_nick = #{record.userNick,jdbcType=VARCHAR},
       user_head = #{record.userHead,jdbcType=VARCHAR},
       mark = #{record.mark,jdbcType=VARCHAR},
@@ -422,16 +422,16 @@
     update p_product_comment
     <set>
       <if test="productId != null">
-        product_id = #{productId,jdbcType=INTEGER},
+        product_id = #{productId,jdbcType=VARCHAR},
       </if>
       <if test="skuId != null">
-        sku_id = #{skuId,jdbcType=INTEGER},
+        sku_id = #{skuId,jdbcType=VARCHAR},
       </if>
       <if test="propertyValue != null">
         property_value = #{propertyValue,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=INTEGER},
+        user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="userNick != null">
         user_nick = #{userNick,jdbcType=VARCHAR},
@@ -486,10 +486,10 @@
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sunny.product.model.ProductComment">
     update p_product_comment
-    set product_id = #{productId,jdbcType=INTEGER},
-      sku_id = #{skuId,jdbcType=INTEGER},
+    set product_id = #{productId,jdbcType=VARCHAR},
+      sku_id = #{skuId,jdbcType=VARCHAR},
       property_value = #{propertyValue,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
       user_nick = #{userNick,jdbcType=VARCHAR},
       user_head = #{userHead,jdbcType=VARCHAR},
       mark = #{mark,jdbcType=VARCHAR},
@@ -510,10 +510,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.ProductComment">
     update p_product_comment
-    set product_id = #{productId,jdbcType=INTEGER},
-      sku_id = #{skuId,jdbcType=INTEGER},
+    set product_id = #{productId,jdbcType=VARCHAR},
+      sku_id = #{skuId,jdbcType=VARCHAR},
       property_value = #{propertyValue,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
       user_nick = #{userNick,jdbcType=VARCHAR},
       user_head = #{userHead,jdbcType=VARCHAR},
       mark = #{mark,jdbcType=VARCHAR},

@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.product.mapper.ProductPropertyValueMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.ProductPropertyValue">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
-    <result column="property_id" jdbcType="INTEGER" property="propertyId" />
+    <result column="property_id" jdbcType="VARCHAR" property="propertyId" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -86,15 +86,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from p_product_property_value
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from p_product_property_value
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.sunny.product.model.ProductPropertyValueExample">
     delete from p_product_property_value
@@ -103,18 +103,18 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.product.model.ProductPropertyValue">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_product_property_value (name, status, create_time, 
       update_time, sort, property_id, 
       icon)
     values (#{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{propertyId,jdbcType=INTEGER}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{propertyId,jdbcType=VARCHAR}, 
       #{icon,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.ProductPropertyValue">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_product_property_value
@@ -158,7 +158,7 @@
         #{sort,jdbcType=INTEGER},
       </if>
       <if test="propertyId != null">
-        #{propertyId,jdbcType=INTEGER},
+        #{propertyId,jdbcType=VARCHAR},
       </if>
       <if test="icon != null">
         #{icon,jdbcType=VARCHAR},
@@ -175,7 +175,7 @@
     update p_product_property_value
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
@@ -193,7 +193,7 @@
         sort = #{record.sort,jdbcType=INTEGER},
       </if>
       <if test="record.propertyId != null">
-        property_id = #{record.propertyId,jdbcType=INTEGER},
+        property_id = #{record.propertyId,jdbcType=VARCHAR},
       </if>
       <if test="record.icon != null">
         icon = #{record.icon,jdbcType=VARCHAR},
@@ -205,13 +205,13 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update p_product_property_value
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       sort = #{record.sort,jdbcType=INTEGER},
-      property_id = #{record.propertyId,jdbcType=INTEGER},
+      property_id = #{record.propertyId,jdbcType=VARCHAR},
       icon = #{record.icon,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -236,13 +236,13 @@
         sort = #{sort,jdbcType=INTEGER},
       </if>
       <if test="propertyId != null">
-        property_id = #{propertyId,jdbcType=INTEGER},
+        property_id = #{propertyId,jdbcType=VARCHAR},
       </if>
       <if test="icon != null">
         icon = #{icon,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.ProductPropertyValue">
     update p_product_property_value
@@ -251,8 +251,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       sort = #{sort,jdbcType=INTEGER},
-      property_id = #{propertyId,jdbcType=INTEGER},
+      property_id = #{propertyId,jdbcType=VARCHAR},
       icon = #{icon,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
