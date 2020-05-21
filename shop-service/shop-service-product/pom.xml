@@ -73,6 +73,10 @@
             <groupId>com.sunny</groupId>
         </dependency>
         <dependency>
+            <groupId>com.sunny</groupId>
+            <artifactId>shop-security</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>

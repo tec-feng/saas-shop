@@ -15,7 +15,7 @@ public abstract class BaseService<T,TExample> implements IService<T,TExample> {
 	}
 
 	@Override
-	public T selectByKey(Integer id) {
+	public T selectByKey(String id) {
 		return getMapper().selectByPrimaryKey(id);
 	}
 
@@ -74,7 +74,7 @@ public abstract class BaseService<T,TExample> implements IService<T,TExample> {
 	}
 
 	@Override
-	public int deleteByKey(Integer id) {
+	public int deleteByKey(String id) {
 		return getMapper().deleteByPrimaryKey(id);
 	}
 }

@@ -2,7 +2,7 @@ package com.sunny.shop.controller;
 
 import com.sunny.base.ApiCode;
 import com.sunny.base.ReturnResult;
-import com.sunny.base.ValidatorTips;
+import com.sunny.user.dto.LoginDto;
 import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.SecurityUserDetails;
 import com.sunny.security.util.JwtTokenUtil;
@@ -16,13 +16,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.sunny.user.model.User;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 /**
  *
@@ -48,9 +45,9 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ReturnResult login( String userName, String password){
-        User user = userAction.getByUserName(userName);
-        if(!passwordEncoder.matches(password,user.getPassword())){
+    public ReturnResult login(@Valid LoginDto loginUser){
+        User user = userAction.getByUserName(loginUser.getUserName());
+        if(!passwordEncoder.matches(loginUser.getPassword(),user.getPassword())){
             return ReturnResult.fail(ApiCode.PASSWORD_ERROR);
         }
         SecurityUserDetails userDetails = new SecurityUserDetails(user);
@@ -62,7 +59,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Object delete(@PathVariable("id")Integer id){
+    public Object delete(@PathVariable("id")String id){
         int i = userAction.deleteByKey(id);
         return i;
     }
@@ -74,7 +71,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Object get(@PathVariable("id")Integer id){
+    public Object get(@PathVariable("id")String id){
         User user = userAction.selectByKey(id);
         return user;
     }

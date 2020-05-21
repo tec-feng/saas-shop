@@ -17,7 +17,7 @@ public interface IService<T,TExample> {
 	 * @param  id 主键id
 	 * @return
 	 */
-	T selectByKey(Integer id);
+	T selectByKey(String id);
 
 	/**
 	 * 根据实体属性查询所有数据
@@ -96,6 +96,6 @@ public interface IService<T,TExample> {
 	 * @param id
 	 * @return
 	 */
-	int deleteByKey(Integer id);
+	int deleteByKey(String id);
 
 }
