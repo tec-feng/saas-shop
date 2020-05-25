@@ -17,6 +17,7 @@
         <module>shop-mbg</module>
         <module>shop-monitor</module>
         <module>shop-security</module>
+        <module>shop-admin</module>
     </modules>
 
     <parent>
