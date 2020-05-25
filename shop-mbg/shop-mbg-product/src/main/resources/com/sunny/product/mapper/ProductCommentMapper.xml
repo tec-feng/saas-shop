@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.product.mapper.ProductCommentMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.ProductComment">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="product_id" jdbcType="VARCHAR" property="productId" />
-    <result column="sku_id" jdbcType="VARCHAR" property="skuId" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
     <result column="property_value" jdbcType="VARCHAR" property="propertyValue" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="user_nick" jdbcType="VARCHAR" property="userNick" />
     <result column="user_head" jdbcType="VARCHAR" property="userHead" />
     <result column="mark" jdbcType="VARCHAR" property="mark" />
@@ -122,17 +122,17 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from p_product_comment
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from p_product_comment
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.sunny.product.model.ProductCommentExample">
     delete from p_product_comment
@@ -141,7 +141,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.product.model.ProductComment">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_product_comment (product_id, sku_id, property_value, 
@@ -151,8 +151,8 @@
       agree_number, buy_time, is_fake, 
       status, create_time, update_time, 
       content, blocks)
-    values (#{productId,jdbcType=VARCHAR}, #{skuId,jdbcType=VARCHAR}, #{propertyValue,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=VARCHAR}, #{userNick,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, 
+    values (#{productId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{propertyValue,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=BIGINT}, #{userNick,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, 
       #{mark,jdbcType=VARCHAR}, #{point,jdbcType=TINYINT}, #{anonymous,jdbcType=TINYINT}, 
       #{hide,jdbcType=TINYINT}, #{images,jdbcType=VARCHAR}, #{replyNumber,jdbcType=INTEGER}, 
       #{agreeNumber,jdbcType=INTEGER}, #{buyTime,jdbcType=TIMESTAMP}, #{isFake,jdbcType=TINYINT}, 
@@ -160,7 +160,7 @@
       #{content,jdbcType=LONGVARCHAR}, #{blocks,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.ProductComment">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_product_comment
@@ -228,16 +228,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="productId != null">
-        #{productId,jdbcType=VARCHAR},
+        #{productId,jdbcType=BIGINT},
       </if>
       <if test="skuId != null">
-        #{skuId,jdbcType=VARCHAR},
+        #{skuId,jdbcType=BIGINT},
       </if>
       <if test="propertyValue != null">
         #{propertyValue,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="userNick != null">
         #{userNick,jdbcType=VARCHAR},
@@ -299,19 +299,19 @@
     update p_product_comment
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.productId != null">
-        product_id = #{record.productId,jdbcType=VARCHAR},
+        product_id = #{record.productId,jdbcType=BIGINT},
       </if>
       <if test="record.skuId != null">
-        sku_id = #{record.skuId,jdbcType=VARCHAR},
+        sku_id = #{record.skuId,jdbcType=BIGINT},
       </if>
       <if test="record.propertyValue != null">
         property_value = #{record.propertyValue,jdbcType=VARCHAR},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=VARCHAR},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.userNick != null">
         user_nick = #{record.userNick,jdbcType=VARCHAR},
@@ -368,11 +368,11 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update p_product_comment
-    set id = #{record.id,jdbcType=VARCHAR},
-      product_id = #{record.productId,jdbcType=VARCHAR},
-      sku_id = #{record.skuId,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
+      product_id = #{record.productId,jdbcType=BIGINT},
+      sku_id = #{record.skuId,jdbcType=BIGINT},
       property_value = #{record.propertyValue,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
       user_nick = #{record.userNick,jdbcType=VARCHAR},
       user_head = #{record.userHead,jdbcType=VARCHAR},
       mark = #{record.mark,jdbcType=VARCHAR},
@@ -395,11 +395,11 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update p_product_comment
-    set id = #{record.id,jdbcType=VARCHAR},
-      product_id = #{record.productId,jdbcType=VARCHAR},
-      sku_id = #{record.skuId,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
+      product_id = #{record.productId,jdbcType=BIGINT},
+      sku_id = #{record.skuId,jdbcType=BIGINT},
       property_value = #{record.propertyValue,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
       user_nick = #{record.userNick,jdbcType=VARCHAR},
       user_head = #{record.userHead,jdbcType=VARCHAR},
       mark = #{record.mark,jdbcType=VARCHAR},
@@ -422,16 +422,16 @@
     update p_product_comment
     <set>
       <if test="productId != null">
-        product_id = #{productId,jdbcType=VARCHAR},
+        product_id = #{productId,jdbcType=BIGINT},
       </if>
       <if test="skuId != null">
-        sku_id = #{skuId,jdbcType=VARCHAR},
+        sku_id = #{skuId,jdbcType=BIGINT},
       </if>
       <if test="propertyValue != null">
         property_value = #{propertyValue,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
-        user_id = #{userId,jdbcType=VARCHAR},
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="userNick != null">
         user_nick = #{userNick,jdbcType=VARCHAR},
@@ -482,14 +482,14 @@
         blocks = #{blocks,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sunny.product.model.ProductComment">
     update p_product_comment
-    set product_id = #{productId,jdbcType=VARCHAR},
-      sku_id = #{skuId,jdbcType=VARCHAR},
+    set product_id = #{productId,jdbcType=BIGINT},
+      sku_id = #{skuId,jdbcType=BIGINT},
       property_value = #{propertyValue,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
       user_nick = #{userNick,jdbcType=VARCHAR},
       user_head = #{userHead,jdbcType=VARCHAR},
       mark = #{mark,jdbcType=VARCHAR},
@@ -506,14 +506,14 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=LONGVARCHAR},
       blocks = #{blocks,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.ProductComment">
     update p_product_comment
-    set product_id = #{productId,jdbcType=VARCHAR},
-      sku_id = #{skuId,jdbcType=VARCHAR},
+    set product_id = #{productId,jdbcType=BIGINT},
+      sku_id = #{skuId,jdbcType=BIGINT},
       property_value = #{propertyValue,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
       user_nick = #{userNick,jdbcType=VARCHAR},
       user_head = #{userHead,jdbcType=VARCHAR},
       mark = #{mark,jdbcType=VARCHAR},
@@ -528,6 +528,6 @@
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.product.mapper.ProductMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.Product">
-    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="store_strategy" jdbcType="INTEGER" property="storeStrategy" />
@@ -10,20 +10,20 @@
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="user_id" jdbcType="VARCHAR" property="userId" />
-    <result column="storage_id" jdbcType="VARCHAR" property="storageId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="storage_id" jdbcType="BIGINT" property="storageId" />
     <result column="in_pool" jdbcType="TINYINT" property="inPool" />
     <result column="shop_no" jdbcType="VARCHAR" property="shopNo" />
-    <result column="area_user_id" jdbcType="VARCHAR" property="areaUserId" />
-    <result column="from_id" jdbcType="VARCHAR" property="fromId" />
-    <result column="freight_template_id" jdbcType="VARCHAR" property="freightTemplateId" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
+    <result column="from_id" jdbcType="BIGINT" property="fromId" />
+    <result column="freight_template_id" jdbcType="BIGINT" property="freightTemplateId" />
     <result column="pic" jdbcType="VARCHAR" property="pic" />
     <result column="new_status" jdbcType="INTEGER" property="newStatus" />
     <result column="recommand_status" jdbcType="INTEGER" property="recommandStatus" />
     <result column="verify_status" jdbcType="INTEGER" property="verifyStatus" />
     <result column="keywords" jdbcType="VARCHAR" property="keywords" />
     <result column="shipping_fee" jdbcType="DECIMAL" property="shippingFee" />
-    <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
+    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sunny.product.model.Product">
     <result column="detail" jdbcType="LONGVARCHAR" property="detail" />
@@ -131,7 +131,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.product.model.Product">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_product (name, description, store_strategy, 
@@ -144,15 +144,15 @@
       detail)
     values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{storeStrategy,jdbcType=INTEGER}, 
       #{onlineStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=VARCHAR}, #{storageId,jdbcType=VARCHAR}, 
-      #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, #{areaUserId,jdbcType=VARCHAR}, 
-      #{fromId,jdbcType=VARCHAR}, #{freightTemplateId,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=BIGINT}, #{storageId,jdbcType=BIGINT}, 
+      #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, #{areaUserId,jdbcType=BIGINT}, 
+      #{fromId,jdbcType=BIGINT}, #{freightTemplateId,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR}, 
       #{newStatus,jdbcType=INTEGER}, #{recommandStatus,jdbcType=INTEGER}, #{verifyStatus,jdbcType=INTEGER}, 
-      #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{categoryId,jdbcType=VARCHAR}, 
+      #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, 
       #{detail,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.Product">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_product
@@ -247,10 +247,10 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="userId != null">
-        #{userId,jdbcType=VARCHAR},
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="storageId != null">
-        #{storageId,jdbcType=VARCHAR},
+        #{storageId,jdbcType=BIGINT},
       </if>
       <if test="inPool != null">
         #{inPool,jdbcType=TINYINT},
@@ -259,13 +259,13 @@
         #{shopNo,jdbcType=VARCHAR},
       </if>
       <if test="areaUserId != null">
-        #{areaUserId,jdbcType=VARCHAR},
+        #{areaUserId,jdbcType=BIGINT},
       </if>
       <if test="fromId != null">
-        #{fromId,jdbcType=VARCHAR},
+        #{fromId,jdbcType=BIGINT},
       </if>
       <if test="freightTemplateId != null">
-        #{freightTemplateId,jdbcType=VARCHAR},
+        #{freightTemplateId,jdbcType=BIGINT},
       </if>
       <if test="pic != null">
         #{pic,jdbcType=VARCHAR},
@@ -286,7 +286,7 @@
         #{shippingFee,jdbcType=DECIMAL},
       </if>
       <if test="categoryId != null">
-        #{categoryId,jdbcType=VARCHAR},
+        #{categoryId,jdbcType=BIGINT},
       </if>
       <if test="detail != null">
         #{detail,jdbcType=LONGVARCHAR},
@@ -303,7 +303,7 @@
     update p_product
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
@@ -327,10 +327,10 @@
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=VARCHAR},
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.storageId != null">
-        storage_id = #{record.storageId,jdbcType=VARCHAR},
+        storage_id = #{record.storageId,jdbcType=BIGINT},
       </if>
       <if test="record.inPool != null">
         in_pool = #{record.inPool,jdbcType=TINYINT},
@@ -339,13 +339,13 @@
         shop_no = #{record.shopNo,jdbcType=VARCHAR},
       </if>
       <if test="record.areaUserId != null">
-        area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
       </if>
       <if test="record.fromId != null">
-        from_id = #{record.fromId,jdbcType=VARCHAR},
+        from_id = #{record.fromId,jdbcType=BIGINT},
       </if>
       <if test="record.freightTemplateId != null">
-        freight_template_id = #{record.freightTemplateId,jdbcType=VARCHAR},
+        freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       </if>
       <if test="record.pic != null">
         pic = #{record.pic,jdbcType=VARCHAR},
@@ -366,7 +366,7 @@
         shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
       </if>
       <if test="record.categoryId != null">
-        category_id = #{record.categoryId,jdbcType=VARCHAR},
+        category_id = #{record.categoryId,jdbcType=BIGINT},
       </if>
       <if test="record.detail != null">
         detail = #{record.detail,jdbcType=LONGVARCHAR},
@@ -378,7 +378,7 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update p_product
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       store_strategy = #{record.storeStrategy,jdbcType=INTEGER},
@@ -386,20 +386,20 @@
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      user_id = #{record.userId,jdbcType=VARCHAR},
-      storage_id = #{record.storageId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      storage_id = #{record.storageId,jdbcType=BIGINT},
       in_pool = #{record.inPool,jdbcType=TINYINT},
       shop_no = #{record.shopNo,jdbcType=VARCHAR},
-      area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
-      from_id = #{record.fromId,jdbcType=VARCHAR},
-      freight_template_id = #{record.freightTemplateId,jdbcType=VARCHAR},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT},
+      from_id = #{record.fromId,jdbcType=BIGINT},
+      freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       pic = #{record.pic,jdbcType=VARCHAR},
       new_status = #{record.newStatus,jdbcType=INTEGER},
       recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
       verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       keywords = #{record.keywords,jdbcType=VARCHAR},
       shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
-      category_id = #{record.categoryId,jdbcType=VARCHAR},
+      category_id = #{record.categoryId,jdbcType=BIGINT},
       detail = #{record.detail,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -407,7 +407,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update p_product
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
       description = #{record.description,jdbcType=VARCHAR},
       store_strategy = #{record.storeStrategy,jdbcType=INTEGER},
@@ -415,20 +415,20 @@
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      user_id = #{record.userId,jdbcType=VARCHAR},
-      storage_id = #{record.storageId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      storage_id = #{record.storageId,jdbcType=BIGINT},
       in_pool = #{record.inPool,jdbcType=TINYINT},
       shop_no = #{record.shopNo,jdbcType=VARCHAR},
-      area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
-      from_id = #{record.fromId,jdbcType=VARCHAR},
-      freight_template_id = #{record.freightTemplateId,jdbcType=VARCHAR},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT},
+      from_id = #{record.fromId,jdbcType=BIGINT},
+      freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       pic = #{record.pic,jdbcType=VARCHAR},
       new_status = #{record.newStatus,jdbcType=INTEGER},
       recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
       verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       keywords = #{record.keywords,jdbcType=VARCHAR},
       shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
-      category_id = #{record.categoryId,jdbcType=VARCHAR}
+      category_id = #{record.categoryId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

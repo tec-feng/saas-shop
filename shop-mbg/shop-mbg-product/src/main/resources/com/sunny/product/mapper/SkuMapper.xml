@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.product.mapper.SkuMapper">
   <resultMap id="BaseResultMap" type="com.sunny.product.model.Sku">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
     <result column="trade_max_nums" jdbcType="INTEGER" property="tradeMaxNums" />
     <result column="market_price" jdbcType="BIGINT" property="marketPrice" />
     <result column="price" jdbcType="BIGINT" property="price" />
@@ -97,15 +97,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from p_sku
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from p_sku
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.sunny.product.model.SkuExample">
     delete from p_sku
@@ -114,7 +114,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.product.model.Sku">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_sku (product_id, trade_max_nums, market_price, 
@@ -123,7 +123,7 @@
       default_sku, sale, status, 
       create_time, update_time, sku_data, 
       sku_data_id)
-    values (#{productId,jdbcType=VARCHAR}, #{tradeMaxNums,jdbcType=INTEGER}, #{marketPrice,jdbcType=BIGINT}, 
+    values (#{productId,jdbcType=BIGINT}, #{tradeMaxNums,jdbcType=INTEGER}, #{marketPrice,jdbcType=BIGINT}, 
       #{price,jdbcType=BIGINT}, #{stock,jdbcType=INTEGER}, #{lowStock,jdbcType=INTEGER}, 
       #{barCode,jdbcType=VARCHAR}, #{standbyBarCode,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
       #{defaultSku,jdbcType=TINYINT}, #{sale,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
@@ -131,7 +131,7 @@
       #{skuDataId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.Sku">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into p_sku
@@ -187,7 +187,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="productId != null">
-        #{productId,jdbcType=VARCHAR},
+        #{productId,jdbcType=BIGINT},
       </if>
       <if test="tradeMaxNums != null">
         #{tradeMaxNums,jdbcType=INTEGER},
@@ -246,10 +246,10 @@
     update p_sku
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.productId != null">
-        product_id = #{record.productId,jdbcType=VARCHAR},
+        product_id = #{record.productId,jdbcType=BIGINT},
       </if>
       <if test="record.tradeMaxNums != null">
         trade_max_nums = #{record.tradeMaxNums,jdbcType=INTEGER},
@@ -303,8 +303,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update p_sku
-    set id = #{record.id,jdbcType=VARCHAR},
-      product_id = #{record.productId,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
+      product_id = #{record.productId,jdbcType=BIGINT},
       trade_max_nums = #{record.tradeMaxNums,jdbcType=INTEGER},
       market_price = #{record.marketPrice,jdbcType=BIGINT},
       price = #{record.price,jdbcType=BIGINT},
@@ -328,7 +328,7 @@
     update p_sku
     <set>
       <if test="productId != null">
-        product_id = #{productId,jdbcType=VARCHAR},
+        product_id = #{productId,jdbcType=BIGINT},
       </if>
       <if test="tradeMaxNums != null">
         trade_max_nums = #{tradeMaxNums,jdbcType=INTEGER},
@@ -376,11 +376,11 @@
         sku_data_id = #{skuDataId,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.Sku">
     update p_sku
-    set product_id = #{productId,jdbcType=VARCHAR},
+    set product_id = #{productId,jdbcType=BIGINT},
       trade_max_nums = #{tradeMaxNums,jdbcType=INTEGER},
       market_price = #{marketPrice,jdbcType=BIGINT},
       price = #{price,jdbcType=BIGINT},
@@ -396,6 +396,6 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       sku_data = #{skuData,jdbcType=VARCHAR},
       sku_data_id = #{skuDataId,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

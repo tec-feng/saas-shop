@@ -115,62 +115,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -625,62 +615,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andUserIdEqualTo(String value) {
+        public Criteria andUserIdEqualTo(Long value) {
             addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotEqualTo(String value) {
+        public Criteria andUserIdNotEqualTo(Long value) {
             addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThan(String value) {
+        public Criteria andUserIdGreaterThan(Long value) {
             addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdGreaterThanOrEqualTo(String value) {
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThan(String value) {
+        public Criteria andUserIdLessThan(Long value) {
             addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLessThanOrEqualTo(String value) {
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
             addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdLike(String value) {
-            addCriterion("user_id like", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdNotLike(String value) {
-            addCriterion("user_id not like", value, "userId");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserIdIn(List<String> values) {
+        public Criteria andUserIdIn(List<Long> values) {
             addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotIn(List<String> values) {
+        public Criteria andUserIdNotIn(List<Long> values) {
             addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdBetween(String value1, String value2) {
+        public Criteria andUserIdBetween(Long value1, Long value2) {
             addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUserIdNotBetween(String value1, String value2) {
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
@@ -695,62 +675,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdEqualTo(String value) {
+        public Criteria andStorageIdEqualTo(Long value) {
             addCriterion("storage_id =", value, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdNotEqualTo(String value) {
+        public Criteria andStorageIdNotEqualTo(Long value) {
             addCriterion("storage_id <>", value, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdGreaterThan(String value) {
+        public Criteria andStorageIdGreaterThan(Long value) {
             addCriterion("storage_id >", value, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdGreaterThanOrEqualTo(String value) {
+        public Criteria andStorageIdGreaterThanOrEqualTo(Long value) {
             addCriterion("storage_id >=", value, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdLessThan(String value) {
+        public Criteria andStorageIdLessThan(Long value) {
             addCriterion("storage_id <", value, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdLessThanOrEqualTo(String value) {
+        public Criteria andStorageIdLessThanOrEqualTo(Long value) {
             addCriterion("storage_id <=", value, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdLike(String value) {
-            addCriterion("storage_id like", value, "storageId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStorageIdNotLike(String value) {
-            addCriterion("storage_id not like", value, "storageId");
-            return (Criteria) this;
-        }
-
-        public Criteria andStorageIdIn(List<String> values) {
+        public Criteria andStorageIdIn(List<Long> values) {
             addCriterion("storage_id in", values, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdNotIn(List<String> values) {
+        public Criteria andStorageIdNotIn(List<Long> values) {
             addCriterion("storage_id not in", values, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdBetween(String value1, String value2) {
+        public Criteria andStorageIdBetween(Long value1, Long value2) {
             addCriterion("storage_id between", value1, value2, "storageId");
             return (Criteria) this;
         }
 
-        public Criteria andStorageIdNotBetween(String value1, String value2) {
+        public Criteria andStorageIdNotBetween(Long value1, Long value2) {
             addCriterion("storage_id not between", value1, value2, "storageId");
             return (Criteria) this;
         }
@@ -895,62 +865,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdEqualTo(String value) {
+        public Criteria andAreaUserIdEqualTo(Long value) {
             addCriterion("area_user_id =", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotEqualTo(String value) {
+        public Criteria andAreaUserIdNotEqualTo(Long value) {
             addCriterion("area_user_id <>", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdGreaterThan(String value) {
+        public Criteria andAreaUserIdGreaterThan(Long value) {
             addCriterion("area_user_id >", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdGreaterThanOrEqualTo(String value) {
+        public Criteria andAreaUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("area_user_id >=", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLessThan(String value) {
+        public Criteria andAreaUserIdLessThan(Long value) {
             addCriterion("area_user_id <", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLessThanOrEqualTo(String value) {
+        public Criteria andAreaUserIdLessThanOrEqualTo(Long value) {
             addCriterion("area_user_id <=", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLike(String value) {
-            addCriterion("area_user_id like", value, "areaUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaUserIdNotLike(String value) {
-            addCriterion("area_user_id not like", value, "areaUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaUserIdIn(List<String> values) {
+        public Criteria andAreaUserIdIn(List<Long> values) {
             addCriterion("area_user_id in", values, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotIn(List<String> values) {
+        public Criteria andAreaUserIdNotIn(List<Long> values) {
             addCriterion("area_user_id not in", values, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdBetween(String value1, String value2) {
+        public Criteria andAreaUserIdBetween(Long value1, Long value2) {
             addCriterion("area_user_id between", value1, value2, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotBetween(String value1, String value2) {
+        public Criteria andAreaUserIdNotBetween(Long value1, Long value2) {
             addCriterion("area_user_id not between", value1, value2, "areaUserId");
             return (Criteria) this;
         }
@@ -965,62 +925,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andFromIdEqualTo(String value) {
+        public Criteria andFromIdEqualTo(Long value) {
             addCriterion("from_id =", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdNotEqualTo(String value) {
+        public Criteria andFromIdNotEqualTo(Long value) {
             addCriterion("from_id <>", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdGreaterThan(String value) {
+        public Criteria andFromIdGreaterThan(Long value) {
             addCriterion("from_id >", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdGreaterThanOrEqualTo(String value) {
+        public Criteria andFromIdGreaterThanOrEqualTo(Long value) {
             addCriterion("from_id >=", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdLessThan(String value) {
+        public Criteria andFromIdLessThan(Long value) {
             addCriterion("from_id <", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdLessThanOrEqualTo(String value) {
+        public Criteria andFromIdLessThanOrEqualTo(Long value) {
             addCriterion("from_id <=", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdLike(String value) {
-            addCriterion("from_id like", value, "fromId");
-            return (Criteria) this;
-        }
-
-        public Criteria andFromIdNotLike(String value) {
-            addCriterion("from_id not like", value, "fromId");
-            return (Criteria) this;
-        }
-
-        public Criteria andFromIdIn(List<String> values) {
+        public Criteria andFromIdIn(List<Long> values) {
             addCriterion("from_id in", values, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdNotIn(List<String> values) {
+        public Criteria andFromIdNotIn(List<Long> values) {
             addCriterion("from_id not in", values, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdBetween(String value1, String value2) {
+        public Criteria andFromIdBetween(Long value1, Long value2) {
             addCriterion("from_id between", value1, value2, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdNotBetween(String value1, String value2) {
+        public Criteria andFromIdNotBetween(Long value1, Long value2) {
             addCriterion("from_id not between", value1, value2, "fromId");
             return (Criteria) this;
         }
@@ -1035,62 +985,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdEqualTo(String value) {
+        public Criteria andFreightTemplateIdEqualTo(Long value) {
             addCriterion("freight_template_id =", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdNotEqualTo(String value) {
+        public Criteria andFreightTemplateIdNotEqualTo(Long value) {
             addCriterion("freight_template_id <>", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdGreaterThan(String value) {
+        public Criteria andFreightTemplateIdGreaterThan(Long value) {
             addCriterion("freight_template_id >", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdGreaterThanOrEqualTo(String value) {
+        public Criteria andFreightTemplateIdGreaterThanOrEqualTo(Long value) {
             addCriterion("freight_template_id >=", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdLessThan(String value) {
+        public Criteria andFreightTemplateIdLessThan(Long value) {
             addCriterion("freight_template_id <", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdLessThanOrEqualTo(String value) {
+        public Criteria andFreightTemplateIdLessThanOrEqualTo(Long value) {
             addCriterion("freight_template_id <=", value, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdLike(String value) {
-            addCriterion("freight_template_id like", value, "freightTemplateId");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightTemplateIdNotLike(String value) {
-            addCriterion("freight_template_id not like", value, "freightTemplateId");
-            return (Criteria) this;
-        }
-
-        public Criteria andFreightTemplateIdIn(List<String> values) {
+        public Criteria andFreightTemplateIdIn(List<Long> values) {
             addCriterion("freight_template_id in", values, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdNotIn(List<String> values) {
+        public Criteria andFreightTemplateIdNotIn(List<Long> values) {
             addCriterion("freight_template_id not in", values, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdBetween(String value1, String value2) {
+        public Criteria andFreightTemplateIdBetween(Long value1, Long value2) {
             addCriterion("freight_template_id between", value1, value2, "freightTemplateId");
             return (Criteria) this;
         }
 
-        public Criteria andFreightTemplateIdNotBetween(String value1, String value2) {
+        public Criteria andFreightTemplateIdNotBetween(Long value1, Long value2) {
             addCriterion("freight_template_id not between", value1, value2, "freightTemplateId");
             return (Criteria) this;
         }
@@ -1485,62 +1425,52 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdEqualTo(String value) {
+        public Criteria andCategoryIdEqualTo(Long value) {
             addCriterion("category_id =", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdNotEqualTo(String value) {
+        public Criteria andCategoryIdNotEqualTo(Long value) {
             addCriterion("category_id <>", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdGreaterThan(String value) {
+        public Criteria andCategoryIdGreaterThan(Long value) {
             addCriterion("category_id >", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdGreaterThanOrEqualTo(String value) {
+        public Criteria andCategoryIdGreaterThanOrEqualTo(Long value) {
             addCriterion("category_id >=", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdLessThan(String value) {
+        public Criteria andCategoryIdLessThan(Long value) {
             addCriterion("category_id <", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdLessThanOrEqualTo(String value) {
+        public Criteria andCategoryIdLessThanOrEqualTo(Long value) {
             addCriterion("category_id <=", value, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdLike(String value) {
-            addCriterion("category_id like", value, "categoryId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCategoryIdNotLike(String value) {
-            addCriterion("category_id not like", value, "categoryId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCategoryIdIn(List<String> values) {
+        public Criteria andCategoryIdIn(List<Long> values) {
             addCriterion("category_id in", values, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdNotIn(List<String> values) {
+        public Criteria andCategoryIdNotIn(List<Long> values) {
             addCriterion("category_id not in", values, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdBetween(String value1, String value2) {
+        public Criteria andCategoryIdBetween(Long value1, Long value2) {
             addCriterion("category_id between", value1, value2, "categoryId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdNotBetween(String value1, String value2) {
+        public Criteria andCategoryIdNotBetween(Long value1, Long value2) {
             addCriterion("category_id not between", value1, value2, "categoryId");
             return (Criteria) this;
         }

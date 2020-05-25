@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductCategory implements Serializable {
-    private String id;
+    private Long id;
 
     /**
      * 父类ID,0为顶级节点
      *
      * @mbg.generated
      */
-    private String parentId;
+    private Long parentId;
 
     /**
      * 分类名称
@@ -61,19 +61,19 @@ public class ProductCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getParentId() {
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 

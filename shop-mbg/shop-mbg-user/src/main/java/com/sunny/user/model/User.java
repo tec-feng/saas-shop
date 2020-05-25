@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
-    private String id;
+    private Long id;
 
     /**
      * 用户名
@@ -141,15 +141,15 @@ public class User implements Serializable {
      *
      * @mbg.generated
      */
-    private String areaUserId;
+    private Long areaUserId;
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -313,11 +313,11 @@ public class User implements Serializable {
         this.city = city;
     }
 
-    public String getAreaUserId() {
+    public Long getAreaUserId() {
         return areaUserId;
     }
 
-    public void setAreaUserId(String areaUserId) {
+    public void setAreaUserId(Long areaUserId) {
         this.areaUserId = areaUserId;
     }
 

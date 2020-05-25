@@ -4,16 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductComment implements Serializable {
-    private String id;
+    private Long id;
 
-    private String productId;
+    private Long productId;
 
     /**
      * 所购买的sku的id
      *
      * @mbg.generated
      */
-    private String skuId;
+    private Long skuId;
 
     /**
      * SKU的property_value
@@ -27,7 +27,7 @@ public class ProductComment implements Serializable {
      *
      * @mbg.generated
      */
-    private String userId;
+    private Long userId;
 
     /**
      * 发表者昵称
@@ -118,27 +118,27 @@ public class ProductComment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
-    public String getSkuId() {
+    public Long getSkuId() {
         return skuId;
     }
 
-    public void setSkuId(String skuId) {
+    public void setSkuId(Long skuId) {
         this.skuId = skuId;
     }
 
@@ -150,11 +150,11 @@ public class ProductComment implements Serializable {
         this.propertyValue = propertyValue;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

@@ -115,62 +115,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -1505,62 +1495,52 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdEqualTo(String value) {
+        public Criteria andAreaUserIdEqualTo(Long value) {
             addCriterion("area_user_id =", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotEqualTo(String value) {
+        public Criteria andAreaUserIdNotEqualTo(Long value) {
             addCriterion("area_user_id <>", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdGreaterThan(String value) {
+        public Criteria andAreaUserIdGreaterThan(Long value) {
             addCriterion("area_user_id >", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdGreaterThanOrEqualTo(String value) {
+        public Criteria andAreaUserIdGreaterThanOrEqualTo(Long value) {
             addCriterion("area_user_id >=", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLessThan(String value) {
+        public Criteria andAreaUserIdLessThan(Long value) {
             addCriterion("area_user_id <", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLessThanOrEqualTo(String value) {
+        public Criteria andAreaUserIdLessThanOrEqualTo(Long value) {
             addCriterion("area_user_id <=", value, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdLike(String value) {
-            addCriterion("area_user_id like", value, "areaUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaUserIdNotLike(String value) {
-            addCriterion("area_user_id not like", value, "areaUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAreaUserIdIn(List<String> values) {
+        public Criteria andAreaUserIdIn(List<Long> values) {
             addCriterion("area_user_id in", values, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotIn(List<String> values) {
+        public Criteria andAreaUserIdNotIn(List<Long> values) {
             addCriterion("area_user_id not in", values, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdBetween(String value1, String value2) {
+        public Criteria andAreaUserIdBetween(Long value1, Long value2) {
             addCriterion("area_user_id between", value1, value2, "areaUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAreaUserIdNotBetween(String value1, String value2) {
+        public Criteria andAreaUserIdNotBetween(Long value1, Long value2) {
             addCriterion("area_user_id not between", value1, value2, "areaUserId");
             return (Criteria) this;
         }

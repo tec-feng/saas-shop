@@ -115,62 +115,52 @@ public class ProductPropertyValueExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -495,62 +485,52 @@ public class ProductPropertyValueExample {
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdEqualTo(String value) {
+        public Criteria andPropertyIdEqualTo(Long value) {
             addCriterion("property_id =", value, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdNotEqualTo(String value) {
+        public Criteria andPropertyIdNotEqualTo(Long value) {
             addCriterion("property_id <>", value, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdGreaterThan(String value) {
+        public Criteria andPropertyIdGreaterThan(Long value) {
             addCriterion("property_id >", value, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdGreaterThanOrEqualTo(String value) {
+        public Criteria andPropertyIdGreaterThanOrEqualTo(Long value) {
             addCriterion("property_id >=", value, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdLessThan(String value) {
+        public Criteria andPropertyIdLessThan(Long value) {
             addCriterion("property_id <", value, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdLessThanOrEqualTo(String value) {
+        public Criteria andPropertyIdLessThanOrEqualTo(Long value) {
             addCriterion("property_id <=", value, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdLike(String value) {
-            addCriterion("property_id like", value, "propertyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyIdNotLike(String value) {
-            addCriterion("property_id not like", value, "propertyId");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyIdIn(List<String> values) {
+        public Criteria andPropertyIdIn(List<Long> values) {
             addCriterion("property_id in", values, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdNotIn(List<String> values) {
+        public Criteria andPropertyIdNotIn(List<Long> values) {
             addCriterion("property_id not in", values, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdBetween(String value1, String value2) {
+        public Criteria andPropertyIdBetween(Long value1, Long value2) {
             addCriterion("property_id between", value1, value2, "propertyId");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyIdNotBetween(String value1, String value2) {
+        public Criteria andPropertyIdNotBetween(Long value1, Long value2) {
             addCriterion("property_id not between", value1, value2, "propertyId");
             return (Criteria) this;
         }

@@ -4,28 +4,28 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class ProductCommentReply implements Serializable {
-    private String id;
+    private Long id;
 
     /**
      * 被回复的product_comment的id
      *
      * @mbg.generated
      */
-    private String commentId;
+    private Long commentId;
 
     /**
      * 回复ID，默认为0
      *
      * @mbg.generated
      */
-    private String replyId;
+    private Long replyId;
 
     /**
      * 主回复ID
      *
      * @mbg.generated
      */
-    private String replyRootId;
+    private Long replyRootId;
 
     /**
      * 被回复人头像
@@ -46,7 +46,7 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    private String userId;
+    private Long userId;
 
     /**
      * 用户昵称
@@ -110,35 +110,35 @@ public class ProductCommentReply implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getCommentId() {
+    public Long getCommentId() {
         return commentId;
     }
 
-    public void setCommentId(String commentId) {
+    public void setCommentId(Long commentId) {
         this.commentId = commentId;
     }
 
-    public String getReplyId() {
+    public Long getReplyId() {
         return replyId;
     }
 
-    public void setReplyId(String replyId) {
+    public void setReplyId(Long replyId) {
         this.replyId = replyId;
     }
 
-    public String getReplyRootId() {
+    public Long getReplyRootId() {
         return replyRootId;
     }
 
-    public void setReplyRootId(String replyRootId) {
+    public void setReplyRootId(Long replyRootId) {
         this.replyRootId = replyRootId;
     }
 
@@ -158,11 +158,11 @@ public class ProductCommentReply implements Serializable {
         this.replyNick = replyNick;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

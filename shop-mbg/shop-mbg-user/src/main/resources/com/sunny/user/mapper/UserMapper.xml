@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sunny.user.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="com.sunny.user.model.User">
-    <id column="id" jdbcType="VARCHAR" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -23,7 +23,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="gender" jdbcType="INTEGER" property="gender" />
     <result column="city" jdbcType="VARCHAR" property="city" />
-    <result column="area_user_id" jdbcType="VARCHAR" property="areaUserId" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -102,15 +102,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from u_user
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from u_user
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.sunny.user.model.UserExample">
     delete from u_user
@@ -119,7 +119,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.user.model.User">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into u_user (user_name, password, email, 
@@ -136,11 +136,11 @@
       #{boundPhone,jdbcType=TINYINT}, #{boundWechat,jdbcType=TINYINT}, #{brief,jdbcType=VARCHAR}, 
       #{realName,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{areaUserId,jdbcType=VARCHAR}
+      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{areaUserId,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.user.model.User">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into u_user
@@ -271,7 +271,7 @@
         #{city,jdbcType=VARCHAR},
       </if>
       <if test="areaUserId != null">
-        #{areaUserId,jdbcType=VARCHAR},
+        #{areaUserId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -285,7 +285,7 @@
     update u_user
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
@@ -348,7 +348,7 @@
         city = #{record.city,jdbcType=VARCHAR},
       </if>
       <if test="record.areaUserId != null">
-        area_user_id = #{record.areaUserId,jdbcType=VARCHAR},
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -357,7 +357,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update u_user
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
       user_name = #{record.userName,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
@@ -378,7 +378,7 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       gender = #{record.gender,jdbcType=INTEGER},
       city = #{record.city,jdbcType=VARCHAR},
-      area_user_id = #{record.areaUserId,jdbcType=VARCHAR}
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -447,10 +447,10 @@
         city = #{city,jdbcType=VARCHAR},
       </if>
       <if test="areaUserId != null">
-        area_user_id = #{areaUserId,jdbcType=VARCHAR},
+        area_user_id = #{areaUserId,jdbcType=BIGINT},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sunny.user.model.User">
     update u_user
@@ -474,7 +474,7 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       gender = #{gender,jdbcType=INTEGER},
       city = #{city,jdbcType=VARCHAR},
-      area_user_id = #{areaUserId,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+      area_user_id = #{areaUserId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

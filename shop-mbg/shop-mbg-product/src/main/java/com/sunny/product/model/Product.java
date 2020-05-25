@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Product implements Serializable {
-    private String id;
+    private Long id;
 
     /**
      * 商品名称
@@ -50,14 +50,14 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private String userId;
+    private Long userId;
 
     /**
      * 仓库ID
      *
      * @mbg.generated
      */
-    private String storageId;
+    private Long storageId;
 
     /**
      * 分销池，0为正常商品，1为分销商品
@@ -78,21 +78,21 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private String areaUserId;
+    private Long areaUserId;
 
     /**
      * 来自于分销中心商品
      *
      * @mbg.generated
      */
-    private String fromId;
+    private Long fromId;
 
     /**
      * 运费模板ID
      *
      * @mbg.generated
      */
-    private String freightTemplateId;
+    private Long freightTemplateId;
 
     /**
      * 主图
@@ -141,7 +141,7 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private String categoryId;
+    private Long categoryId;
 
     /**
      * 商品详情
@@ -152,11 +152,11 @@ public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -216,19 +216,19 @@ public class Product implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public String getStorageId() {
+    public Long getStorageId() {
         return storageId;
     }
 
-    public void setStorageId(String storageId) {
+    public void setStorageId(Long storageId) {
         this.storageId = storageId;
     }
 
@@ -248,27 +248,27 @@ public class Product implements Serializable {
         this.shopNo = shopNo;
     }
 
-    public String getAreaUserId() {
+    public Long getAreaUserId() {
         return areaUserId;
     }
 
-    public void setAreaUserId(String areaUserId) {
+    public void setAreaUserId(Long areaUserId) {
         this.areaUserId = areaUserId;
     }
 
-    public String getFromId() {
+    public Long getFromId() {
         return fromId;
     }
 
-    public void setFromId(String fromId) {
+    public void setFromId(Long fromId) {
         this.fromId = fromId;
     }
 
-    public String getFreightTemplateId() {
+    public Long getFreightTemplateId() {
         return freightTemplateId;
     }
 
-    public void setFreightTemplateId(String freightTemplateId) {
+    public void setFreightTemplateId(Long freightTemplateId) {
         this.freightTemplateId = freightTemplateId;
     }
 
@@ -320,11 +320,11 @@ public class Product implements Serializable {
         this.shippingFee = shippingFee;
     }
 
-    public String getCategoryId() {
+    public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 

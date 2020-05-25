@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Sku implements Serializable {
-    private String id;
+    private Long id;
 
     /**
      * 对应的商品id
      *
      * @mbg.generated
      */
-    private String productId;
+    private Long productId;
 
     /**
      * 限购,0为不限制
@@ -120,19 +120,19 @@ public class Sku implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
