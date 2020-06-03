@@ -59,6 +59,13 @@ public class ProductNavCategory implements Serializable {
      */
     private Integer level;
 
+    /**
+     * 用户ID
+     *
+     * @mbg.generated
+     */
+    private Long userId;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -141,6 +148,14 @@ public class ProductNavCategory implements Serializable {
         this.level = level;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -157,6 +172,7 @@ public class ProductNavCategory implements Serializable {
         sb.append(", icon=").append(icon);
         sb.append(", sort=").append(sort);
         sb.append(", level=").append(level);
+        sb.append(", userId=").append(userId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

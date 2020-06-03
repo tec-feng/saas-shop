@@ -14,7 +14,7 @@ public interface BaseMapper<T,TExample> {
 
     int deleteByExample(TExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(long id);
 
     int insert(T record);
 
@@ -22,7 +22,7 @@ public interface BaseMapper<T,TExample> {
 
     List<T> selectByExample(TExample example);
 
-    T selectByPrimaryKey(String id);
+    T selectByPrimaryKey(long id);
 
     int updateByExampleSelective(@Param("record") T record, @Param("example") TExample example);
 

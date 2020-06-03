@@ -12,6 +12,7 @@
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, parent_id, name, description, status, create_time, update_time, icon, sort, level
+    id, parent_id, name, description, status, create_time, update_time, icon, sort, level, 
+    user_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.product.model.ProductNavCategoryExample" resultMap="BaseResultMap">
     select
@@ -110,10 +112,12 @@
     </selectKey>
     insert into p_product_nav_category (parent_id, name, description, 
       status, create_time, update_time, 
-      icon, sort, level)
+      icon, sort, level, 
+      user_id)
     values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{level,jdbcType=INTEGER})
+      #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
+      #{userId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.ProductNavCategory">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -148,6 +152,9 @@
       <if test="level != null">
         level,
       </if>
+      <if test="userId != null">
+        user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="parentId != null">
@@ -176,6 +183,9 @@
       </if>
       <if test="level != null">
         #{level,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -218,6 +228,9 @@
       <if test="record.level != null">
         level = #{record.level,jdbcType=INTEGER},
       </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -234,7 +247,8 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       icon = #{record.icon,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=INTEGER},
-      level = #{record.level,jdbcType=INTEGER}
+      level = #{record.level,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -269,6 +283,9 @@
       <if test="level != null">
         level = #{level,jdbcType=INTEGER},
       </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -282,7 +299,8 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       icon = #{icon,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=INTEGER},
-      level = #{level,jdbcType=INTEGER}
+      level = #{level,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

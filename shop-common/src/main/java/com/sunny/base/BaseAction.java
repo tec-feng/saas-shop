@@ -13,10 +13,10 @@ public abstract class BaseAction<T,TExample> {
         return getService().selectByExample(tExample,pageNum,pageSize);
     }
 
-    public T selectByKey(String id) {
+    public T selectByKey(long id) {
         return getService().selectByKey(id);
     }
-
+    public T selectOne(TExample tExample) {return getService().selectOne(tExample);}
     public List<T> selectAll(TExample tExample) {
         return getService().selectAll(tExample);
     }
@@ -53,7 +53,7 @@ public abstract class BaseAction<T,TExample> {
         return getService().deleteByExample(tExample);
     }
 
-    public int deleteByKey(String id) {
+    public int deleteByKey(long id) {
         return getService().deleteByKey(id);
     }
 }
