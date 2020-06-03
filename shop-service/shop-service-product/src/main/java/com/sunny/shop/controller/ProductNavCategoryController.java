@@ -53,7 +53,7 @@ public class ProductNavCategoryController {
         return ReturnResult.success(ModelMapper.INSTANCE.toVO(category));
     }
 
-    @GetMapping
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public ReturnResult list(@PathVariable("id")Long parentId,
                              @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize){

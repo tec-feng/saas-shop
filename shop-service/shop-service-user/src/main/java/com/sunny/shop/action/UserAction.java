@@ -1,6 +1,7 @@
 package com.sunny.shop.action;
 
 import com.sunny.base.*;
+import com.sunny.tools.SnowFlakeUtils;
 import com.sunny.tools.UUIDUtils;
 import com.sunny.user.dto.RegisterDto;
 import com.sunny.user.model.User;
@@ -46,7 +47,7 @@ public class UserAction extends BaseAction<User,UserExample>{
         }
         User newUser = new User();
         BeanUtils.copyProperties(user,newUser);
-        newUser.setId(UUIDUtils.uuid());
+        newUser.setId(SnowFlakeUtils.nextId());
         newUser.setUserType(UserType.base.name());
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         newUser.setIcon(GlobalConstant.SYSTEM_LOGO);

@@ -1,6 +1,7 @@
 package com.sunny.security.config;
 
 import com.sunny.security.util.JwtTokenUtil;
+import com.sunny.user.model.SecurityUserDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

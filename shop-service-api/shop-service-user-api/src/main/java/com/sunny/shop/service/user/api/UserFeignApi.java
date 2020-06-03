@@ -14,4 +14,12 @@ public interface UserFeignApi {
      */
     @GetMapping(value = "/api/user/getByUserName")
     ReturnResult getByUserName(String userName);
+
+    /**
+     * 通过用户名获取用户
+     * @param userName  用户名
+     * @return
+     */
+    @GetMapping(value = "/api/user/loadUserByUsername")
+    ReturnResult loadUserByUsername(String userName);
 }

@@ -4,6 +4,7 @@ import com.sunny.base.ApiCode;
 import com.sunny.base.ReturnResult;
 import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.shop.action.UserAction;
+import com.sunny.user.model.SecurityUserDetails;
 import com.sunny.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +19,12 @@ public class UserFeignController implements UserFeignApi{
     public ReturnResult getByUserName(String userName) {
         User user = userAction.getByUserName(userName);
         return ReturnResult.success(ApiCode.OK,user);
+    }
+
+    @Override
+    public ReturnResult loadUserByUsername(String userName) {
+        User user = userAction.getByUserName(userName);
+        SecurityUserDetails userDetails = new SecurityUserDetails(user);
+        return ReturnResult.success(ApiCode.OK,userDetails);
     }
 }

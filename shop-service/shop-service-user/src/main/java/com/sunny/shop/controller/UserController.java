@@ -47,7 +47,7 @@ public class UserController {
     @PostMapping("/login")
     public ReturnResult login(@Valid LoginDto loginUser){
         User user = userAction.getByUserName(loginUser.getUserName());
-        if(!passwordEncoder.matches(loginUser.getPassword(),user.getPassword())){
+        if(user == null || !passwordEncoder.matches(loginUser.getPassword(),user.getPassword())){
             return ReturnResult.fail(ApiCode.PASSWORD_ERROR);
         }
         SecurityUserDetails userDetails = new SecurityUserDetails(user);
@@ -59,7 +59,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public Object delete(@PathVariable("id")String id){
+    public Object delete(@PathVariable("id")Long id){
         int i = userAction.deleteByKey(id);
         return i;
     }
@@ -71,7 +71,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Object get(@PathVariable("id")String id){
+    public Object get(@PathVariable("id")Long id){
         User user = userAction.selectByKey(id);
         return user;
     }
