@@ -13,7 +13,8 @@ public class UserFeignFallBack implements UserFeignApi{
     }
 
     @Override
-    public ReturnResult loadUserByUsername(String userName) {
+    public ReturnResult loadUserByUserName(String userName) {
         return null;
     }
+
 }

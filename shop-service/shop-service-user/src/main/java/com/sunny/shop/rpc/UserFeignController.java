@@ -18,12 +18,14 @@ public class UserFeignController implements UserFeignApi{
     @Override
     public ReturnResult getByUserName(String userName) {
         User user = userAction.getByUserName(userName);
+        System.out.println(user);
         return ReturnResult.success(ApiCode.OK,user);
     }
 
     @Override
-    public ReturnResult loadUserByUsername(String userName) {
+    public ReturnResult<SecurityUserDetails> loadUserByUserName(String userName) {
         User user = userAction.getByUserName(userName);
+        System.out.println(user);
         SecurityUserDetails userDetails = new SecurityUserDetails(user);
         return ReturnResult.success(ApiCode.OK,userDetails);
     }

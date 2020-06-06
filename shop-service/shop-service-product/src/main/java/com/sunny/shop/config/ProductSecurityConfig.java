@@ -2,6 +2,7 @@ package com.sunny.shop.config;
 
 import com.sunny.security.config.SecurityConfig;
 import com.sunny.shop.service.user.api.UserFeignApi;
+import com.sunny.user.model.SecurityUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
  * @author tec_feng
@@ -23,6 +25,9 @@ public class ProductSecurityConfig extends SecurityConfig {
     @Bean
     @Override
     protected UserDetailsService userDetailsService() {
-        return username -> (UserDetails)userFeignApi.getByUserName(username).getData();
+        return username -> {
+            SecurityUserDetails data = userFeignApi.loadUserByUserName(username).getData();
+            return  data;
+        };
     }
 }

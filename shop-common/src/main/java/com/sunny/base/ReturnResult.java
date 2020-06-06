@@ -1,14 +1,19 @@
 package com.sunny.base;
 
+import java.io.Serializable;
+
 /**
  * @author tec_feng
  * @create 2020-04-22 13:17
  */
-public class ReturnResult<T> {
+public class ReturnResult<T> implements Serializable{
     private ApiCode code;
     private String message;
     private T data;
 
+    public ReturnResult(){
+
+    }
     public static <T> ReturnResult<T> success(){
         return new ReturnResult<>(ApiCode.OK);
     }

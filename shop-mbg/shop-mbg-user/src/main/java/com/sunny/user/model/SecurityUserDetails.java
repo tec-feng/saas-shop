@@ -24,32 +24,32 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return user!=null?user.getPassword():null;
     }
 
     @Override
     public String getUsername() {
-        return user.getUserName();
+        return user!=null?user.getUserName():null;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return user.getHasForbidden();
+        return user!=null?user.getHasForbidden():null;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return user.getHasForbidden();
+        return user!=null?user.getHasForbidden():null;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return user.getHasForbidden();
+        return user!=null?user.getHasForbidden():null;
     }
 
     @Override
     public boolean isEnabled() {
-        return user.getHasForbidden();
+        return user!=null?user.getHasForbidden():null;
     }
 
     public User getUser() {

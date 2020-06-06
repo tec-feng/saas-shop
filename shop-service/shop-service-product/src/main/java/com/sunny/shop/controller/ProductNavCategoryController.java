@@ -7,6 +7,7 @@ import com.sunny.product.model.ProductNavCategory;
 import com.sunny.security.config.SecuritySessionUtils;
 import com.sunny.shop.action.ProductNavCategoryAction;
 import com.sunny.shop.common.ModelMapper;
+import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +19,16 @@ import java.util.List;
  * @create 2020-06-02 12:36
  */
 @RestController
-@RequestMapping(value = "navCategory")
+@RequestMapping(value = "/navCategory")
 public class ProductNavCategoryController {
     @Autowired
     ProductNavCategoryAction navCategoryAction;
+    @Autowired
+    UserFeignApi userFeignApi;
+
     @PostMapping("/create")
     public ReturnResult create(ProductNavCategoryDto dto){
+        userFeignApi.loadUserByUserName("sunny");
         ProductNavCategory navCategory = ModelMapper.INSTANCE.toModel(dto);
         User loginUser = SecuritySessionUtils.getLoginUser();
         navCategory.setUserId(loginUser.getId());
@@ -53,12 +58,25 @@ public class ProductNavCategoryController {
         return ReturnResult.success(ModelMapper.INSTANCE.toVO(category));
     }
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
-    public ReturnResult list(@PathVariable("id")Long parentId,
+    @GetMapping
+    public ReturnResult list(Long parentId,
                              @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize){
         User loginUser = SecuritySessionUtils.getLoginUser();
         List<ProductNavCategory> categories = navCategoryAction.listSelf(parentId, loginUser.getId(),page,pageSize);
         return ReturnResult.success(ModelMapper.INSTANCE.toVOs(categories));
+    }
+    @GetMapping("/list")
+    public ReturnResult list1(Long parentId,
+                             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                             @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize){
+        ReturnResult result = userFeignApi.loadUserByUserName("sunny");
+        System.out.println(result);
+        ReturnResult result1 = userFeignApi.getByUserName("sunny");
+        System.out.println(result1);
+        return ReturnResult.success();
+//        User loginUser = SecuritySessionUtils.getLoginUser();
+//        List<ProductNavCategory> categories = navCategoryAction.listSelf(parentId, loginUser.getId(),page,pageSize);
+//        return ReturnResult.success(ModelMapper.INSTANCE.toVOs(categories));
     }
 }
