@@ -44,6 +44,8 @@ management:
 logging:
   file:
     path: shop-server-product.log #添加开启admin的日志监控
+  level:
+    root: info
 jwt:
   tokenHeader:  Authorization
   tokenHead:  Bearer

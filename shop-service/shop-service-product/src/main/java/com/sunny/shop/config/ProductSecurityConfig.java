@@ -1,5 +1,6 @@
 package com.sunny.shop.config;
 
+import com.sunny.base.ReturnResult;
 import com.sunny.security.config.SecurityConfig;
 import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.user.model.SecurityUserDetails;
@@ -26,8 +27,8 @@ public class ProductSecurityConfig extends SecurityConfig {
     @Override
     protected UserDetailsService userDetailsService() {
         return username -> {
-            SecurityUserDetails data = userFeignApi.loadUserByUserName(username).getData();
-            return  data;
+            ReturnResult<SecurityUserDetails> result = userFeignApi.loadUserByUserName(username);
+            return  result.getData();
         };
     }
 }

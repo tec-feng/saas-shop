@@ -12,6 +12,10 @@ import java.util.Collection;
 public class SecurityUserDetails implements UserDetails {
     private User user;
 
+    public SecurityUserDetails(){
+
+    }
+
     public SecurityUserDetails(User user) {
         this.user = user;
     }
