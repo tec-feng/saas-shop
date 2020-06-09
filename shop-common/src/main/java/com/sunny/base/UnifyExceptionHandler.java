@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -31,6 +32,16 @@ public class UnifyExceptionHandler extends ResponseEntityExceptionHandler {
         }
         return ReturnResult.fail();
     }
+
+    @ResponseBody
+    @ExceptionHandler(value = SQLException.class)
+    public ReturnResult sqlHandle(SQLException e) {
+        e.printStackTrace();
+        return ReturnResult.fail(ApiCode.INNER_ERROR);
+    }
+
+
+
 
     @Override
     protected ResponseEntity<Object> handleBindException(BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {

@@ -130,10 +130,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sunny.product.model.Product">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.Product" useGeneratedKeys="true">
     insert into p_product (name, description, store_strategy, 
       online_status, status, create_time, 
       update_time, user_id, storage_id, 
@@ -151,10 +148,7 @@
       #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, 
       #{detail,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.sunny.product.model.Product">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.Product" useGeneratedKeys="true">
     insert into p_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">

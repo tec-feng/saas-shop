@@ -102,10 +102,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sunny.product.model.ProductPropertyValue">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductPropertyValue" useGeneratedKeys="true">
     insert into p_product_property_value (name, status, create_time, 
       update_time, sort, property_id, 
       icon)
@@ -113,10 +110,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{propertyId,jdbcType=BIGINT}, 
       #{icon,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductPropertyValue">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductPropertyValue" useGeneratedKeys="true">
     insert into p_product_property_value
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">

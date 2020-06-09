@@ -107,24 +107,21 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.product.model.ProductNavCategory">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into p_product_nav_category (parent_id, name, description, 
-      status, create_time, update_time, 
-      icon, sort, level, 
-      user_id)
-    values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{level,jdbcType=INTEGER}, 
-      #{userId,jdbcType=BIGINT})
+    insert into p_product_nav_category (id, parent_id, name, 
+      description, status, create_time, 
+      update_time, icon, sort, 
+      level, user_id)
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{level,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.ProductNavCategory">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
     insert into p_product_nav_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="parentId != null">
         parent_id,
       </if>
@@ -134,9 +131,7 @@
       <if test="description != null">
         description,
       </if>
-      <if test="status != null">
-        status,
-      </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
@@ -157,6 +152,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="parentId != null">
         #{parentId,jdbcType=BIGINT},
       </if>
@@ -166,9 +164,7 @@
       <if test="description != null">
         #{description,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
-      </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

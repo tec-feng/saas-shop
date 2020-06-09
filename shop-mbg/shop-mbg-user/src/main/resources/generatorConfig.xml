@@ -37,12 +37,13 @@
         <!--<javaClientGenerator type="XMLMAPPER" targetPackage="com.sunny.user.mapper"-->
                              <!--targetProject="shop-mbg\shop-mbg-user\src\main\java"/>-->
         <table tableName="u_user" domainObjectName="User">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="Boolean"/>
             <columnOverride column="has_forbidden" javaType="Boolean"/>
             <columnOverride column="bound_email" javaType="Boolean"/>
             <columnOverride column="bound_phone" javaType="Boolean"/>
             <columnOverride column="bound_wechat" javaType="Boolean"/>
+            <columnOverride column="status" javaType="int"/>
         </table>
     </context>
 </generatorConfiguration>

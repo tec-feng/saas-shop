@@ -113,10 +113,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sunny.product.model.ProductCommentReply">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductCommentReply" useGeneratedKeys="true">
     insert into p_product_comment_reply (comment_id, reply_id, reply_root_id, 
       reply_head, reply_nick, user_id, 
       user_nick, user_head, content, 
@@ -130,10 +127,7 @@
       #{agreeNumber,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductCommentReply">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductCommentReply" useGeneratedKeys="true">
     insert into p_product_comment_reply
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="commentId != null">

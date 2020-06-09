@@ -1,5 +1,8 @@
 package com.sunny.shop.action;
 
+import cn.hutool.core.date.DateUtil;
+import com.sunny.base.ApiCode;
+import com.sunny.base.ApiException;
 import com.sunny.base.BaseAction;
 import com.sunny.base.BaseService;
 import com.sunny.product.model.ProductNavCategory;
@@ -27,7 +30,14 @@ public class ProductNavCategoryAction extends BaseAction<ProductNavCategory,Prod
 
     @Override
     public int save(ProductNavCategory record) {
+        ProductNavCategoryExample example = new ProductNavCategoryExample();
+        example.createCriteria().andNameEqualTo(record.getName());
+        long count = countByExample(example);
+        if(count>0){
+            throw new ApiException(ApiCode.NAV_CATEGORY_EXIST);
+        }
         record.setId(SnowFlakeUtils.nextId());
+        record.setCreateTime(DateUtil.date());
         if(record.getParentId() ==0){
             record.setLevel(1);
         }else{

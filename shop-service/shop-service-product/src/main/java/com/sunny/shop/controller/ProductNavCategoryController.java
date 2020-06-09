@@ -12,6 +12,7 @@ import com.sunny.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -27,8 +28,7 @@ public class ProductNavCategoryController {
     UserFeignApi userFeignApi;
 
     @PostMapping("/create")
-    public ReturnResult create(ProductNavCategoryDto dto){
-        userFeignApi.loadUserByUserName("sunny");
+    public ReturnResult create(@Valid ProductNavCategoryDto dto){
         ProductNavCategory navCategory = ModelMapper.INSTANCE.toModel(dto);
         User loginUser = SecuritySessionUtils.getLoginUser();
         navCategory.setUserId(loginUser.getId());
@@ -59,24 +59,11 @@ public class ProductNavCategoryController {
     }
 
     @GetMapping
-    public ReturnResult list(Long parentId,
+    public ReturnResult list(@RequestParam Long parentId,
                              @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize){
         User loginUser = SecuritySessionUtils.getLoginUser();
         List<ProductNavCategory> categories = navCategoryAction.listSelf(parentId, loginUser.getId(),page,pageSize);
         return ReturnResult.success(ModelMapper.INSTANCE.toVOs(categories));
-    }
-    @GetMapping("/list")
-    public ReturnResult list1(Long parentId,
-                             @RequestParam(value = "page", required = false, defaultValue = "1") int page,
-                             @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize){
-        ReturnResult result = userFeignApi.loadUserByUserName("sunny");
-        System.out.println(result);
-        ReturnResult result1 = userFeignApi.getByUserName("sunny");
-        System.out.println(result1);
-        return ReturnResult.success();
-//        User loginUser = SecuritySessionUtils.getLoginUser();
-//        List<ProductNavCategory> categories = navCategoryAction.listSelf(parentId, loginUser.getId(),page,pageSize);
-//        return ReturnResult.success(ModelMapper.INSTANCE.toVOs(categories));
     }
 }

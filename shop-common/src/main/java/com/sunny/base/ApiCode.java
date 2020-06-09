@@ -17,6 +17,12 @@ public enum ApiCode {
             return "失败";
         }
     },
+    INNER_ERROR(402){
+        @Override
+        public String getMessage() {
+            return "系统内部错误";
+        }
+    },
     PASSWORD_ERROR(4001){
         @Override
         public String getMessage() {
@@ -40,7 +46,14 @@ public enum ApiCode {
         public String getMessage() {
             return "参数效验出错";
         }
+    },
+    NAV_CATEGORY_EXIST(5001){
+        @Override
+        public String getMessage() {
+            return "分类已存在";
+        }
     };
+    ;
     private final int value;
 
     ApiCode(int value) {
