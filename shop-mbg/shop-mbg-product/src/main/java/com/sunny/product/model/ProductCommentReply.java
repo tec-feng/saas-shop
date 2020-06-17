@@ -102,7 +102,7 @@ public class ProductCommentReply implements Serializable {
      *
      * @mbg.generated
      */
-    private Byte status;
+    private int status;
 
     private Date createTime;
 
@@ -222,11 +222,11 @@ public class ProductCommentReply implements Serializable {
         this.agreeNumber = agreeNumber;
     }
 
-    public Byte getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

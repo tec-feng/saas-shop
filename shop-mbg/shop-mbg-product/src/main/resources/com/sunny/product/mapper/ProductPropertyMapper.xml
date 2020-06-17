@@ -9,6 +9,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="category_id" jdbcType="BIGINT" property="categoryId" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, status, create_time, update_time, sort, category_id
+    id, name, status, create_time, update_time, sort, category_id, area_user_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.product.model.ProductPropertyExample" resultMap="BaseResultMap">
     select
@@ -101,23 +102,24 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductProperty" useGeneratedKeys="true">
-    insert into p_product_property (name, status, create_time, 
-      update_time, sort, category_id
-      )
-    values (#{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{categoryId,jdbcType=BIGINT}
-      )
+  <insert id="insert" parameterType="com.sunny.product.model.ProductProperty">
+    insert into p_product_property (id, name, status, 
+      create_time, update_time, sort, 
+      category_id, area_user_id)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, 
+      #{categoryId,jdbcType=BIGINT}, #{areaUserId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductProperty" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductProperty">
     insert into p_product_property
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="name != null">
         name,
       </if>
-      <if test="status != null">
-        status,
-      </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
@@ -130,14 +132,18 @@
       <if test="categoryId != null">
         category_id,
       </if>
+      <if test="areaUserId != null">
+        area_user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
-      </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -149,6 +155,9 @@
       </if>
       <if test="categoryId != null">
         #{categoryId,jdbcType=BIGINT},
+      </if>
+      <if test="areaUserId != null">
+        #{areaUserId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -182,6 +191,9 @@
       <if test="record.categoryId != null">
         category_id = #{record.categoryId,jdbcType=BIGINT},
       </if>
+      <if test="record.areaUserId != null">
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -195,7 +207,8 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       sort = #{record.sort,jdbcType=INTEGER},
-      category_id = #{record.categoryId,jdbcType=BIGINT}
+      category_id = #{record.categoryId,jdbcType=BIGINT},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -221,6 +234,9 @@
       <if test="categoryId != null">
         category_id = #{categoryId,jdbcType=BIGINT},
       </if>
+      <if test="areaUserId != null">
+        area_user_id = #{areaUserId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -231,7 +247,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       sort = #{sort,jdbcType=INTEGER},
-      category_id = #{categoryId,jdbcType=BIGINT}
+      category_id = #{categoryId,jdbcType=BIGINT},
+      area_user_id = #{areaUserId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

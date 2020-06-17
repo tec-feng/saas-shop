@@ -794,6 +794,66 @@ public class ProductNavCategoryExample {
             addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
+
+        public Criteria andAreaUserIdIsNull() {
+            addCriterion("area_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIsNotNull() {
+            addCriterion("area_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdEqualTo(Long value) {
+            addCriterion("area_user_id =", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotEqualTo(Long value) {
+            addCriterion("area_user_id <>", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdGreaterThan(Long value) {
+            addCriterion("area_user_id >", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("area_user_id >=", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdLessThan(Long value) {
+            addCriterion("area_user_id <", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("area_user_id <=", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIn(List<Long> values) {
+            addCriterion("area_user_id in", values, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotIn(List<Long> values) {
+            addCriterion("area_user_id not in", values, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdBetween(Long value1, Long value2) {
+            addCriterion("area_user_id between", value1, value2, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("area_user_id not between", value1, value2, "areaUserId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

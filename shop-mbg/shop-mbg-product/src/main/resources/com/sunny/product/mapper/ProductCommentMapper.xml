@@ -21,6 +21,7 @@
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sunny.product.model.ProductComment">
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
@@ -87,7 +88,7 @@
   <sql id="Base_Column_List">
     id, product_id, sku_id, property_value, user_id, user_nick, user_head, mark, point, 
     anonymous, hide, images, reply_number, agree_number, buy_time, is_fake, status, create_time, 
-    update_time
+    update_time, area_user_id
   </sql>
   <sql id="Blob_Column_List">
     content, blocks
@@ -140,25 +141,30 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductComment" useGeneratedKeys="true">
-    insert into p_product_comment (product_id, sku_id, property_value, 
-      user_id, user_nick, user_head, 
-      mark, point, anonymous, 
-      hide, images, reply_number, 
-      agree_number, buy_time, is_fake, 
-      status, create_time, update_time, 
-      content, blocks)
-    values (#{productId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{propertyValue,jdbcType=VARCHAR}, 
-      #{userId,jdbcType=BIGINT}, #{userNick,jdbcType=VARCHAR}, #{userHead,jdbcType=VARCHAR}, 
-      #{mark,jdbcType=VARCHAR}, #{point,jdbcType=TINYINT}, #{anonymous,jdbcType=TINYINT}, 
-      #{hide,jdbcType=TINYINT}, #{images,jdbcType=VARCHAR}, #{replyNumber,jdbcType=INTEGER}, 
-      #{agreeNumber,jdbcType=INTEGER}, #{buyTime,jdbcType=TIMESTAMP}, #{isFake,jdbcType=TINYINT}, 
-      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=LONGVARCHAR}, #{blocks,jdbcType=LONGVARCHAR})
+  <insert id="insert" parameterType="com.sunny.product.model.ProductComment">
+    insert into p_product_comment (id, product_id, sku_id, 
+      property_value, user_id, user_nick, 
+      user_head, mark, point, 
+      anonymous, hide, images, 
+      reply_number, agree_number, buy_time, 
+      is_fake, status, create_time, 
+      update_time, area_user_id, content, 
+      blocks)
+    values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, 
+      #{propertyValue,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{userNick,jdbcType=VARCHAR}, 
+      #{userHead,jdbcType=VARCHAR}, #{mark,jdbcType=VARCHAR}, #{point,jdbcType=TINYINT}, 
+      #{anonymous,jdbcType=TINYINT}, #{hide,jdbcType=TINYINT}, #{images,jdbcType=VARCHAR}, 
+      #{replyNumber,jdbcType=INTEGER}, #{agreeNumber,jdbcType=INTEGER}, #{buyTime,jdbcType=TIMESTAMP}, 
+      #{isFake,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{areaUserId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR}, 
+      #{blocks,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductComment" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductComment">
     insert into p_product_comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="productId != null">
         product_id,
       </if>
@@ -204,14 +210,15 @@
       <if test="isFake != null">
         is_fake,
       </if>
-      <if test="status != null">
-        status,
-      </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
       <if test="updateTime != null">
         update_time,
+      </if>
+      <if test="areaUserId != null">
+        area_user_id,
       </if>
       <if test="content != null">
         content,
@@ -221,6 +228,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="productId != null">
         #{productId,jdbcType=BIGINT},
       </if>
@@ -266,14 +276,15 @@
       <if test="isFake != null">
         #{isFake,jdbcType=TINYINT},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
-      </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaUserId != null">
+        #{areaUserId,jdbcType=BIGINT},
       </if>
       <if test="content != null">
         #{content,jdbcType=LONGVARCHAR},
@@ -349,6 +360,9 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.areaUserId != null">
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
+      </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=LONGVARCHAR},
       </if>
@@ -381,6 +395,7 @@
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT},
       content = #{record.content,jdbcType=LONGVARCHAR},
       blocks = #{record.blocks,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
@@ -407,7 +422,8 @@
       is_fake = #{record.isFake,jdbcType=TINYINT},
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -469,6 +485,9 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="areaUserId != null">
+        area_user_id = #{areaUserId,jdbcType=BIGINT},
+      </if>
       <if test="content != null">
         content = #{content,jdbcType=LONGVARCHAR},
       </if>
@@ -498,6 +517,7 @@
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
+      area_user_id = #{areaUserId,jdbcType=BIGINT},
       content = #{content,jdbcType=LONGVARCHAR},
       blocks = #{blocks,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
@@ -521,7 +541,8 @@
       is_fake = #{isFake,jdbcType=TINYINT},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      area_user_id = #{areaUserId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

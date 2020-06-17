@@ -32,7 +32,7 @@ public class ProductCategory implements Serializable {
      *
      * @mbg.generated
      */
-    private Byte status;
+    private int status;
 
     private Date createTime;
 
@@ -58,6 +58,8 @@ public class ProductCategory implements Serializable {
      * @mbg.generated
      */
     private Integer level;
+
+    private Long areaUserId;
 
     private static final long serialVersionUID = 1L;
 
@@ -93,11 +95,11 @@ public class ProductCategory implements Serializable {
         this.description = description;
     }
 
-    public Byte getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -141,6 +143,14 @@ public class ProductCategory implements Serializable {
         this.level = level;
     }
 
+    public Long getAreaUserId() {
+        return areaUserId;
+    }
+
+    public void setAreaUserId(Long areaUserId) {
+        this.areaUserId = areaUserId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -157,6 +167,7 @@ public class ProductCategory implements Serializable {
         sb.append(", icon=").append(icon);
         sb.append(", sort=").append(sort);
         sb.append(", level=").append(level);
+        sb.append(", areaUserId=").append(areaUserId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

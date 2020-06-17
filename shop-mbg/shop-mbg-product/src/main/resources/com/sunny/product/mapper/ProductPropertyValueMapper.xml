@@ -10,6 +10,7 @@
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="property_id" jdbcType="BIGINT" property="propertyId" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, status, create_time, update_time, sort, property_id, icon
+    id, name, status, create_time, update_time, sort, property_id, icon, area_user_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.product.model.ProductPropertyValueExample" resultMap="BaseResultMap">
     select
@@ -102,23 +103,26 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductPropertyValue" useGeneratedKeys="true">
-    insert into p_product_property_value (name, status, create_time, 
-      update_time, sort, property_id, 
-      icon)
-    values (#{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, #{propertyId,jdbcType=BIGINT}, 
-      #{icon,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.sunny.product.model.ProductPropertyValue">
+    insert into p_product_property_value (id, name, status, 
+      create_time, update_time, sort, 
+      property_id, icon, area_user_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, 
+      #{propertyId,jdbcType=BIGINT}, #{icon,jdbcType=VARCHAR}, #{areaUserId,jdbcType=BIGINT}
+      )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductPropertyValue" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductPropertyValue">
     insert into p_product_property_value
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="name != null">
         name,
       </if>
-      <if test="status != null">
-        status,
-      </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
@@ -134,14 +138,18 @@
       <if test="icon != null">
         icon,
       </if>
+      <if test="areaUserId != null">
+        area_user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
-      </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -156,6 +164,9 @@
       </if>
       <if test="icon != null">
         #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="areaUserId != null">
+        #{areaUserId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -192,6 +203,9 @@
       <if test="record.icon != null">
         icon = #{record.icon,jdbcType=VARCHAR},
       </if>
+      <if test="record.areaUserId != null">
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -206,7 +220,8 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       sort = #{record.sort,jdbcType=INTEGER},
       property_id = #{record.propertyId,jdbcType=BIGINT},
-      icon = #{record.icon,jdbcType=VARCHAR}
+      icon = #{record.icon,jdbcType=VARCHAR},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -235,6 +250,9 @@
       <if test="icon != null">
         icon = #{icon,jdbcType=VARCHAR},
       </if>
+      <if test="areaUserId != null">
+        area_user_id = #{areaUserId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -246,7 +264,8 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       sort = #{sort,jdbcType=INTEGER},
       property_id = #{propertyId,jdbcType=BIGINT},
-      icon = #{icon,jdbcType=VARCHAR}
+      icon = #{icon,jdbcType=VARCHAR},
+      area_user_id = #{areaUserId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -106,11 +106,18 @@ public class ProductComment implements Serializable {
      *
      * @mbg.generated
      */
-    private Byte status;
+    private int status;
 
     private Date createTime;
 
     private Date updateTime;
+
+    /**
+     * 区域ID
+     *
+     * @mbg.generated
+     */
+    private Long areaUserId;
 
     private String content;
 
@@ -246,11 +253,11 @@ public class ProductComment implements Serializable {
         this.isFake = isFake;
     }
 
-    public Byte getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -268,6 +275,14 @@ public class ProductComment implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Long getAreaUserId() {
+        return areaUserId;
+    }
+
+    public void setAreaUserId(Long areaUserId) {
+        this.areaUserId = areaUserId;
     }
 
     public String getContent() {
@@ -311,6 +326,7 @@ public class ProductComment implements Serializable {
         sb.append(", status=").append(status);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
+        sb.append(", areaUserId=").append(areaUserId);
         sb.append(", content=").append(content);
         sb.append(", blocks=").append(blocks);
         sb.append(", serialVersionUID=").append(serialVersionUID);

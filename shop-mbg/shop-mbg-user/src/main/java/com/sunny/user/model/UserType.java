@@ -6,5 +6,5 @@ package com.sunny.user.model;
  * @create 2020-04-30 13:01
  */
 public enum UserType {
-    base,qq,wechat,phone
+    base,qq,wechat,phone,area
 }

@@ -12,6 +12,7 @@
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -72,7 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, parent_id, name, description, status, create_time, update_time, icon, sort, level
+    id, parent_id, name, description, status, create_time, update_time, icon, sort, level, 
+    area_user_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.product.model.ProductCategoryExample" resultMap="BaseResultMap">
     select
@@ -104,17 +106,22 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductCategory" useGeneratedKeys="true">
-    insert into p_product_category (parent_id, name, description, 
-      status, create_time, update_time, 
-      icon, sort, level)
-    values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{level,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.sunny.product.model.ProductCategory">
+    insert into p_product_category (id, parent_id, name, 
+      description, status, create_time, 
+      update_time, icon, sort, 
+      level, area_user_id)
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{level,jdbcType=INTEGER}, #{areaUserId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.ProductCategory" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductCategory">
     insert into p_product_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="parentId != null">
         parent_id,
       </if>
@@ -124,9 +131,7 @@
       <if test="description != null">
         description,
       </if>
-      <if test="status != null">
-        status,
-      </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
@@ -142,8 +147,14 @@
       <if test="level != null">
         level,
       </if>
+      <if test="areaUserId != null">
+        area_user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="parentId != null">
         #{parentId,jdbcType=BIGINT},
       </if>
@@ -153,9 +164,7 @@
       <if test="description != null">
         #{description,jdbcType=VARCHAR},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
-      </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -170,6 +179,9 @@
       </if>
       <if test="level != null">
         #{level,jdbcType=INTEGER},
+      </if>
+      <if test="areaUserId != null">
+        #{areaUserId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -212,6 +224,9 @@
       <if test="record.level != null">
         level = #{record.level,jdbcType=INTEGER},
       </if>
+      <if test="record.areaUserId != null">
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -228,7 +243,8 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       icon = #{record.icon,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=INTEGER},
-      level = #{record.level,jdbcType=INTEGER}
+      level = #{record.level,jdbcType=INTEGER},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -263,6 +279,9 @@
       <if test="level != null">
         level = #{level,jdbcType=INTEGER},
       </if>
+      <if test="areaUserId != null">
+        area_user_id = #{areaUserId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -276,7 +295,8 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       icon = #{icon,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=INTEGER},
-      level = #{level,jdbcType=INTEGER}
+      level = #{level,jdbcType=INTEGER},
+      area_user_id = #{areaUserId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

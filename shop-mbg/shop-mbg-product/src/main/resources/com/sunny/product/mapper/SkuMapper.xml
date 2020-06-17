@@ -14,6 +14,7 @@
     <result column="pic" jdbcType="VARCHAR" property="pic" />
     <result column="default_sku" jdbcType="TINYINT" property="defaultSku" />
     <result column="sale" jdbcType="INTEGER" property="sale" />
+    <result column="virtual_sale" jdbcType="INTEGER" property="virtualSale" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -80,8 +81,8 @@
   </sql>
   <sql id="Base_Column_List">
     id, product_id, trade_max_nums, market_price, price, stock, low_stock, bar_code, 
-    standby_bar_code, pic, default_sku, sale, status, create_time, update_time, sku_data, 
-    sku_data_id
+    standby_bar_code, pic, default_sku, sale, virtual_sale, status, create_time, update_time, 
+    sku_data, sku_data_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.product.model.SkuExample" resultMap="BaseResultMap">
     select
@@ -113,23 +114,28 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.Sku" useGeneratedKeys="true">
-    insert into p_sku (product_id, trade_max_nums, market_price, 
-      price, stock, low_stock, 
-      bar_code, standby_bar_code, pic, 
-      default_sku, sale, status, 
-      create_time, update_time, sku_data, 
-      sku_data_id)
-    values (#{productId,jdbcType=BIGINT}, #{tradeMaxNums,jdbcType=INTEGER}, #{marketPrice,jdbcType=BIGINT}, 
-      #{price,jdbcType=BIGINT}, #{stock,jdbcType=INTEGER}, #{lowStock,jdbcType=INTEGER}, 
-      #{barCode,jdbcType=VARCHAR}, #{standbyBarCode,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, 
-      #{defaultSku,jdbcType=TINYINT}, #{sale,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{skuData,jdbcType=VARCHAR}, 
-      #{skuDataId,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.sunny.product.model.Sku">
+    insert into p_sku (id, product_id, trade_max_nums, 
+      market_price, price, stock, 
+      low_stock, bar_code, standby_bar_code, 
+      pic, default_sku, sale, 
+      virtual_sale, status, create_time, 
+      update_time, sku_data, sku_data_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{tradeMaxNums,jdbcType=INTEGER}, 
+      #{marketPrice,jdbcType=BIGINT}, #{price,jdbcType=BIGINT}, #{stock,jdbcType=INTEGER}, 
+      #{lowStock,jdbcType=INTEGER}, #{barCode,jdbcType=VARCHAR}, #{standbyBarCode,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=VARCHAR}, #{defaultSku,jdbcType=TINYINT}, #{sale,jdbcType=INTEGER}, 
+      #{virtualSale,jdbcType=INTEGER}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{skuData,jdbcType=VARCHAR}, #{skuDataId,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.Sku" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.sunny.product.model.Sku">
     insert into p_sku
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="productId != null">
         product_id,
       </if>
@@ -163,9 +169,10 @@
       <if test="sale != null">
         sale,
       </if>
-      <if test="status != null">
-        status,
+      <if test="virtualSale != null">
+        virtual_sale,
       </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
@@ -180,6 +187,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="productId != null">
         #{productId,jdbcType=BIGINT},
       </if>
@@ -213,9 +223,10 @@
       <if test="sale != null">
         #{sale,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
+      <if test="virtualSale != null">
+        #{virtualSale,jdbcType=INTEGER},
       </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -275,6 +286,9 @@
       <if test="record.sale != null">
         sale = #{record.sale,jdbcType=INTEGER},
       </if>
+      <if test="record.virtualSale != null">
+        virtual_sale = #{record.virtualSale,jdbcType=INTEGER},
+      </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=TINYINT},
       </if>
@@ -309,6 +323,7 @@
       pic = #{record.pic,jdbcType=VARCHAR},
       default_sku = #{record.defaultSku,jdbcType=TINYINT},
       sale = #{record.sale,jdbcType=INTEGER},
+      virtual_sale = #{record.virtualSale,jdbcType=INTEGER},
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -354,6 +369,9 @@
       <if test="sale != null">
         sale = #{sale,jdbcType=INTEGER},
       </if>
+      <if test="virtualSale != null">
+        virtual_sale = #{virtualSale,jdbcType=INTEGER},
+      </if>
       <if test="status != null">
         status = #{status,jdbcType=TINYINT},
       </if>
@@ -385,6 +403,7 @@
       pic = #{pic,jdbcType=VARCHAR},
       default_sku = #{defaultSku,jdbcType=TINYINT},
       sale = #{sale,jdbcType=INTEGER},
+      virtual_sale = #{virtualSale,jdbcType=INTEGER},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

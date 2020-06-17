@@ -84,11 +84,18 @@ public class Sku implements Serializable {
     private Integer sale;
 
     /**
+     * 虚拟销量
+     *
+     * @mbg.generated
+     */
+    private Integer virtualSale;
+
+    /**
      * 0:正常上架,1:删除 ,2:失效
      *
      * @mbg.generated
      */
-    private Byte status;
+    private int status;
 
     /**
      * 记录新增的时间
@@ -105,14 +112,14 @@ public class Sku implements Serializable {
     private Date updateTime;
 
     /**
-     * 销售属性
+     * 销售属性，比如（[{"k":"颜色","v":"黑色"},{"k":"容量","v":"128G"},,{"k":"型号","v":"iphone11"}]）
      *
      * @mbg.generated
      */
     private String skuData;
 
     /**
-     * 销售属性,p-v
+     * 销售属性,p-v，比如11-12;15-28;299-199
      *
      * @mbg.generated
      */
@@ -216,11 +223,19 @@ public class Sku implements Serializable {
         this.sale = sale;
     }
 
-    public Byte getStatus() {
+    public Integer getVirtualSale() {
+        return virtualSale;
+    }
+
+    public void setVirtualSale(Integer virtualSale) {
+        this.virtualSale = virtualSale;
+    }
+
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -274,6 +289,7 @@ public class Sku implements Serializable {
         sb.append(", pic=").append(pic);
         sb.append(", defaultSku=").append(defaultSku);
         sb.append(", sale=").append(sale);
+        sb.append(", virtualSale=").append(virtualSale);
         sb.append(", status=").append(status);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);

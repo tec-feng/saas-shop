@@ -66,6 +66,13 @@ public class ProductNavCategory implements Serializable {
      */
     private Long userId;
 
+    /**
+     * 区域ID
+     *
+     * @mbg.generated
+     */
+    private Long areaUserId;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -156,6 +163,14 @@ public class ProductNavCategory implements Serializable {
         this.userId = userId;
     }
 
+    public Long getAreaUserId() {
+        return areaUserId;
+    }
+
+    public void setAreaUserId(Long areaUserId) {
+        this.areaUserId = areaUserId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -173,6 +188,7 @@ public class ProductNavCategory implements Serializable {
         sb.append(", sort=").append(sort);
         sb.append(", level=").append(level);
         sb.append(", userId=").append(userId);
+        sb.append(", areaUserId=").append(areaUserId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

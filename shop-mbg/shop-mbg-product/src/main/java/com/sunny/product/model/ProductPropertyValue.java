@@ -13,7 +13,7 @@ public class ProductPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    private Byte status;
+    private int status;
 
     /**
      * 创建时间
@@ -50,6 +50,13 @@ public class ProductPropertyValue implements Serializable {
      */
     private String icon;
 
+    /**
+     * 区域ID
+     *
+     * @mbg.generated
+     */
+    private Long areaUserId;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -68,11 +75,11 @@ public class ProductPropertyValue implements Serializable {
         this.name = name;
     }
 
-    public Byte getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -116,6 +123,14 @@ public class ProductPropertyValue implements Serializable {
         this.icon = icon;
     }
 
+    public Long getAreaUserId() {
+        return areaUserId;
+    }
+
+    public void setAreaUserId(Long areaUserId) {
+        this.areaUserId = areaUserId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -130,6 +145,7 @@ public class ProductPropertyValue implements Serializable {
         sb.append(", sort=").append(sort);
         sb.append(", propertyId=").append(propertyId);
         sb.append(", icon=").append(icon);
+        sb.append(", areaUserId=").append(areaUserId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

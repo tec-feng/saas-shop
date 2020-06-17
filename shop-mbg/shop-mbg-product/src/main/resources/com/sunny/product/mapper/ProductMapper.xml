@@ -130,27 +130,30 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.Product" useGeneratedKeys="true">
-    insert into p_product (name, description, store_strategy, 
-      online_status, status, create_time, 
-      update_time, user_id, storage_id, 
-      in_pool, shop_no, area_user_id, 
-      from_id, freight_template_id, pic, 
-      new_status, recommand_status, verify_status, 
-      keywords, shipping_fee, category_id, 
-      detail)
-    values (#{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{storeStrategy,jdbcType=INTEGER}, 
-      #{onlineStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=BIGINT}, #{storageId,jdbcType=BIGINT}, 
-      #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, #{areaUserId,jdbcType=BIGINT}, 
-      #{fromId,jdbcType=BIGINT}, #{freightTemplateId,jdbcType=BIGINT}, #{pic,jdbcType=VARCHAR}, 
-      #{newStatus,jdbcType=INTEGER}, #{recommandStatus,jdbcType=INTEGER}, #{verifyStatus,jdbcType=INTEGER}, 
-      #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, 
-      #{detail,jdbcType=LONGVARCHAR})
+  <insert id="insert" parameterType="com.sunny.product.model.Product">
+    insert into p_product (id, name, description, 
+      store_strategy, online_status, status, 
+      create_time, update_time, user_id, 
+      storage_id, in_pool, shop_no, 
+      area_user_id, from_id, freight_template_id, 
+      pic, new_status, recommand_status, 
+      verify_status, keywords, shipping_fee, 
+      category_id, detail)
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{storeStrategy,jdbcType=INTEGER}, #{onlineStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=BIGINT}, 
+      #{storageId,jdbcType=BIGINT}, #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, 
+      #{areaUserId,jdbcType=BIGINT}, #{fromId,jdbcType=BIGINT}, #{freightTemplateId,jdbcType=BIGINT}, 
+      #{pic,jdbcType=VARCHAR}, #{newStatus,jdbcType=INTEGER}, #{recommandStatus,jdbcType=INTEGER}, 
+      #{verifyStatus,jdbcType=INTEGER}, #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, 
+      #{categoryId,jdbcType=BIGINT}, #{detail,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.sunny.product.model.Product" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.sunny.product.model.Product">
     insert into p_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="name != null">
         name,
       </if>
@@ -163,9 +166,7 @@
       <if test="onlineStatus != null">
         online_status,
       </if>
-      <if test="status != null">
-        status,
-      </if>
+      status,
       <if test="createTime != null">
         create_time,
       </if>
@@ -219,6 +220,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
@@ -231,9 +235,7 @@
       <if test="onlineStatus != null">
         #{onlineStatus,jdbcType=TINYINT},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
-      </if>
+      #{status,jdbcType=TINYINT},
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

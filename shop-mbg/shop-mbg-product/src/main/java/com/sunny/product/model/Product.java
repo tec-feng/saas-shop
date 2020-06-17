@@ -39,7 +39,7 @@ public class Product implements Serializable {
      *
      * @mbg.generated
      */
-    private Byte status;
+    private int status;
 
     private Date createTime;
 
@@ -192,11 +192,11 @@ public class Product implements Serializable {
         this.onlineStatus = onlineStatus;
     }
 
-    public Byte getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

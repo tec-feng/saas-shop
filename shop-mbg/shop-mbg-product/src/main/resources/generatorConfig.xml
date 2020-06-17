@@ -52,19 +52,28 @@
             <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="int"/>
         </table>
-        <table tableName="p_product_property" domainObjectName="ProductProperty">
-            <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
-        </table>
-        <table tableName="p_product_property_value" domainObjectName="ProductPropertyValue">
-            <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
-        </table>
         <table tableName="p_sku" domainObjectName="Sku">
             <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="int"/>
         </table>
         <table tableName="p_product_nav_category" domainObjectName="ProductNavCategory">
+            <property name="status" value="0"  ></property>
+            <columnOverride column="status" javaType="int"/>
+        </table>
+
+        <table tableName="p_category_parameter" domainObjectName="CategoryParameter">
+            <property name="status" value="0"  ></property>
+            <columnOverride column="status" javaType="int"/>
+        </table>
+        <table tableName="p_category_property" domainObjectName="CategoryProperty">
+            <property name="status" value="0"  ></property>
+            <columnOverride column="status" javaType="int"/>
+        </table>
+        <table tableName="p_product_category_parameter_value" domainObjectName="ProductCategoryParameterValue">
+            <property name="status" value="0"  ></property>
+            <columnOverride column="status" javaType="int"/>
+        </table>
+        <table tableName="p_product_category_property_value" domainObjectName="ProductCategoryPropertyValue">
             <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="int"/>
         </table>

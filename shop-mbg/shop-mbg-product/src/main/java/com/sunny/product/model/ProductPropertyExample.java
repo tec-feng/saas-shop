@@ -245,52 +245,52 @@ public class ProductPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Byte value) {
+        public Criteria andStatusEqualTo(int value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Byte value) {
+        public Criteria andStatusNotEqualTo(int value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Byte value) {
+        public Criteria andStatusGreaterThan(int value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
+        public Criteria andStatusGreaterThanOrEqualTo(int value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Byte value) {
+        public Criteria andStatusLessThan(int value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Byte value) {
+        public Criteria andStatusLessThanOrEqualTo(int value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Byte> values) {
+        public Criteria andStatusIn(List<Integer> values) {
             addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Byte> values) {
+        public Criteria andStatusNotIn(List<Integer> values) {
             addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Byte value1, Byte value2) {
+        public Criteria andStatusBetween(int value1, int value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
+        public Criteria andStatusNotBetween(int value1, int value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
@@ -532,6 +532,66 @@ public class ProductPropertyExample {
 
         public Criteria andCategoryIdNotBetween(Long value1, Long value2) {
             addCriterion("category_id not between", value1, value2, "categoryId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIsNull() {
+            addCriterion("area_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIsNotNull() {
+            addCriterion("area_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdEqualTo(Long value) {
+            addCriterion("area_user_id =", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotEqualTo(Long value) {
+            addCriterion("area_user_id <>", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdGreaterThan(Long value) {
+            addCriterion("area_user_id >", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("area_user_id >=", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdLessThan(Long value) {
+            addCriterion("area_user_id <", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("area_user_id <=", value, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdIn(List<Long> values) {
+            addCriterion("area_user_id in", values, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotIn(List<Long> values) {
+            addCriterion("area_user_id not in", values, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdBetween(Long value1, Long value2) {
+            addCriterion("area_user_id between", value1, value2, "areaUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAreaUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("area_user_id not between", value1, value2, "areaUserId");
             return (Criteria) this;
         }
     }

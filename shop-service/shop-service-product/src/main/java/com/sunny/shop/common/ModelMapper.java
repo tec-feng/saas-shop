@@ -1,10 +1,12 @@
 package com.sunny.shop.common;
 
 import com.sunny.product.dto.ProductCategoryDto;
+import com.sunny.product.dto.ProductCategoryUpdateDto;
 import com.sunny.product.dto.ProductNavCategoryDto;
 import com.sunny.product.dto.ProductNavCategoryUpdateDto;
 import com.sunny.product.model.ProductCategory;
 import com.sunny.product.model.ProductNavCategory;
+import com.sunny.product.vo.ProductCategoryVO;
 import com.sunny.product.vo.ProductNavCategoryVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -23,7 +25,11 @@ public interface ModelMapper {
     ProductNavCategory toModel(ProductNavCategoryDto dto);
     ProductNavCategory toModel(ProductNavCategoryUpdateDto dto);
     ProductNavCategoryVO toVO(ProductNavCategory model);
-    List<ProductNavCategoryVO> toVOs(List<ProductNavCategory> models);
+    List<ProductNavCategoryVO> toNavCategoryVOs(List<ProductNavCategory> models);
 
     ProductCategory toModel(ProductCategoryDto dto);
+    ProductCategory toModel(ProductCategoryUpdateDto dto);
+    ProductCategoryVO toVO(ProductCategory model);
+    List<ProductCategoryVO> toCategoryVOs(List<ProductCategory> models);
+
 }

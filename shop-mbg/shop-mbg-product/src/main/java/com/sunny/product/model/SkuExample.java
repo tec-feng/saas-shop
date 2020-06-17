@@ -855,6 +855,66 @@ public class SkuExample {
             return (Criteria) this;
         }
 
+        public Criteria andVirtualSaleIsNull() {
+            addCriterion("virtual_sale is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleIsNotNull() {
+            addCriterion("virtual_sale is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleEqualTo(Integer value) {
+            addCriterion("virtual_sale =", value, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleNotEqualTo(Integer value) {
+            addCriterion("virtual_sale <>", value, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleGreaterThan(Integer value) {
+            addCriterion("virtual_sale >", value, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleGreaterThanOrEqualTo(Integer value) {
+            addCriterion("virtual_sale >=", value, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleLessThan(Integer value) {
+            addCriterion("virtual_sale <", value, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleLessThanOrEqualTo(Integer value) {
+            addCriterion("virtual_sale <=", value, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleIn(List<Integer> values) {
+            addCriterion("virtual_sale in", values, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleNotIn(List<Integer> values) {
+            addCriterion("virtual_sale not in", values, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleBetween(Integer value1, Integer value2) {
+            addCriterion("virtual_sale between", value1, value2, "virtualSale");
+            return (Criteria) this;
+        }
+
+        public Criteria andVirtualSaleNotBetween(Integer value1, Integer value2) {
+            addCriterion("virtual_sale not between", value1, value2, "virtualSale");
+            return (Criteria) this;
+        }
+
         public Criteria andStatusIsNull() {
             addCriterion("status is null");
             return (Criteria) this;
@@ -865,52 +925,52 @@ public class SkuExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Byte value) {
+        public Criteria andStatusEqualTo(int value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Byte value) {
+        public Criteria andStatusNotEqualTo(int value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Byte value) {
+        public Criteria andStatusGreaterThan(int value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
+        public Criteria andStatusGreaterThanOrEqualTo(int value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Byte value) {
+        public Criteria andStatusLessThan(int value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Byte value) {
+        public Criteria andStatusLessThanOrEqualTo(int value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Byte> values) {
+        public Criteria andStatusIn(List<Integer> values) {
             addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Byte> values) {
+        public Criteria andStatusNotIn(List<Integer> values) {
             addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Byte value1, Byte value2) {
+        public Criteria andStatusBetween(int value1, int value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
+        public Criteria andStatusNotBetween(int value1, int value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
