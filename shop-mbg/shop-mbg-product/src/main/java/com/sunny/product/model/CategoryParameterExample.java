@@ -735,52 +735,52 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeEqualTo(Boolean value) {
+        public Criteria andSelectTypeEqualTo(int value) {
             addCriterion("select_type =", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeNotEqualTo(Boolean value) {
+        public Criteria andSelectTypeNotEqualTo(int value) {
             addCriterion("select_type <>", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeGreaterThan(Boolean value) {
+        public Criteria andSelectTypeGreaterThan(int value) {
             addCriterion("select_type >", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andSelectTypeGreaterThanOrEqualTo(int value) {
             addCriterion("select_type >=", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeLessThan(Boolean value) {
+        public Criteria andSelectTypeLessThan(int value) {
             addCriterion("select_type <", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andSelectTypeLessThanOrEqualTo(int value) {
             addCriterion("select_type <=", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeIn(List<Boolean> values) {
+        public Criteria andSelectTypeIn(List<Integer> values) {
             addCriterion("select_type in", values, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeNotIn(List<Boolean> values) {
+        public Criteria andSelectTypeNotIn(List<Integer> values) {
             addCriterion("select_type not in", values, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andSelectTypeBetween(int value1, int value2) {
             addCriterion("select_type between", value1, value2, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andSelectTypeNotBetween(int value1, int value2) {
             addCriterion("select_type not between", value1, value2, "selectType");
             return (Criteria) this;
         }
@@ -865,52 +865,52 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeEqualTo(Boolean value) {
+        public Criteria andSearchTypeEqualTo(int value) {
             addCriterion("search_type =", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotEqualTo(Boolean value) {
+        public Criteria andSearchTypeNotEqualTo(int value) {
             addCriterion("search_type <>", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeGreaterThan(Boolean value) {
+        public Criteria andSearchTypeGreaterThan(int value) {
             addCriterion("search_type >", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andSearchTypeGreaterThanOrEqualTo(int value) {
             addCriterion("search_type >=", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeLessThan(Boolean value) {
+        public Criteria andSearchTypeLessThan(int value) {
             addCriterion("search_type <", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andSearchTypeLessThanOrEqualTo(int value) {
             addCriterion("search_type <=", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeIn(List<Boolean> values) {
+        public Criteria andSearchTypeIn(List<Integer> values) {
             addCriterion("search_type in", values, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotIn(List<Boolean> values) {
+        public Criteria andSearchTypeNotIn(List<Integer> values) {
             addCriterion("search_type not in", values, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andSearchTypeBetween(int value1, int value2) {
             addCriterion("search_type between", value1, value2, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andSearchTypeNotBetween(int value1, int value2) {
             addCriterion("search_type not between", value1, value2, "searchType");
             return (Criteria) this;
         }

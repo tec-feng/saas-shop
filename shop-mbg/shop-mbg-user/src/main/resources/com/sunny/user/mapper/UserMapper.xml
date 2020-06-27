@@ -119,32 +119,29 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sunny.user.model.User">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into u_user (user_name, password, email, 
-      nickname, phone, has_forbidden, 
-      user_type, icon, bound_email, 
-      bound_phone, bound_wechat, brief, 
-      real_name, union_id, open_id, 
-      status, create_time, update_time, 
-      gender, city, area_user_id
-      )
-    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{hasForbidden,jdbcType=TINYINT}, 
-      #{userType,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{boundEmail,jdbcType=TINYINT}, 
-      #{boundPhone,jdbcType=TINYINT}, #{boundWechat,jdbcType=TINYINT}, #{brief,jdbcType=VARCHAR}, 
-      #{realName,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
-      #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, #{areaUserId,jdbcType=BIGINT}
-      )
+    insert into u_user (id, user_name, password, 
+      email, nickname, phone, 
+      has_forbidden, user_type, icon, 
+      bound_email, bound_phone, bound_wechat, 
+      brief, real_name, union_id, 
+      open_id, status, create_time, 
+      update_time, gender, city, 
+      area_user_id)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{hasForbidden,jdbcType=TINYINT}, #{userType,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{boundEmail,jdbcType=TINYINT}, #{boundPhone,jdbcType=TINYINT}, #{boundWechat,jdbcType=TINYINT}, 
+      #{brief,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, 
+      #{openId,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{gender,jdbcType=INTEGER}, #{city,jdbcType=VARCHAR}, 
+      #{areaUserId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.user.model.User">
-    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
     insert into u_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
       <if test="userName != null">
         user_name,
       </if>
@@ -210,6 +207,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
       <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>

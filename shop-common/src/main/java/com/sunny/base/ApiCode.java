@@ -52,7 +52,31 @@ public enum ApiCode {
         public String getMessage() {
             return "分类已存在";
         }
-    };
+    },
+    USER_PRODUCT_CATEGORY_EXIST(5002){
+        @Override
+        public String getMessage() {
+            return "商品分类已存在";
+        }
+    },
+    CATEGORY_PARAMETER_EXIST(5003){
+        @Override
+        public String getMessage() {
+            return "分类参数已存在";
+        }
+    },
+    CATEGORY_PROPERTY_EXIST(5004){
+        @Override
+        public String getMessage() {
+            return "分类属性已存在";
+        }
+    },
+    CATEGORY_NOT_EXIST(5005){
+        @Override
+        public String getMessage() {
+            return "商品分类不存在";
+        }
+    },
     ;
     private final int value;
 

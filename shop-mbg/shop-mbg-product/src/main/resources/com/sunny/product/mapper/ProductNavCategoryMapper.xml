@@ -12,7 +12,6 @@
     <result column="icon" jdbcType="VARCHAR" property="icon" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="level" jdbcType="INTEGER" property="level" />
-    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -75,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, parent_id, name, description, status, create_time, update_time, icon, sort, level, 
-    user_id, area_user_id
+    area_user_id
   </sql>
   <select id="selectByExample" parameterType="com.sunny.product.model.ProductNavCategoryExample" resultMap="BaseResultMap">
     select
@@ -111,13 +110,11 @@
     insert into p_product_nav_category (id, parent_id, name, 
       description, status, create_time, 
       update_time, icon, sort, 
-      level, user_id, area_user_id
-      )
+      level, area_user_id)
     values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
       #{description,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
-      #{level,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, #{areaUserId,jdbcType=BIGINT}
-      )
+      #{level,jdbcType=INTEGER}, #{areaUserId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.ProductNavCategory">
     insert into p_product_nav_category
@@ -149,9 +146,6 @@
       </if>
       <if test="level != null">
         level,
-      </if>
-      <if test="userId != null">
-        user_id,
       </if>
       <if test="areaUserId != null">
         area_user_id,
@@ -185,9 +179,6 @@
       </if>
       <if test="level != null">
         #{level,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null">
-        #{userId,jdbcType=BIGINT},
       </if>
       <if test="areaUserId != null">
         #{areaUserId,jdbcType=BIGINT},
@@ -233,9 +224,6 @@
       <if test="record.level != null">
         level = #{record.level,jdbcType=INTEGER},
       </if>
-      <if test="record.userId != null">
-        user_id = #{record.userId,jdbcType=BIGINT},
-      </if>
       <if test="record.areaUserId != null">
         area_user_id = #{record.areaUserId,jdbcType=BIGINT},
       </if>
@@ -256,7 +244,6 @@
       icon = #{record.icon,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=INTEGER},
       level = #{record.level,jdbcType=INTEGER},
-      user_id = #{record.userId,jdbcType=BIGINT},
       area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -292,9 +279,6 @@
       <if test="level != null">
         level = #{level,jdbcType=INTEGER},
       </if>
-      <if test="userId != null">
-        user_id = #{userId,jdbcType=BIGINT},
-      </if>
       <if test="areaUserId != null">
         area_user_id = #{areaUserId,jdbcType=BIGINT},
       </if>
@@ -312,7 +296,6 @@
       icon = #{icon,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=INTEGER},
       level = #{level,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=BIGINT},
       area_user_id = #{areaUserId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>

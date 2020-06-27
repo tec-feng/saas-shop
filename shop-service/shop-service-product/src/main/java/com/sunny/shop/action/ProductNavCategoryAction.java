@@ -31,7 +31,7 @@ public class ProductNavCategoryAction extends BaseAction<ProductNavCategory,Prod
     @Override
     public int save(ProductNavCategory record) {
         ProductNavCategoryExample example = new ProductNavCategoryExample();
-        example.createCriteria().andNameEqualTo(record.getName());
+        example.createCriteria().andNameEqualTo(record.getName()).andAreaUserIdEqualTo(record.getAreaUserId());
         long count = countByExample(example);
         if(count>0){
             throw new ApiException(ApiCode.NAV_CATEGORY_EXIST);
@@ -49,25 +49,25 @@ public class ProductNavCategoryAction extends BaseAction<ProductNavCategory,Prod
 
     public int deleteSelf(long id,long userId) {
         ProductNavCategoryExample example = new ProductNavCategoryExample();
-        example.createCriteria().andIdEqualTo(id).andUserIdEqualTo(userId);
+        example.createCriteria().andIdEqualTo(id).andAreaUserIdEqualTo(userId);
         return super.deleteByExample(example);
     }
 
     public int updateSelf(ProductNavCategory navCategory,long userId) {
         ProductNavCategoryExample example = new ProductNavCategoryExample();
-        example.createCriteria().andIdEqualTo(navCategory.getId()).andUserIdEqualTo(userId);
+        example.createCriteria().andIdEqualTo(navCategory.getId()).andAreaUserIdEqualTo(userId);
         return super.updateByExampleSelective(navCategory,example);
     }
 
     public ProductNavCategory getSelf(long id,long userId) {
         ProductNavCategoryExample example = new ProductNavCategoryExample();
-        example.createCriteria().andIdEqualTo(id).andUserIdEqualTo(userId);
+        example.createCriteria().andIdEqualTo(id).andAreaUserIdEqualTo(userId);
         return super.selectOne(example);
     }
 
     public List<ProductNavCategory> listSelf(long parentId, long userId,Integer page,Integer pageSize) {
         ProductNavCategoryExample example = new ProductNavCategoryExample();
-        example.createCriteria().andParentIdEqualTo(parentId).andUserIdEqualTo(userId);
+        example.createCriteria().andParentIdEqualTo(parentId).andAreaUserIdEqualTo(userId);
         return super.selectByExample(example,page,pageSize);
     }
 }

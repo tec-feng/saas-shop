@@ -7,7 +7,7 @@ public class CategoryProperty implements Serializable {
     private Long id;
 
     /**
-     * 类目参数名称
+     * 类目属性名称
      *
      * @mbg.generated
      */
@@ -60,14 +60,14 @@ public class CategoryProperty implements Serializable {
      *
      * @mbg.generated
      */
-    private Boolean searchType;
+    private int searchType;
 
     /**
      * 规格值录入方式：0->手工录入；1->从列表中选取
      *
      * @mbg.generated
      */
-    private Integer valueType;
+    private int valueType;
 
     /**
      * 可选值，value_type为0时，数据为空，如果value_type为1时为可选参数,多个用;隔开
@@ -81,7 +81,7 @@ public class CategoryProperty implements Serializable {
      *
      * @mbg.generated
      */
-    private Boolean manuallyAdd;
+    private int manuallyAdd;
 
     private static final long serialVersionUID = 1L;
 
@@ -149,19 +149,19 @@ public class CategoryProperty implements Serializable {
         this.areaUserId = areaUserId;
     }
 
-    public Boolean getSearchType() {
+    public int getSearchType() {
         return searchType;
     }
 
-    public void setSearchType(Boolean searchType) {
+    public void setSearchType(int searchType) {
         this.searchType = searchType;
     }
 
-    public Integer getValueType() {
+    public int getValueType() {
         return valueType;
     }
 
-    public void setValueType(Integer valueType) {
+    public void setValueType(int valueType) {
         this.valueType = valueType;
     }
 
@@ -173,11 +173,11 @@ public class CategoryProperty implements Serializable {
         this.value = value;
     }
 
-    public Boolean getManuallyAdd() {
+    public int getManuallyAdd() {
         return manuallyAdd;
     }
 
-    public void setManuallyAdd(Boolean manuallyAdd) {
+    public void setManuallyAdd(int manuallyAdd) {
         this.manuallyAdd = manuallyAdd;
     }
 

@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @create 2020-04-22 13:17
  */
 public class ReturnResult<T> implements Serializable{
-    private ApiCode code;
+    private int code;
     private String message;
     private T data;
 
@@ -35,28 +35,28 @@ public class ReturnResult<T> implements Serializable{
     }
 
     protected ReturnResult(ApiCode code){
-        this.code = code;
+        this.code = code.getValue();
         this.message = code.getMessage();
     }
 
     protected ReturnResult(ApiCode code, String message, T data) {
-        this.code = code;
+        this.code = code.getValue();
         this.message = message;
         this.data = data;
     }
 
     protected ReturnResult(ApiCode code, T data) {
-        this.code = code;
+        this.code = code.getValue();
         this.message = code.getMessage();
         this.data = data;
     }
 
 
-    public ApiCode getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(ApiCode code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

@@ -3,7 +3,7 @@ package com.sunny.product.model;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ProductNavCategory implements Serializable {
+public class ProductUserCategory implements Serializable {
     private Long id;
 
     /**
@@ -58,6 +58,13 @@ public class ProductNavCategory implements Serializable {
      * @mbg.generated
      */
     private Integer level;
+
+    /**
+     * 用户ID
+     *
+     * @mbg.generated
+     */
+    private Long userId;
 
     /**
      * 区域ID
@@ -148,6 +155,14 @@ public class ProductNavCategory implements Serializable {
         this.level = level;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     public Long getAreaUserId() {
         return areaUserId;
     }
@@ -172,6 +187,7 @@ public class ProductNavCategory implements Serializable {
         sb.append(", icon=").append(icon);
         sb.append(", sort=").append(sort);
         sb.append(", level=").append(level);
+        sb.append(", userId=").append(userId);
         sb.append(", areaUserId=").append(areaUserId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");

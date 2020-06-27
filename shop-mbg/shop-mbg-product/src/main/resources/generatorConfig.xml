@@ -61,13 +61,24 @@
             <columnOverride column="status" javaType="int"/>
         </table>
 
+        <table tableName="p_product_user_category" domainObjectName="ProductUserCategory">
+            <property name="status" value="0"  ></property>
+            <columnOverride column="status" javaType="int"/>
+        </table>
+
         <table tableName="p_category_parameter" domainObjectName="CategoryParameter">
             <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="int"/>
+            <columnOverride column="select_type" javaType="int"/>
+            <columnOverride column="search_type" javaType="int"/>
         </table>
         <table tableName="p_category_property" domainObjectName="CategoryProperty">
             <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="int"/>
+            <columnOverride column="value_type" javaType="int"/>
+            <columnOverride column="search_type" javaType="int"/>
+            <columnOverride column="manually_add" javaType="int"/>
+
         </table>
         <table tableName="p_product_category_parameter_value" domainObjectName="ProductCategoryParameterValue">
             <property name="status" value="0"  ></property>

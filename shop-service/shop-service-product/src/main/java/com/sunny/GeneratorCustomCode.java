@@ -17,24 +17,29 @@ public class GeneratorCustomCode {
     private static String separator = System.getProperty("file.separator");
     public static void main(String[] args) {
         //类名称
-        String classNames = "CategoryParameter;CategoryProperty;ProductCategoryParameterValue;" +
-                "ProductCategoryPropertyValue";
+        String classNames = "CategoryProperty";
+        String detail = "类的详细描述";
+        String desc = "基本描述";
         for(String className:classNames.split(";")){
-            autoGeneratorCode(className);
+            autoGeneratorCode(className, detail, desc);
         }
     }
-    private static void autoGeneratorCode(String className){
+    private static void autoGeneratorCode(String className,String detail,String desc){
         String model = "product";
         System.out.println("自动创建开始...");
-        autoGeneratorCode(model,className,"service","Service");
+        autoGeneratorCode(model,className,"service","Service", detail, desc);
         System.out.println("创建Service成功...");
-        autoGeneratorCode(model,className,"action","Action");
+        autoGeneratorCode(model,className,"action","Action", detail, desc);
         System.out.println("创建Action成功...");
+        autoGeneratorCode(model,className,"controller","Controller", detail, desc);
+        System.out.println("创建Controller成功...");
         System.out.println("自动创建结束...");
+
+
     }
 
     private static void autoGeneratorCode(String model,String className,String packageName
-    ,String serviceName){
+    ,String serviceName,String detail,String desc){
         StringBuilder prePath = new StringBuilder(projectFolder);
         prePath.append(separator).append("shop-service").append(separator)
                 .append("shop-service-").append(model).append(separator);
@@ -52,6 +57,8 @@ public class GeneratorCustomCode {
             dataMap.put("UpperClassName", className);
             dataMap.put("lowerClassName", toLowerCaseFirstOne(className));
             dataMap.put("model",model);
+            dataMap.put("Detail",detail);
+            dataMap.put("Desc",desc);
             // step4 加载模版文件
             Template template = configuration.getTemplate(serviceName+".ftl");
             // step5 生成数据

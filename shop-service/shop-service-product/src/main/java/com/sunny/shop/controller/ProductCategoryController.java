@@ -37,7 +37,6 @@ public class ProductCategoryController {
         ProductCategory navCategory = ModelMapper.INSTANCE.toModel(dto);
         User loginUser = SecuritySessionUtils.getLoginUser();
         navCategory.setAreaUserId(loginUser.getAreaUserId());
-        navCategory.setAreaUserId(loginUser.getId());
         categoryAction.save(navCategory);
         return ReturnResult.success(ModelMapper.INSTANCE.toVO(navCategory));
     }

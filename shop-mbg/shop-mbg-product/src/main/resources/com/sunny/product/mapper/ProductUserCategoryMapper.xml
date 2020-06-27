@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sunny.product.mapper.CategoryParameterMapper">
-  <resultMap id="BaseResultMap" type="com.sunny.product.model.CategoryParameter">
+<mapper namespace="com.sunny.product.mapper.ProductUserCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.sunny.product.model.ProductUserCategory">
     <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="sort" jdbcType="INTEGER" property="sort" />
-    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
-    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
-    <result column="must" jdbcType="BIT" property="must" />
-    <result column="select_type" jdbcType="BIT" property="selectType" />
-    <result column="value" jdbcType="VARCHAR" property="value" />
-    <result column="search_type" jdbcType="BIT" property="searchType" />
-    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="area_user_id" jdbcType="BIGINT" property="areaUserId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -76,16 +74,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, status, create_time, update_time, sort, category_id, area_user_id, icon, 
-    must, select_type, value, search_type, unit
+    id, parent_id, name, description, status, create_time, update_time, icon, sort, level, 
+    user_id, area_user_id
   </sql>
-  <select id="selectByExample" parameterType="com.sunny.product.model.CategoryParameterExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.sunny.product.model.ProductUserCategoryExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from p_category_parameter
+    from p_product_user_category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -96,39 +94,45 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from p_category_parameter
+    from p_product_user_category
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from p_category_parameter
+    delete from p_product_user_category
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sunny.product.model.CategoryParameterExample">
-    delete from p_category_parameter
+  <delete id="deleteByExample" parameterType="com.sunny.product.model.ProductUserCategoryExample">
+    delete from p_product_user_category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sunny.product.model.CategoryParameter">
-    insert into p_category_parameter (id, name, status, 
-      create_time, update_time, sort, 
-      category_id, area_user_id, icon, 
-      must, select_type, value, search_type, 
-      unit)
-    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=INTEGER}, 
-      #{categoryId,jdbcType=BIGINT}, #{areaUserId,jdbcType=BIGINT}, #{icon,jdbcType=VARCHAR}, 
-      #{must,jdbcType=BIT}, #{selectType,jdbcType=BIT}, #{value,jdbcType=VARCHAR}, #{searchType,jdbcType=BIT}, 
-      #{unit,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.sunny.product.model.ProductUserCategory">
+    insert into p_product_user_category (id, parent_id, name, 
+      description, status, create_time, 
+      update_time, icon, sort, 
+      level, user_id, area_user_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{level,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}, #{areaUserId,jdbcType=BIGINT}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.sunny.product.model.CategoryParameter">
-    insert into p_category_parameter
+  <insert id="insertSelective" parameterType="com.sunny.product.model.ProductUserCategory">
+    insert into p_product_user_category
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
       <if test="name != null">
         name,
+      </if>
+      <if test="description != null">
+        description,
       </if>
       status,
       <if test="createTime != null">
@@ -137,36 +141,34 @@
       <if test="updateTime != null">
         update_time,
       </if>
-      <if test="sort != null">
-        sort,
-      </if>
-      <if test="categoryId != null">
-        category_id,
-      </if>
-      <if test="areaUserId != null">
-        area_user_id,
-      </if>
       <if test="icon != null">
         icon,
       </if>
-      <if test="must != null">
-        must,
+      <if test="sort != null">
+        sort,
       </if>
-      select_type,
-      <if test="value != null">
-        value,
+      <if test="level != null">
+        level,
       </if>
-      search_type,
-      <if test="unit != null">
-        unit,
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="areaUserId != null">
+        area_user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
       </if>
       #{status,jdbcType=TINYINT},
       <if test="createTime != null">
@@ -175,45 +177,43 @@
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
       <if test="sort != null">
         #{sort,jdbcType=INTEGER},
       </if>
-      <if test="categoryId != null">
-        #{categoryId,jdbcType=BIGINT},
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="areaUserId != null">
         #{areaUserId,jdbcType=BIGINT},
       </if>
-      <if test="icon != null">
-        #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="must != null">
-        #{must,jdbcType=BIT},
-      </if>
-      #{selectType,jdbcType=BIT},
-      <if test="value != null">
-        #{value,jdbcType=VARCHAR},
-      </if>
-      #{searchType,jdbcType=BIT},
-      <if test="unit != null">
-        #{unit,jdbcType=VARCHAR},
-      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sunny.product.model.CategoryParameterExample" resultType="java.lang.Long">
-    select count(*) from p_category_parameter
+  <select id="countByExample" parameterType="com.sunny.product.model.ProductUserCategoryExample" resultType="java.lang.Long">
+    select count(*) from p_product_user_category
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update p_category_parameter
+    update p_product_user_category
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
+      <if test="record.parentId != null">
+        parent_id = #{record.parentId,jdbcType=BIGINT},
+      </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=TINYINT},
@@ -224,32 +224,20 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.sort != null">
-        sort = #{record.sort,jdbcType=INTEGER},
-      </if>
-      <if test="record.categoryId != null">
-        category_id = #{record.categoryId,jdbcType=BIGINT},
-      </if>
-      <if test="record.areaUserId != null">
-        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
-      </if>
       <if test="record.icon != null">
         icon = #{record.icon,jdbcType=VARCHAR},
       </if>
-      <if test="record.must != null">
-        must = #{record.must,jdbcType=BIT},
+      <if test="record.sort != null">
+        sort = #{record.sort,jdbcType=INTEGER},
       </if>
-      <if test="record.selectType != null">
-        select_type = #{record.selectType,jdbcType=BIT},
+      <if test="record.level != null">
+        level = #{record.level,jdbcType=INTEGER},
       </if>
-      <if test="record.value != null">
-        value = #{record.value,jdbcType=VARCHAR},
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
-      <if test="record.searchType != null">
-        search_type = #{record.searchType,jdbcType=BIT},
-      </if>
-      <if test="record.unit != null">
-        unit = #{record.unit,jdbcType=VARCHAR},
+      <if test="record.areaUserId != null">
+        area_user_id = #{record.areaUserId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -257,30 +245,34 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update p_category_parameter
+    update p_product_user_category
     set id = #{record.id,jdbcType=BIGINT},
+      parent_id = #{record.parentId,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      sort = #{record.sort,jdbcType=INTEGER},
-      category_id = #{record.categoryId,jdbcType=BIGINT},
-      area_user_id = #{record.areaUserId,jdbcType=BIGINT},
       icon = #{record.icon,jdbcType=VARCHAR},
-      must = #{record.must,jdbcType=BIT},
-      select_type = #{record.selectType,jdbcType=BIT},
-      value = #{record.value,jdbcType=VARCHAR},
-      search_type = #{record.searchType,jdbcType=BIT},
-      unit = #{record.unit,jdbcType=VARCHAR}
+      sort = #{record.sort,jdbcType=INTEGER},
+      level = #{record.level,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      area_user_id = #{record.areaUserId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sunny.product.model.CategoryParameter">
-    update p_category_parameter
+  <update id="updateByPrimaryKeySelective" parameterType="com.sunny.product.model.ProductUserCategory">
+    update p_product_user_category
     <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=TINYINT},
@@ -291,51 +283,37 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
       <if test="sort != null">
         sort = #{sort,jdbcType=INTEGER},
       </if>
-      <if test="categoryId != null">
-        category_id = #{categoryId,jdbcType=BIGINT},
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="areaUserId != null">
         area_user_id = #{areaUserId,jdbcType=BIGINT},
       </if>
-      <if test="icon != null">
-        icon = #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="must != null">
-        must = #{must,jdbcType=BIT},
-      </if>
-      <if test="selectType != null">
-        select_type = #{selectType,jdbcType=BIT},
-      </if>
-      <if test="value != null">
-        value = #{value,jdbcType=VARCHAR},
-      </if>
-      <if test="searchType != null">
-        search_type = #{searchType,jdbcType=BIT},
-      </if>
-      <if test="unit != null">
-        unit = #{unit,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.CategoryParameter">
-    update p_category_parameter
-    set name = #{name,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.sunny.product.model.ProductUserCategory">
+    update p_product_user_category
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      sort = #{sort,jdbcType=INTEGER},
-      category_id = #{categoryId,jdbcType=BIGINT},
-      area_user_id = #{areaUserId,jdbcType=BIGINT},
       icon = #{icon,jdbcType=VARCHAR},
-      must = #{must,jdbcType=BIT},
-      select_type = #{selectType,jdbcType=BIT},
-      value = #{value,jdbcType=VARCHAR},
-      search_type = #{searchType,jdbcType=BIT},
-      unit = #{unit,jdbcType=VARCHAR}
+      sort = #{sort,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT},
+      area_user_id = #{areaUserId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

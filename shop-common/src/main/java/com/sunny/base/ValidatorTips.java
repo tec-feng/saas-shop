@@ -12,4 +12,8 @@ public class ValidatorTips {
     public static final String CATEGORY_NAME_SIZE="分类名称长度在2~20之间！";
     public static final String CATEGORY_NAME_NOT_EMPTY="分类名称不能为空";
     public static final String CATEGORY_DESC_NAME_SIZE="分类描述长度在2~255之间！";
+    public static final String CATEGORY_PARAMETER_SIZE="分类参数长度在2~20之间！";
+    public static final String CATEGORY_PARAMETER_NOT_EMPTY="分类参数不能为空";
+    public static final String CATEGORY_PROPERTY_SIZE="分类属性长度在2~20之间！";
+    public static final String CATEGORY_PROPERTY_NOT_EMPTY="分类属性不能为空";
 }

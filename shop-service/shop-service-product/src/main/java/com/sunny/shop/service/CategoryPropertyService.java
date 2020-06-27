@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
 *
 * @author tec_feng
-* @create 2020-06-17 01:08:09
+* @create 2020-06-22 07:48:04
 */
 @Service
 public class CategoryPropertyService extends BaseService<CategoryProperty,CategoryPropertyExample>{

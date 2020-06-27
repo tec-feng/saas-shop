@@ -74,7 +74,7 @@ public class CategoryParameter implements Serializable {
      *
      * @mbg.generated
      */
-    private Boolean selectType;
+    private int selectType;
 
     /**
      * 可选值，参数类型1(文本)、2(数字)是为提示语；3(单选)或4(多选)时为可选参数,多个用;隔开
@@ -88,7 +88,7 @@ public class CategoryParameter implements Serializable {
      *
      * @mbg.generated
      */
-    private Boolean searchType;
+    private int searchType;
 
     /**
      * 参数单位
@@ -179,11 +179,11 @@ public class CategoryParameter implements Serializable {
         this.must = must;
     }
 
-    public Boolean getSelectType() {
+    public int getSelectType() {
         return selectType;
     }
 
-    public void setSelectType(Boolean selectType) {
+    public void setSelectType(int selectType) {
         this.selectType = selectType;
     }
 
@@ -195,11 +195,11 @@ public class CategoryParameter implements Serializable {
         this.value = value;
     }
 
-    public Boolean getSearchType() {
+    public int getSearchType() {
         return searchType;
     }
 
-    public void setSearchType(Boolean searchType) {
+    public void setSearchType(int searchType) {
         this.searchType = searchType;
     }
 

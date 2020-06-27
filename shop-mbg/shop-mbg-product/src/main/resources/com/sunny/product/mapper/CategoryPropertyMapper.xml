@@ -144,18 +144,12 @@
       <if test="areaUserId != null">
         area_user_id,
       </if>
-      <if test="searchType != null">
-        search_type,
-      </if>
-      <if test="valueType != null">
-        value_type,
-      </if>
+      search_type,
+      value_type,
       <if test="value != null">
         value,
       </if>
-      <if test="manuallyAdd != null">
-        manually_add,
-      </if>
+      manually_add,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -180,18 +174,12 @@
       <if test="areaUserId != null">
         #{areaUserId,jdbcType=BIGINT},
       </if>
-      <if test="searchType != null">
-        #{searchType,jdbcType=BIT},
-      </if>
-      <if test="valueType != null">
-        #{valueType,jdbcType=INTEGER},
-      </if>
+      #{searchType,jdbcType=BIT},
+      #{valueType,jdbcType=INTEGER},
       <if test="value != null">
         #{value,jdbcType=VARCHAR},
       </if>
-      <if test="manuallyAdd != null">
-        #{manuallyAdd,jdbcType=BIT},
-      </if>
+      #{manuallyAdd,jdbcType=BIT},
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sunny.product.model.CategoryPropertyExample" resultType="java.lang.Long">

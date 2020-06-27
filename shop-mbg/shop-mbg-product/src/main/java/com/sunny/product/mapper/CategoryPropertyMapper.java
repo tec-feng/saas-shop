@@ -5,7 +5,7 @@ import com.sunny.product.model.CategoryPropertyExample;
 
 /**
 * @author tec_feng
-* @create 2020-06-17 01:05:04
+* @create 2020-06-19 01:17:58
 */
 public interface CategoryPropertyMapper extends BaseMapper<CategoryProperty,CategoryPropertyExample> {
 
