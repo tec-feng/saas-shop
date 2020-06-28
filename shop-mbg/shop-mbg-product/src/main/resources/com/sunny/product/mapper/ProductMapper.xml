@@ -166,7 +166,9 @@
       <if test="onlineStatus != null">
         online_status,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -235,7 +237,9 @@
       <if test="onlineStatus != null">
         #{onlineStatus,jdbcType=TINYINT},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

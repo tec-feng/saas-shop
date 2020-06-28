@@ -172,7 +172,9 @@
       <if test="virtualSale != null">
         virtual_sale,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -226,7 +228,9 @@
       <if test="virtualSale != null">
         #{virtualSale,jdbcType=INTEGER},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

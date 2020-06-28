@@ -37,12 +37,13 @@ public class ${UpperClassName}Action extends BaseAction<${UpperClassName},${Uppe
         }
         record.setId(SnowFlakeUtils.nextId());
         record.setCreateTime(DateUtil.date());
+        record.setStatus(0);
         return super.save(record);
     }
     public int deleteSelf(long id,long userId) {
         ${UpperClassName}Example example = new ${UpperClassName}Example();
         example.createCriteria().andIdEqualTo(id).andUserIdEqualTo(userId);
-        return super.deleteByExample(example);
+        return super.updateByExampleSelective(example);
     }
 
     public int updateSelf(${UpperClassName} record,long userId) {
@@ -59,7 +60,8 @@ public class ${UpperClassName}Action extends BaseAction<${UpperClassName},${Uppe
 
     public List<${UpperClassName}> listSelf(long categoryId, long userId, Integer page, Integer pageSize) {
         ${UpperClassName}Example example = new ${UpperClassName}Example();
-        example.createCriteria().andCategoryIdEqualTo(categoryId).andUserIdEqualTo(userId);
+        example.createCriteria().andCategoryIdEqualTo(categoryId).andUserIdEqualTo(userId)
+        .andStatusEqualTo(BaseStatus.NORMAL_STATUS);
         return super.selectByExample(example,page,pageSize);
     }
 }

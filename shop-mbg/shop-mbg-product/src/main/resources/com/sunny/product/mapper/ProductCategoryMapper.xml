@@ -131,7 +131,9 @@
       <if test="description != null">
         description,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -164,7 +166,9 @@
       <if test="description != null">
         #{description,jdbcType=VARCHAR},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

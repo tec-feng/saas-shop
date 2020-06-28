@@ -435,32 +435,32 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(int value) {
+        public Criteria andStatusEqualTo(Integer value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(int value) {
+        public Criteria andStatusNotEqualTo(Integer value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(int value) {
+        public Criteria andStatusGreaterThan(Integer value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(int value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(int value) {
+        public Criteria andStatusLessThan(Integer value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(int value) {
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
@@ -475,12 +475,12 @@ public class ProductExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(int value1, int value2) {
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(int value1, int value2) {
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }

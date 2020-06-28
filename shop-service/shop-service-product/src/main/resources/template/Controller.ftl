@@ -23,7 +23,7 @@ import java.util.List;
 */
 @Api(tags = "${UpperClassName}Controller", description = "${Detail}")
 @RestController
-@RequestMapping(value = "${UpperClassName}")
+@RequestMapping(value = "${lowerClassName}")
 public class ${UpperClassName}Controller {
     @Autowired
     ${UpperClassName}Action ${lowerClassName}Action;

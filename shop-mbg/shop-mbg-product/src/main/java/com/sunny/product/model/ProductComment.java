@@ -106,7 +106,7 @@ public class ProductComment implements Serializable {
      *
      * @mbg.generated
      */
-    private int status;
+    private Integer status;
 
     private Date createTime;
 
@@ -253,11 +253,11 @@ public class ProductComment implements Serializable {
         this.isFake = isFake;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

@@ -1,10 +1,7 @@
 package com.sunny.shop.action;
 
 import cn.hutool.core.date.DateUtil;
-import com.sunny.base.ApiCode;
-import com.sunny.base.ApiException;
-import com.sunny.base.BaseAction;
-import com.sunny.base.BaseService;
+import com.sunny.base.*;
 import com.sunny.product.model.ProductCategory;
 import com.sunny.product.model.ProductCategoryExample;
 import com.sunny.shop.service.ProductCategoryService;
@@ -37,6 +34,7 @@ public class ProductCategoryAction extends BaseAction<ProductCategory,ProductCat
         }
         record.setId(SnowFlakeUtils.nextId());
         record.setCreateTime(DateUtil.date());
+        record.setStatus(0);
         if(record.getParentId() ==0){
             record.setLevel(1);
         }else{
@@ -49,7 +47,10 @@ public class ProductCategoryAction extends BaseAction<ProductCategory,ProductCat
     public int deleteSelf(long id,long userId) {
         ProductCategoryExample example = new ProductCategoryExample();
         example.createCriteria().andIdEqualTo(id).andAreaUserIdEqualTo(userId);
-        return super.deleteByExample(example);
+        ProductCategory category = new ProductCategory();
+        category.setId(id);
+        category.setStatus(BaseStatus.DELETE_STATUS);
+        return super.updateByExampleSelective(category,example);
     }
 
     public int updateSelf(ProductCategory navCategory,long userId) {
@@ -66,7 +67,8 @@ public class ProductCategoryAction extends BaseAction<ProductCategory,ProductCat
 
     public List<ProductCategory> listSelf(long parentId, long userId, Integer page, Integer pageSize) {
         ProductCategoryExample example = new ProductCategoryExample();
-        example.createCriteria().andParentIdEqualTo(parentId).andAreaUserIdEqualTo(userId);
+        example.createCriteria().andParentIdEqualTo(parentId).andAreaUserIdEqualTo(userId)
+        .andStatusEqualTo(BaseStatus.NORMAL_STATUS);
         return super.selectByExample(example,page,pageSize);
     }
 }

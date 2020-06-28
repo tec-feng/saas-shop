@@ -38,55 +38,55 @@
                              <!--targetProject="shop-mbg\shop-mbg-product\src\main\java"/>-->
         <table tableName="p_product" domainObjectName="Product">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
         <table tableName="p_product_category" domainObjectName="ProductCategory">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
         <table tableName="p_product_comment" domainObjectName="ProductComment">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
         <table tableName="p_product_comment_reply" domainObjectName="ProductCommentReply">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
         <table tableName="p_sku" domainObjectName="Sku">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
         <table tableName="p_product_nav_category" domainObjectName="ProductNavCategory">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
 
         <table tableName="p_product_user_category" domainObjectName="ProductUserCategory">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
 
         <table tableName="p_category_parameter" domainObjectName="CategoryParameter">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
-            <columnOverride column="select_type" javaType="int"/>
-            <columnOverride column="search_type" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
+            <columnOverride column="select_type" javaType="Integer"/>
+            <columnOverride column="search_type" javaType="Integer"/>
         </table>
         <table tableName="p_category_property" domainObjectName="CategoryProperty">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
-            <columnOverride column="value_type" javaType="int"/>
-            <columnOverride column="search_type" javaType="int"/>
-            <columnOverride column="manually_add" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
+            <columnOverride column="value_type" javaType="Integer"/>
+            <columnOverride column="search_type" javaType="Integer"/>
+            <columnOverride column="manually_add" javaType="Integer"/>
 
         </table>
         <table tableName="p_product_category_parameter_value" domainObjectName="ProductCategoryParameterValue">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
         <table tableName="p_product_category_property_value" domainObjectName="ProductCategoryPropertyValue">
             <property name="status" value="0"  ></property>
-            <columnOverride column="status" javaType="int"/>
+            <columnOverride column="status" javaType="Integer"/>
         </table>
     </context>
 </generatorConfiguration>

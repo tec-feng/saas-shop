@@ -11,19 +11,20 @@ import com.sunny.user.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
 /**
-* 区域管理员设置商品后台类目
+* 区域管理员设置分类属性
 * @author tec_feng
 * @create 2020-06-02 12:36
 */
 @Api(tags = "CategoryPropertyController", description = "商品后台类目")
 @RestController
-@RequestMapping(value = "CategoryProperty")
+@RequestMapping(value = "categoryProperty")
 public class CategoryPropertyController {
     @Autowired
     CategoryPropertyAction categoryPropertyAction;
@@ -68,11 +69,11 @@ public class CategoryPropertyController {
 
     @ApiOperation("分页获取后台类目列表")
     @GetMapping
-    public ReturnResult list(@RequestParam Long parentId,
+    public ReturnResult list(@RequestParam Long categoryId,
                              @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                              @RequestParam(value = "pageSize", required = false, defaultValue = "20") int pageSize){
         User loginUser = SecuritySessionUtils.getLoginUser();
-        List<CategoryProperty> categoryPropertys = categoryPropertyAction.listSelf(parentId, loginUser.getId(),page,pageSize);
+        List<CategoryProperty> categoryPropertys = categoryPropertyAction.listSelf(categoryId, loginUser.getId(),page,pageSize);
             return ReturnResult.success(ModelMapper.INSTANCE.toCategoryPropertyVOs(categoryPropertys));
         }
     }

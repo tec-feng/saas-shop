@@ -172,7 +172,9 @@
       <if test="agreeNumber != null">
         agree_number,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -223,7 +225,9 @@
       <if test="agreeNumber != null">
         #{agreeNumber,jdbcType=INTEGER},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

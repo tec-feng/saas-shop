@@ -245,32 +245,32 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(int value) {
+        public Criteria andStatusEqualTo(Integer value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(int value) {
+        public Criteria andStatusNotEqualTo(Integer value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(int value) {
+        public Criteria andStatusGreaterThan(Integer value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(int value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(int value) {
+        public Criteria andStatusLessThan(Integer value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(int value) {
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
@@ -285,12 +285,12 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(int value1, int value2) {
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(int value1, int value2) {
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
@@ -605,32 +605,32 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeEqualTo(int value) {
+        public Criteria andSearchTypeEqualTo(Integer value) {
             addCriterion("search_type =", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotEqualTo(int value) {
+        public Criteria andSearchTypeNotEqualTo(Integer value) {
             addCriterion("search_type <>", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeGreaterThan(int value) {
+        public Criteria andSearchTypeGreaterThan(Integer value) {
             addCriterion("search_type >", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeGreaterThanOrEqualTo(int value) {
+        public Criteria andSearchTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("search_type >=", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeLessThan(int value) {
+        public Criteria andSearchTypeLessThan(Integer value) {
             addCriterion("search_type <", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeLessThanOrEqualTo(int value) {
+        public Criteria andSearchTypeLessThanOrEqualTo(Integer value) {
             addCriterion("search_type <=", value, "searchType");
             return (Criteria) this;
         }
@@ -645,12 +645,12 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeBetween(int value1, int value2) {
+        public Criteria andSearchTypeBetween(Integer value1, Integer value2) {
             addCriterion("search_type between", value1, value2, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotBetween(int value1, int value2) {
+        public Criteria andSearchTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("search_type not between", value1, value2, "searchType");
             return (Criteria) this;
         }
@@ -665,32 +665,32 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeEqualTo(int value) {
+        public Criteria andValueTypeEqualTo(Integer value) {
             addCriterion("value_type =", value, "valueType");
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeNotEqualTo(int value) {
+        public Criteria andValueTypeNotEqualTo(Integer value) {
             addCriterion("value_type <>", value, "valueType");
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeGreaterThan(int value) {
+        public Criteria andValueTypeGreaterThan(Integer value) {
             addCriterion("value_type >", value, "valueType");
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeGreaterThanOrEqualTo(int value) {
+        public Criteria andValueTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("value_type >=", value, "valueType");
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeLessThan(int value) {
+        public Criteria andValueTypeLessThan(Integer value) {
             addCriterion("value_type <", value, "valueType");
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeLessThanOrEqualTo(int value) {
+        public Criteria andValueTypeLessThanOrEqualTo(Integer value) {
             addCriterion("value_type <=", value, "valueType");
             return (Criteria) this;
         }
@@ -705,12 +705,12 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeBetween(int value1, int value2) {
+        public Criteria andValueTypeBetween(Integer value1, Integer value2) {
             addCriterion("value_type between", value1, value2, "valueType");
             return (Criteria) this;
         }
 
-        public Criteria andValueTypeNotBetween(int value1, int value2) {
+        public Criteria andValueTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("value_type not between", value1, value2, "valueType");
             return (Criteria) this;
         }
@@ -795,32 +795,32 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddEqualTo(int value) {
+        public Criteria andManuallyAddEqualTo(Integer value) {
             addCriterion("manually_add =", value, "manuallyAdd");
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddNotEqualTo(int value) {
+        public Criteria andManuallyAddNotEqualTo(Integer value) {
             addCriterion("manually_add <>", value, "manuallyAdd");
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddGreaterThan(int value) {
+        public Criteria andManuallyAddGreaterThan(Integer value) {
             addCriterion("manually_add >", value, "manuallyAdd");
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddGreaterThanOrEqualTo(int value) {
+        public Criteria andManuallyAddGreaterThanOrEqualTo(Integer value) {
             addCriterion("manually_add >=", value, "manuallyAdd");
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddLessThan(int value) {
+        public Criteria andManuallyAddLessThan(Integer value) {
             addCriterion("manually_add <", value, "manuallyAdd");
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddLessThanOrEqualTo(int value) {
+        public Criteria andManuallyAddLessThanOrEqualTo(Integer value) {
             addCriterion("manually_add <=", value, "manuallyAdd");
             return (Criteria) this;
         }
@@ -835,12 +835,12 @@ public class CategoryPropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddBetween(int value1, int value2) {
+        public Criteria andManuallyAddBetween(Integer value1, Integer value2) {
             addCriterion("manually_add between", value1, value2, "manuallyAdd");
             return (Criteria) this;
         }
 
-        public Criteria andManuallyAddNotBetween(int value1, int value2) {
+        public Criteria andManuallyAddNotBetween(Integer value1, Integer value2) {
             addCriterion("manually_add not between", value1, value2, "manuallyAdd");
             return (Criteria) this;
         }

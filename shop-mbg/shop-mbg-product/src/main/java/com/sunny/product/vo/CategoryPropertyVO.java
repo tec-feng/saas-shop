@@ -1,11 +1,13 @@
 package com.sunny.product.vo;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 /**
  * @author tec_feng
  * @create 2020-06-22 22:52
  */
+@Data
 public class CategoryPropertyVO {
     @ApiModelProperty(value = "分类参数ID")
     private Long id;

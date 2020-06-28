@@ -1,10 +1,7 @@
 package com.sunny.shop.action;
 
 import cn.hutool.core.date.DateUtil;
-import com.sunny.base.ApiCode;
-import com.sunny.base.ApiException;
-import com.sunny.base.BaseAction;
-import com.sunny.base.BaseService;
+import com.sunny.base.*;
 import com.sunny.product.model.CategoryParameter;
 import com.sunny.product.model.CategoryParameterExample;
 import com.sunny.product.model.ProductCategory;
@@ -45,6 +42,7 @@ public class CategoryParameterAction extends BaseAction<CategoryParameter,Catego
         }
         record.setId(SnowFlakeUtils.nextId());
         record.setCreateTime(DateUtil.date());
+        record.setStatus(0);
         if(record.getSort() == null){
             record.setSort(0);
         }
@@ -53,7 +51,10 @@ public class CategoryParameterAction extends BaseAction<CategoryParameter,Catego
     public int deleteSelf(long id,long userId) {
         CategoryParameterExample example = new CategoryParameterExample();
         example.createCriteria().andIdEqualTo(id).andAreaUserIdEqualTo(userId);
-        return super.deleteByExample(example);
+        CategoryParameter parameter = new CategoryParameter();
+        parameter.setId(id);
+        parameter.setStatus(BaseStatus.DELETE_STATUS);
+        return super.updateByExampleSelective(parameter,example);
     }
 
     public int updateSelf(CategoryParameter parameter,long userId) {
@@ -70,7 +71,8 @@ public class CategoryParameterAction extends BaseAction<CategoryParameter,Catego
 
     public List<CategoryParameter> listSelf(long categoryId, long userId, Integer page, Integer pageSize) {
         CategoryParameterExample example = new CategoryParameterExample();
-        example.createCriteria().andCategoryIdEqualTo(categoryId).andAreaUserIdEqualTo(userId);
+        example.createCriteria().andCategoryIdEqualTo(categoryId).andAreaUserIdEqualTo(userId)
+        .andStatusEqualTo(BaseStatus.NORMAL_STATUS);
         return super.selectByExample(example,page,pageSize);
     }
 }
