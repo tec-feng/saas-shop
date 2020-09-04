@@ -128,7 +128,9 @@
       <if test="name != null">
         name,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -144,12 +146,18 @@
       <if test="areaUserId != null">
         area_user_id,
       </if>
-      search_type,
-      value_type,
+      <if test="searchType != null">
+        search_type,
+      </if>
+      <if test="valueType != null">
+        value_type,
+      </if>
       <if test="value != null">
         value,
       </if>
-      manually_add,
+      <if test="manuallyAdd != null">
+        manually_add,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -158,7 +166,9 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -174,12 +184,18 @@
       <if test="areaUserId != null">
         #{areaUserId,jdbcType=BIGINT},
       </if>
-      #{searchType,jdbcType=BIT},
-      #{valueType,jdbcType=INTEGER},
+      <if test="searchType != null">
+        #{searchType,jdbcType=BIT},
+      </if>
+      <if test="valueType != null">
+        #{valueType,jdbcType=INTEGER},
+      </if>
       <if test="value != null">
         #{value,jdbcType=VARCHAR},
       </if>
-      #{manuallyAdd,jdbcType=BIT},
+      <if test="manuallyAdd != null">
+        #{manuallyAdd,jdbcType=BIT},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sunny.product.model.CategoryPropertyExample" resultType="java.lang.Long">

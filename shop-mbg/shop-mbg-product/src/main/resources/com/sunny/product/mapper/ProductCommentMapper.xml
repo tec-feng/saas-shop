@@ -210,7 +210,9 @@
       <if test="isFake != null">
         is_fake,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -276,7 +278,9 @@
       <if test="isFake != null">
         #{isFake,jdbcType=TINYINT},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>

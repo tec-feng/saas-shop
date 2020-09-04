@@ -245,32 +245,32 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(int value) {
+        public Criteria andStatusEqualTo(Integer value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(int value) {
+        public Criteria andStatusNotEqualTo(Integer value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(int value) {
+        public Criteria andStatusGreaterThan(Integer value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(int value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(int value) {
+        public Criteria andStatusLessThan(Integer value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(int value) {
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
@@ -285,12 +285,12 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(int value1, int value2) {
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(int value1, int value2) {
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
@@ -735,32 +735,32 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeEqualTo(int value) {
+        public Criteria andSelectTypeEqualTo(Integer value) {
             addCriterion("select_type =", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeNotEqualTo(int value) {
+        public Criteria andSelectTypeNotEqualTo(Integer value) {
             addCriterion("select_type <>", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeGreaterThan(int value) {
+        public Criteria andSelectTypeGreaterThan(Integer value) {
             addCriterion("select_type >", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeGreaterThanOrEqualTo(int value) {
+        public Criteria andSelectTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("select_type >=", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeLessThan(int value) {
+        public Criteria andSelectTypeLessThan(Integer value) {
             addCriterion("select_type <", value, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeLessThanOrEqualTo(int value) {
+        public Criteria andSelectTypeLessThanOrEqualTo(Integer value) {
             addCriterion("select_type <=", value, "selectType");
             return (Criteria) this;
         }
@@ -775,12 +775,12 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeBetween(int value1, int value2) {
+        public Criteria andSelectTypeBetween(Integer value1, Integer value2) {
             addCriterion("select_type between", value1, value2, "selectType");
             return (Criteria) this;
         }
 
-        public Criteria andSelectTypeNotBetween(int value1, int value2) {
+        public Criteria andSelectTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("select_type not between", value1, value2, "selectType");
             return (Criteria) this;
         }
@@ -865,32 +865,32 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeEqualTo(int value) {
+        public Criteria andSearchTypeEqualTo(Integer value) {
             addCriterion("search_type =", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotEqualTo(int value) {
+        public Criteria andSearchTypeNotEqualTo(Integer value) {
             addCriterion("search_type <>", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeGreaterThan(int value) {
+        public Criteria andSearchTypeGreaterThan(Integer value) {
             addCriterion("search_type >", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeGreaterThanOrEqualTo(int value) {
+        public Criteria andSearchTypeGreaterThanOrEqualTo(Integer value) {
             addCriterion("search_type >=", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeLessThan(int value) {
+        public Criteria andSearchTypeLessThan(Integer value) {
             addCriterion("search_type <", value, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeLessThanOrEqualTo(int value) {
+        public Criteria andSearchTypeLessThanOrEqualTo(Integer value) {
             addCriterion("search_type <=", value, "searchType");
             return (Criteria) this;
         }
@@ -905,12 +905,12 @@ public class CategoryParameterExample {
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeBetween(int value1, int value2) {
+        public Criteria andSearchTypeBetween(Integer value1, Integer value2) {
             addCriterion("search_type between", value1, value2, "searchType");
             return (Criteria) this;
         }
 
-        public Criteria andSearchTypeNotBetween(int value1, int value2) {
+        public Criteria andSearchTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("search_type not between", value1, value2, "searchType");
             return (Criteria) this;
         }

@@ -130,7 +130,9 @@
       <if test="name != null">
         name,
       </if>
-      status,
+      <if test="status != null">
+        status,
+      </if>
       <if test="createTime != null">
         create_time,
       </if>
@@ -152,11 +154,15 @@
       <if test="must != null">
         must,
       </if>
-      select_type,
+      <if test="selectType != null">
+        select_type,
+      </if>
       <if test="value != null">
         value,
       </if>
-      search_type,
+      <if test="searchType != null">
+        search_type,
+      </if>
       <if test="unit != null">
         unit,
       </if>
@@ -168,7 +174,9 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      #{status,jdbcType=TINYINT},
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -190,11 +198,15 @@
       <if test="must != null">
         #{must,jdbcType=BIT},
       </if>
-      #{selectType,jdbcType=BIT},
+      <if test="selectType != null">
+        #{selectType,jdbcType=BIT},
+      </if>
       <if test="value != null">
         #{value,jdbcType=VARCHAR},
       </if>
-      #{searchType,jdbcType=BIT},
+      <if test="searchType != null">
+        #{searchType,jdbcType=BIT},
+      </if>
       <if test="unit != null">
         #{unit,jdbcType=VARCHAR},
       </if>

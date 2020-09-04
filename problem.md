@@ -51,6 +51,14 @@ p_product_nav_category  平台的前台类目，平台可以用来和他对应�
 b_picture 图片
 b_picture_space 图片空间
 
+创建接口，统一修改成传json数据接收。
+但是如果前台少传参数，只会报400错误，不会报详细的错误。
+需要自定义报错处理。
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerExceptionResolver]: Factory method 'handlerExceptionResolver' threw exception; nested exception is java.lang.IllegalStateException: Ambiguous @ExceptionHandler method mapped for [class org.springframework.web.bind.MissingServletRequestParameterException]: {public com.sunny.base.ReturnResult com.sunny.base.UnifyExceptionHandler.handleMissingServletRequestParameterException(org.springframework.web.bind.MissingServletRequestParameterException), public final org.springframework.http.ResponseEntity org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler.handleException(java.lang.Exception,org.springframework.web.context.request.WebRequest) throws java.lang.Exception}
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651) ~[spring-beans-5.2.5.RELEASE.jar:5.2.5.RELEASE]
+	... 24 common frames omitted
+
 
 
 哪些接口已经完成开发了

@@ -32,7 +32,7 @@ public class ProductCategoryPropertyValue implements Serializable {
      *
      * @mbg.generated
      */
-    private int status;
+    private Integer status;
 
     /**
      * 创建时间
@@ -89,11 +89,11 @@ public class ProductCategoryPropertyValue implements Serializable {
         this.value = value;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

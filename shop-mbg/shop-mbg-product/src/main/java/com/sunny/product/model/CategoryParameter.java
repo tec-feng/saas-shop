@@ -18,7 +18,7 @@ public class CategoryParameter implements Serializable {
      *
      * @mbg.generated
      */
-    private int status;
+    private Integer status;
 
     /**
      * 创建时间
@@ -74,7 +74,7 @@ public class CategoryParameter implements Serializable {
      *
      * @mbg.generated
      */
-    private int selectType;
+    private Integer selectType;
 
     /**
      * 可选值，参数类型1(文本)、2(数字)是为提示语；3(单选)或4(多选)时为可选参数,多个用;隔开
@@ -88,7 +88,7 @@ public class CategoryParameter implements Serializable {
      *
      * @mbg.generated
      */
-    private int searchType;
+    private Integer searchType;
 
     /**
      * 参数单位
@@ -115,11 +115,11 @@ public class CategoryParameter implements Serializable {
         this.name = name;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -179,11 +179,11 @@ public class CategoryParameter implements Serializable {
         this.must = must;
     }
 
-    public int getSelectType() {
+    public Integer getSelectType() {
         return selectType;
     }
 
-    public void setSelectType(int selectType) {
+    public void setSelectType(Integer selectType) {
         this.selectType = selectType;
     }
 
@@ -195,11 +195,11 @@ public class CategoryParameter implements Serializable {
         this.value = value;
     }
 
-    public int getSearchType() {
+    public Integer getSearchType() {
         return searchType;
     }
 
-    public void setSearchType(int searchType) {
+    public void setSearchType(Integer searchType) {
         this.searchType = searchType;
     }
 

@@ -11,6 +11,12 @@ public enum ApiCode {
             return "成功";
         }
     },
+    BAD_REQUEST(400){
+        @Override
+        public String getMessage() {
+            return "参数传递错误";
+        }
+    },
     ERROR(401){
         @Override
         public String getMessage() {

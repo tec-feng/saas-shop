@@ -18,7 +18,7 @@ public class CategoryProperty implements Serializable {
      *
      * @mbg.generated
      */
-    private int status;
+    private Integer status;
 
     /**
      * 创建时间
@@ -60,14 +60,14 @@ public class CategoryProperty implements Serializable {
      *
      * @mbg.generated
      */
-    private int searchType;
+    private Integer searchType;
 
     /**
      * 规格值录入方式：0->手工录入；1->从列表中选取
      *
      * @mbg.generated
      */
-    private int valueType;
+    private Integer valueType;
 
     /**
      * 可选值，value_type为0时，数据为空，如果value_type为1时为可选参数,多个用;隔开
@@ -81,7 +81,7 @@ public class CategoryProperty implements Serializable {
      *
      * @mbg.generated
      */
-    private int manuallyAdd;
+    private Integer manuallyAdd;
 
     private static final long serialVersionUID = 1L;
 
@@ -101,11 +101,11 @@ public class CategoryProperty implements Serializable {
         this.name = name;
     }
 
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -149,19 +149,19 @@ public class CategoryProperty implements Serializable {
         this.areaUserId = areaUserId;
     }
 
-    public int getSearchType() {
+    public Integer getSearchType() {
         return searchType;
     }
 
-    public void setSearchType(int searchType) {
+    public void setSearchType(Integer searchType) {
         this.searchType = searchType;
     }
 
-    public int getValueType() {
+    public Integer getValueType() {
         return valueType;
     }
 
-    public void setValueType(int valueType) {
+    public void setValueType(Integer valueType) {
         this.valueType = valueType;
     }
 
@@ -173,11 +173,11 @@ public class CategoryProperty implements Serializable {
         this.value = value;
     }
 
-    public int getManuallyAdd() {
+    public Integer getManuallyAdd() {
         return manuallyAdd;
     }
 
-    public void setManuallyAdd(int manuallyAdd) {
+    public void setManuallyAdd(Integer manuallyAdd) {
         this.manuallyAdd = manuallyAdd;
     }
 
