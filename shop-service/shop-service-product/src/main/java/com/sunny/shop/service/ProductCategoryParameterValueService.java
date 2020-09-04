@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
 *
 * @author tec_feng
-* @create 2020-06-17 01:08:09
+* @create 2020-08-31 06:55:03
 */
 @Service
 public class ProductCategoryParameterValueService extends BaseService<ProductCategoryParameterValue,ProductCategoryParameterValueExample>{

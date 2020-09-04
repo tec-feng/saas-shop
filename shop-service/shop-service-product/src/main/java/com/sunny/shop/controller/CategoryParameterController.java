@@ -6,7 +6,6 @@ import com.sunny.product.model.CategoryParameter;
 import com.sunny.security.config.SecuritySessionUtils;
 import com.sunny.shop.action.CategoryParameterAction;
 import com.sunny.shop.common.ModelMapper;
-import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.user.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,8 +26,6 @@ import java.util.List;
 public class CategoryParameterController {
     @Autowired
     CategoryParameterAction parameterAction;
-    @Autowired
-    UserFeignApi userFeignApi;
     @ApiOperation("创建分类属性参数")
     @PostMapping("/create")
     public ReturnResult create(@Valid CategoryParameterDto dto){

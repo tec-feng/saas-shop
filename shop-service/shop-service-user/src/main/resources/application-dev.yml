@@ -57,4 +57,4 @@ jwt:
   tokenHeader:  Authorization
   tokenHead:  Bearer
   secret: tec_feng
-  expiration: 604800
+  expiration: 604800000

@@ -32,7 +32,7 @@ public class ProductUserCategoryController {
 
     @ApiOperation("创建用户商品分类")
     @PostMapping("/create")
-    public ReturnResult create(@Valid ProductUserCategoryDto dto){
+    public ReturnResult create(@RequestBody @Valid ProductUserCategoryDto dto){
         ProductUserCategory navCategory = ModelMapper.INSTANCE.toModel(dto);
         User loginUser = SecuritySessionUtils.getLoginUser();
         navCategory.setUserId(loginUser.getId());

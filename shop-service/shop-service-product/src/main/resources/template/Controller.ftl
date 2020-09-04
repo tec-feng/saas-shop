@@ -30,7 +30,7 @@ public class ${UpperClassName}Controller {
     @Autowired
     UserFeignApi userFeignApi;
 
-    @ApiOperation("创建${Description}")
+    @ApiOperation("创建${Desc}")
     @PostMapping("/create")
     public ReturnResult create(@Valid ${UpperClassName}Dto dto){
         ${UpperClassName} ${lowerClassName} = ModelMapper.INSTANCE.toModel(dto);
@@ -40,7 +40,7 @@ public class ${UpperClassName}Controller {
         return ReturnResult.success(ModelMapper.INSTANCE.toVO(${lowerClassName}));
     }
 
-    @ApiOperation("删除id的${Description}")
+    @ApiOperation("删除id的${Desc}")
     @DeleteMapping("/delete/{id}")
     public ReturnResult delete(@PathVariable("id")Long id){
         User loginUser = SecuritySessionUtils.getLoginUser();
@@ -48,7 +48,7 @@ public class ${UpperClassName}Controller {
         return ReturnResult.success();
     }
 
-    @ApiOperation("更新id的${Description}详情")
+    @ApiOperation("更新id的${Desc}详情")
     @PutMapping("/update/{id}")
     public ReturnResult update(@PathVariable("id")Long id,@RequestBody ${UpperClassName}Dto dto){
         User loginUser = SecuritySessionUtils.getLoginUser();
@@ -58,7 +58,7 @@ public class ${UpperClassName}Controller {
         return ReturnResult.success(ModelMapper.INSTANCE.toVO(${lowerClassName}));
     }
 
-    @ApiOperation("获取id的${Description}详情")
+    @ApiOperation("获取id的${Desc}详情")
     @GetMapping("/{id}")
         public ReturnResult get(@PathVariable("id")Long id){
         User loginUser = SecuritySessionUtils.getLoginUser();
@@ -66,7 +66,7 @@ public class ${UpperClassName}Controller {
         return ReturnResult.success(ModelMapper.INSTANCE.toVO(${lowerClassName}));
     }
 
-    @ApiOperation("分页获取${Description}列表")
+    @ApiOperation("分页获取${Desc}列表")
     @GetMapping
     public ReturnResult list(@RequestParam Long parentId,
                              @RequestParam(value = "page", required = false, defaultValue = "1") int page,

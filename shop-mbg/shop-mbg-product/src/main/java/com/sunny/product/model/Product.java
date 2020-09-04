@@ -1,6 +1,7 @@
 package com.sunny.product.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Product implements Serializable {
@@ -102,20 +103,6 @@ public class Product implements Serializable {
     private String pic;
 
     /**
-     * 新品状态:0->不是新品；1->新品
-     *
-     * @mbg.generated
-     */
-    private Integer newStatus;
-
-    /**
-     * 推荐状态；0->不推荐；1->推荐
-     *
-     * @mbg.generated
-     */
-    private Integer recommandStatus;
-
-    /**
      * 审核状态：0->未审核；1->审核通过
      *
      * @mbg.generated
@@ -137,11 +124,53 @@ public class Product implements Serializable {
     private Long shippingFee;
 
     /**
-     * 分类ID
+     * 后台分类ID
      *
      * @mbg.generated
      */
     private Long categoryId;
+
+    /**
+     * 主视频
+     *
+     * @mbg.generated
+     */
+    private String video;
+
+    /**
+     * 用户自定义类目ids，多id用【,】分隔
+     *
+     * @mbg.generated
+     */
+    private String userCategoryId;
+
+    /**
+     * 重量，默认克
+     *
+     * @mbg.generated
+     */
+    private Long weight;
+
+    /**
+     * 主sku价格
+     *
+     * @mbg.generated
+     */
+    private BigDecimal price;
+
+    /**
+     * 主sku市场价
+     *
+     * @mbg.generated
+     */
+    private BigDecimal marketPrice;
+
+    /**
+     * 服务ID
+     *
+     * @mbg.generated
+     */
+    private String serviceIds;
 
     /**
      * 商品详情
@@ -149,6 +178,20 @@ public class Product implements Serializable {
      * @mbg.generated
      */
     private String detail;
+
+    /**
+     * 图片集
+     *
+     * @mbg.generated
+     */
+    private String images;
+
+    /**
+     * 商品详情
+     *
+     * @mbg.generated
+     */
+    private String html;
 
     private static final long serialVersionUID = 1L;
 
@@ -280,22 +323,6 @@ public class Product implements Serializable {
         this.pic = pic;
     }
 
-    public Integer getNewStatus() {
-        return newStatus;
-    }
-
-    public void setNewStatus(Integer newStatus) {
-        this.newStatus = newStatus;
-    }
-
-    public Integer getRecommandStatus() {
-        return recommandStatus;
-    }
-
-    public void setRecommandStatus(Integer recommandStatus) {
-        this.recommandStatus = recommandStatus;
-    }
-
     public Integer getVerifyStatus() {
         return verifyStatus;
     }
@@ -328,12 +355,76 @@ public class Product implements Serializable {
         this.categoryId = categoryId;
     }
 
+    public String getVideo() {
+        return video;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+
+    public String getUserCategoryId() {
+        return userCategoryId;
+    }
+
+    public void setUserCategoryId(String userCategoryId) {
+        this.userCategoryId = userCategoryId;
+    }
+
+    public Long getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Long weight) {
+        this.weight = weight;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public BigDecimal getMarketPrice() {
+        return marketPrice;
+    }
+
+    public void setMarketPrice(BigDecimal marketPrice) {
+        this.marketPrice = marketPrice;
+    }
+
+    public String getServiceIds() {
+        return serviceIds;
+    }
+
+    public void setServiceIds(String serviceIds) {
+        this.serviceIds = serviceIds;
+    }
+
     public String getDetail() {
         return detail;
     }
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
+
+    public String getHtml() {
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
     }
 
     @Override
@@ -358,13 +449,19 @@ public class Product implements Serializable {
         sb.append(", fromId=").append(fromId);
         sb.append(", freightTemplateId=").append(freightTemplateId);
         sb.append(", pic=").append(pic);
-        sb.append(", newStatus=").append(newStatus);
-        sb.append(", recommandStatus=").append(recommandStatus);
         sb.append(", verifyStatus=").append(verifyStatus);
         sb.append(", keywords=").append(keywords);
         sb.append(", shippingFee=").append(shippingFee);
         sb.append(", categoryId=").append(categoryId);
+        sb.append(", video=").append(video);
+        sb.append(", userCategoryId=").append(userCategoryId);
+        sb.append(", weight=").append(weight);
+        sb.append(", price=").append(price);
+        sb.append(", marketPrice=").append(marketPrice);
+        sb.append(", serviceIds=").append(serviceIds);
         sb.append(", detail=").append(detail);
+        sb.append(", images=").append(images);
+        sb.append(", html=").append(html);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

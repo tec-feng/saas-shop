@@ -35,6 +35,9 @@ public class ProductDto {
     @ApiModelProperty(value = "主图")
     @NotEmpty
     private String pic;
+    @ApiModelProperty(value = "主视频")
+    @NotEmpty
+    private String video;
     @ApiModelProperty(value = "统一运费")
     private Long shippingFee;
     @ApiModelProperty(value = "商品详情")
@@ -42,5 +45,6 @@ public class ProductDto {
     private String detail;
     @ApiModelProperty(value = "主图列表")
     private List<String> mainPic;
+
 
 }

@@ -17,8 +17,8 @@ public class GeneratorCustomCode {
     private static String separator = System.getProperty("file.separator");
     public static void main(String[] args) {
         //类名称
-        String classNames = "CategoryProperty";
-        String detail = "类的详细描述";
+        String classNames = "ProductCategoryParameterValue";
+        String detail = "店铺的描述";
         String desc = "基本描述";
         for(String className:classNames.split(";")){
             autoGeneratorCode(className, detail, desc);

@@ -9,14 +9,13 @@ service 和action需要生成到相应的service里面，不能生成在mbg里�
 
 u_user  用户
 
-product 产品
-product_category 产品分类
-product_property 产品属性
-product_property_value 产品属性值
-product_category_property 产品分类属性
-product_comment 商品评论
+p_product 产品
+p_product_comment 商品评论
 p_product_comment_reply 商品评论回复
-p_category_parameter    分类属性参数
+
+
+！！ p_product_category 商品后台类目
+！！p_category_parameter    分类属性参数
     一个分类它会有很多特有的属性，管理员需要配置系统里面的每个分类有哪些属性。
     name代表他的名字，比如材质；
     icon代表他的图标；
@@ -29,17 +28,52 @@ p_category_parameter    分类属性参数
     value代表可选值，
         参数类型1、2(文本)是为提示语；
         参数类型3(单选)或4(多选)时为可选参数,多个用;隔开 
-p_product_category_parameter_value 分类属性参数用户值
+        
+！！p_product_category_parameter_value 用户商品的分类属性参数的值  
+
+p_product_category_property 产品分类属性   ？？
 
 p_category_property 分类规格属性
     分类的规格属性通过欧笛卡尔可以确定一个商品的唯一sku
-p_product_category_property_value   商品分类规格属性值
+p_product_category_property_value   用户商品分类规格属性的值
 p_sku   商品库存单位
+
       
+系统后台有后台商品分类《p_product_category》，这个是系统固定死的,该后台分类最多三级。
+每个商品分类有很多的属性参数《p_category_parameter》，系统后台需要对这些进行配置。
+用户在创建商品的时候需要勾选这些填写这些属性参数的值。
         
-    
+p_product_user_category 用户的前台分类，可以多级
+
+p_product_nav_category  平台的前台类目，平台可以用来和他对应后台类目关联进行搜索（一个前台类目可以对应多个
+后台类目，一个后台类目也可以对应多个前台类目）    
     
 b_picture 图片
 b_picture_space 图片空间
 
+
+
+哪些接口已经完成开发了
+p_category_parameter, 
+p_category_property, 
+p_product_nav_category,
+p_product_user_category, 
+p_product_category
+哪些接口未开发
+p_product_category_parameter_value,
+p_product_category_property_value, 
+
+ 
+
+p_sku
+
+
+p_product, 	商品
+p_product_category,  商品后台分类
+p_product_comment, 	商品评论
+p_product_comment_reply, 	商品评论回复
+
+
+
+//todo   平台可以创建商品的服务ID
 

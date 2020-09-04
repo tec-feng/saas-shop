@@ -6,7 +6,6 @@ import com.sunny.product.model.CategoryProperty;
 import com.sunny.security.config.SecuritySessionUtils;
 import com.sunny.shop.action.CategoryPropertyAction;
 import com.sunny.shop.common.ModelMapper;
-import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.user.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,12 +22,10 @@ import java.util.List;
 */
 @Api(tags = "CategoryPropertyController", description = "商品后台类目")
 @RestController
-@RequestMapping(value = "CategoryProperty")
+@RequestMapping(value = "categoryProperty")
 public class CategoryPropertyController {
     @Autowired
     CategoryPropertyAction categoryPropertyAction;
-    @Autowired
-    UserFeignApi userFeignApi;
 
     @ApiOperation("创建分类属性")
     @PostMapping("/create")

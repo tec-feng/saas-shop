@@ -7,7 +7,6 @@ import com.sunny.product.model.ProductCategory;
 import com.sunny.security.config.SecuritySessionUtils;
 import com.sunny.shop.action.ProductCategoryAction;
 import com.sunny.shop.common.ModelMapper;
-import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.user.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,8 +27,6 @@ import java.util.List;
 public class ProductCategoryController {
     @Autowired
     ProductCategoryAction categoryAction;
-    @Autowired
-    UserFeignApi userFeignApi;
 
     @ApiOperation("创建后台类目")
     @PostMapping("/create")

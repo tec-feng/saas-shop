@@ -18,15 +18,21 @@
     <result column="from_id" jdbcType="BIGINT" property="fromId" />
     <result column="freight_template_id" jdbcType="BIGINT" property="freightTemplateId" />
     <result column="pic" jdbcType="VARCHAR" property="pic" />
-    <result column="new_status" jdbcType="INTEGER" property="newStatus" />
-    <result column="recommand_status" jdbcType="INTEGER" property="recommandStatus" />
     <result column="verify_status" jdbcType="INTEGER" property="verifyStatus" />
     <result column="keywords" jdbcType="VARCHAR" property="keywords" />
     <result column="shipping_fee" jdbcType="DECIMAL" property="shippingFee" />
     <result column="category_id" jdbcType="BIGINT" property="categoryId" />
+    <result column="video" jdbcType="VARCHAR" property="video" />
+    <result column="user_category_id" jdbcType="VARCHAR" property="userCategoryId" />
+    <result column="weight" jdbcType="BIGINT" property="weight" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="service_ids" jdbcType="VARCHAR" property="serviceIds" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sunny.product.model.Product">
     <result column="detail" jdbcType="LONGVARCHAR" property="detail" />
+    <result column="images" jdbcType="LONGVARCHAR" property="images" />
+    <result column="html" jdbcType="LONGVARCHAR" property="html" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -89,10 +95,11 @@
   <sql id="Base_Column_List">
     id, name, description, store_strategy, online_status, status, create_time, update_time, 
     user_id, storage_id, in_pool, shop_no, area_user_id, from_id, freight_template_id, 
-    pic, new_status, recommand_status, verify_status, keywords, shipping_fee, category_id
+    pic, verify_status, keywords, shipping_fee, category_id, video, user_category_id, 
+    weight, price, market_price, service_ids
   </sql>
   <sql id="Blob_Column_List">
-    detail
+    detail, images, html
   </sql>
   <select id="selectByExampleWithBLOBs" parameterType="com.sunny.product.model.ProductExample" resultMap="ResultMapWithBLOBs">
     select
@@ -136,17 +143,21 @@
       create_time, update_time, user_id, 
       storage_id, in_pool, shop_no, 
       area_user_id, from_id, freight_template_id, 
-      pic, new_status, recommand_status, 
-      verify_status, keywords, shipping_fee, 
-      category_id, detail)
+      pic, verify_status, keywords, 
+      shipping_fee, category_id, video, 
+      user_category_id, weight, price, 
+      market_price, service_ids, detail, 
+      images, html)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{storeStrategy,jdbcType=INTEGER}, #{onlineStatus,jdbcType=TINYINT}, #{status,jdbcType=TINYINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=BIGINT}, 
       #{storageId,jdbcType=BIGINT}, #{inPool,jdbcType=TINYINT}, #{shopNo,jdbcType=VARCHAR}, 
       #{areaUserId,jdbcType=BIGINT}, #{fromId,jdbcType=BIGINT}, #{freightTemplateId,jdbcType=BIGINT}, 
-      #{pic,jdbcType=VARCHAR}, #{newStatus,jdbcType=INTEGER}, #{recommandStatus,jdbcType=INTEGER}, 
-      #{verifyStatus,jdbcType=INTEGER}, #{keywords,jdbcType=VARCHAR}, #{shippingFee,jdbcType=DECIMAL}, 
-      #{categoryId,jdbcType=BIGINT}, #{detail,jdbcType=LONGVARCHAR})
+      #{pic,jdbcType=VARCHAR}, #{verifyStatus,jdbcType=INTEGER}, #{keywords,jdbcType=VARCHAR}, 
+      #{shippingFee,jdbcType=DECIMAL}, #{categoryId,jdbcType=BIGINT}, #{video,jdbcType=VARCHAR}, 
+      #{userCategoryId,jdbcType=VARCHAR}, #{weight,jdbcType=BIGINT}, #{price,jdbcType=DECIMAL}, 
+      #{marketPrice,jdbcType=DECIMAL}, #{serviceIds,jdbcType=VARCHAR}, #{detail,jdbcType=LONGVARCHAR}, 
+      #{images,jdbcType=LONGVARCHAR}, #{html,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sunny.product.model.Product">
     insert into p_product
@@ -197,12 +208,6 @@
       <if test="pic != null">
         pic,
       </if>
-      <if test="newStatus != null">
-        new_status,
-      </if>
-      <if test="recommandStatus != null">
-        recommand_status,
-      </if>
       <if test="verifyStatus != null">
         verify_status,
       </if>
@@ -215,8 +220,32 @@
       <if test="categoryId != null">
         category_id,
       </if>
+      <if test="video != null">
+        video,
+      </if>
+      <if test="userCategoryId != null">
+        user_category_id,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="marketPrice != null">
+        market_price,
+      </if>
+      <if test="serviceIds != null">
+        service_ids,
+      </if>
       <if test="detail != null">
         detail,
+      </if>
+      <if test="images != null">
+        images,
+      </if>
+      <if test="html != null">
+        html,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -266,12 +295,6 @@
       <if test="pic != null">
         #{pic,jdbcType=VARCHAR},
       </if>
-      <if test="newStatus != null">
-        #{newStatus,jdbcType=INTEGER},
-      </if>
-      <if test="recommandStatus != null">
-        #{recommandStatus,jdbcType=INTEGER},
-      </if>
       <if test="verifyStatus != null">
         #{verifyStatus,jdbcType=INTEGER},
       </if>
@@ -284,8 +307,32 @@
       <if test="categoryId != null">
         #{categoryId,jdbcType=BIGINT},
       </if>
+      <if test="video != null">
+        #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="userCategoryId != null">
+        #{userCategoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=BIGINT},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="marketPrice != null">
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="serviceIds != null">
+        #{serviceIds,jdbcType=VARCHAR},
+      </if>
       <if test="detail != null">
         #{detail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="images != null">
+        #{images,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="html != null">
+        #{html,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -346,12 +393,6 @@
       <if test="record.pic != null">
         pic = #{record.pic,jdbcType=VARCHAR},
       </if>
-      <if test="record.newStatus != null">
-        new_status = #{record.newStatus,jdbcType=INTEGER},
-      </if>
-      <if test="record.recommandStatus != null">
-        recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
-      </if>
       <if test="record.verifyStatus != null">
         verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       </if>
@@ -364,8 +405,32 @@
       <if test="record.categoryId != null">
         category_id = #{record.categoryId,jdbcType=BIGINT},
       </if>
+      <if test="record.video != null">
+        video = #{record.video,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userCategoryId != null">
+        user_category_id = #{record.userCategoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=BIGINT},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.marketPrice != null">
+        market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.serviceIds != null">
+        service_ids = #{record.serviceIds,jdbcType=VARCHAR},
+      </if>
       <if test="record.detail != null">
         detail = #{record.detail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.images != null">
+        images = #{record.images,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.html != null">
+        html = #{record.html,jdbcType=LONGVARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -390,13 +455,19 @@
       from_id = #{record.fromId,jdbcType=BIGINT},
       freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       pic = #{record.pic,jdbcType=VARCHAR},
-      new_status = #{record.newStatus,jdbcType=INTEGER},
-      recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
       verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       keywords = #{record.keywords,jdbcType=VARCHAR},
       shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
       category_id = #{record.categoryId,jdbcType=BIGINT},
-      detail = #{record.detail,jdbcType=LONGVARCHAR}
+      video = #{record.video,jdbcType=VARCHAR},
+      user_category_id = #{record.userCategoryId,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=BIGINT},
+      price = #{record.price,jdbcType=DECIMAL},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      service_ids = #{record.serviceIds,jdbcType=VARCHAR},
+      detail = #{record.detail,jdbcType=LONGVARCHAR},
+      images = #{record.images,jdbcType=LONGVARCHAR},
+      html = #{record.html,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -419,12 +490,16 @@
       from_id = #{record.fromId,jdbcType=BIGINT},
       freight_template_id = #{record.freightTemplateId,jdbcType=BIGINT},
       pic = #{record.pic,jdbcType=VARCHAR},
-      new_status = #{record.newStatus,jdbcType=INTEGER},
-      recommand_status = #{record.recommandStatus,jdbcType=INTEGER},
       verify_status = #{record.verifyStatus,jdbcType=INTEGER},
       keywords = #{record.keywords,jdbcType=VARCHAR},
       shipping_fee = #{record.shippingFee,jdbcType=DECIMAL},
-      category_id = #{record.categoryId,jdbcType=BIGINT}
+      category_id = #{record.categoryId,jdbcType=BIGINT},
+      video = #{record.video,jdbcType=VARCHAR},
+      user_category_id = #{record.userCategoryId,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=BIGINT},
+      price = #{record.price,jdbcType=DECIMAL},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      service_ids = #{record.serviceIds,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

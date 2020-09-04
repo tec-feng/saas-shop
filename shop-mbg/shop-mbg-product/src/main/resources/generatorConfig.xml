@@ -88,5 +88,7 @@
             <property name="status" value="0"  ></property>
             <columnOverride column="status" javaType="int"/>
         </table>
+        <table tableName="p_shop" domainObjectName="Shop">
+        </table>
     </context>
 </generatorConfiguration>

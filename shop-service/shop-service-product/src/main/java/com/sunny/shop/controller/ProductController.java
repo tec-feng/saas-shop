@@ -3,7 +3,6 @@ import com.sunny.base.ReturnResult;
 import com.sunny.product.dto.ProductDto;
 import com.sunny.security.config.SecuritySessionUtils;
 import com.sunny.shop.action.ProductAction;
-import com.sunny.shop.service.user.api.UserFeignApi;
 import com.sunny.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
     @Autowired
     ProductAction productAction;
-    @Autowired
-    UserFeignApi userFeignApi;
 
     @PostMapping("/create")
     public ReturnResult create(ProductDto productDto){

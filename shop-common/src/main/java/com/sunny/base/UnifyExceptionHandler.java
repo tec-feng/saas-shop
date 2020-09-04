@@ -7,6 +7,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -40,13 +41,17 @@ public class UnifyExceptionHandler extends ResponseEntityExceptionHandler {
         return ReturnResult.fail(ApiCode.INNER_ERROR);
     }
 
-
-
-
     @Override
     protected ResponseEntity<Object> handleBindException(BindException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+       return processBindException(ex.getBindingResult());
+    }
 
-        BindingResult result = ex.getBindingResult();
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return processBindException(ex.getBindingResult());
+    }
+
+    private ResponseEntity<Object> processBindException(BindingResult result){
         if (result.hasErrors()) {
             List<ObjectError> errors = result.getAllErrors();
             if(errors!=null && errors.size()>0){
@@ -59,5 +64,6 @@ public class UnifyExceptionHandler extends ResponseEntityExceptionHandler {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("bad request");
     }
+
 
 }
